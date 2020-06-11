@@ -1,0 +1,1109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* e-marine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-15 12:53+0000\n"
+"PO-Revision-Date: 2020-04-15 12:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: e-marine
+#: model:ir.ui.menu,name:e-marine.marine_policy_indv
+msgid " Individual Policy"
+msgstr " Individual Policy"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_cover_num
+msgid " Open Cover"
+msgstr " Open Cover"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "00,00"
+msgstr "00,00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "00,000,000"
+msgstr "00,000,000"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "500"
+msgstr "500"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "8000"
+msgstr "8000"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "<span style=\"font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;\">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>"
+msgstr "<span style=\"font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;\">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_active
+msgid "Active"
+msgstr "نشط"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_address
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_agency
+msgid "Agency"
+msgstr "Agency"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_name
+msgid "Agency Name"
+msgstr "Agency Name"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_agent_name
+msgid "Agent Name"
+msgstr "Agent Name"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.view_policy_search
+msgid "All"
+msgstr "الكل"
+
+#. module: e-marine
+#: selection:certificate.marine,state:0
+#: model:ir.ui.view,arch_db:e-marine.view_certificate_search
+#: selection:policy.marine,state:0
+msgid "Approved"
+msgstr "Approved"
+
+#. module: e-marine
+#: selection:condition,type:0
+msgid "Basic"
+msgstr "Basic"
+
+#. module: e-marine
+#: selection:endorsement.marine,endorsement_type:0
+#: selection:policy.marine,endorsement_type:0
+msgid "Born-Dead"
+msgstr "Born-Dead"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_name
+msgid "Branch Name"
+msgstr "Branch Name"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "CIL"
+msgstr "CIL"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "CRG"
+msgstr "CRG"
+
+#. module: e-marine
+#: selection:certificate.marine,state:0
+#: model:ir.ui.view,arch_db:e-marine.view_certificate_search
+#: selection:policy.marine,state:0
+msgid "Canceled"
+msgstr "Canceled"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.cargo_policy_action
+msgid "Cargo Cover"
+msgstr "Cargo Cover"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_name
+msgid "Certificate"
+msgstr "Certificate"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_certificate_marine
+msgid "Certificate Information"
+msgstr "Certificate Information"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_certificate_num
+msgid "Certificate Num"
+msgstr "Certificate Num"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_cert_ids
+#: model:ir.ui.menu,name:e-marine.marine_certificate_view
+msgid "Certificates"
+msgstr "Certificates"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_cover_type
+msgid "Code"
+msgstr "الكود"
+
+#. module: e-marine
+#: model:ir.ui.menu,name:e-marine.configuration_menu
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: e-marine
+#: model:ir.ui.menu,name:e-marine.marine_policy
+#: selection:policy.marine,type:0
+msgid "Contract"
+msgstr "Contract"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_converted
+msgid "Converted"
+msgstr "Converted"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_open_cover_id
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_cover_id
+msgid "Cover"
+msgstr "غلاف"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.end_form
+msgid "Create Endorsement"
+msgstr "Create Endorsement"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_create_uid
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_create_uid
+#: model:ir.model.fields,field_description:e-marine.field_condition_create_uid
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_create_uid
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_create_uid
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_create_uid
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_create_date
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_create_date
+#: model:ir.model.fields,field_description:e-marine.field_condition_create_date
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_create_date
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_create_date
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_create_date
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_currency_id
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_insured
+msgid "Customer"
+msgstr "Customer"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "DIL"
+msgstr "DIL"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "DPN"
+msgstr "DPN"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "DRG"
+msgstr "DRG"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_prod_desc
+msgid "Description"
+msgstr "الوصف"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_differnce1
+msgid "Differnce1"
+msgstr "Differnce1"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_dimensional_stamp
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_dimensional_stamp
+msgid "Dimensional Stamp"
+msgstr "Dimensional Stamp"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_display_name
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_display_name
+#: model:ir.model.fields,field_description:e-marine.field_condition_display_name
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_display_name
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_display_name
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_display_name
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: e-marine
+#: model:ir.ui.menu,name:e-marine.marine_menu
+msgid "E-Marine"
+msgstr "النقل"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_end_date
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_end_date
+msgid "Effective To"
+msgstr "الى"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_start_date
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_start_date
+msgid "Effective from"
+msgstr "من"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_email
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_end_date
+msgid "End Date"
+msgstr "End Date"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+msgid "Endorsement"
+msgstr "Endorsement"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_endorsement_date
+msgid "Endorsement Date"
+msgstr "Endorsement Date"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_reasonedit
+msgid "Endorsement Discribtion"
+msgstr "Endorsement Discribtion"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_endorsement_no
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_endorsement_no
+msgid "Endorsement Number"
+msgstr "Endorsement Number"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_endorsement_type
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_endorsement_type
+msgid "Endorsement Type"
+msgstr "Endorsement Type"
+
+#. module: e-marine
+#: selection:endorsement.marine,endorsement_type:0
+#: selection:policy.marine,endorsement_type:0
+msgid "Extend"
+msgstr "Extend"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "FCL"
+msgstr "FCL"
+
+#. module: e-marine
+#: model:ir.actions.report,name:e-marine.fcl_policy_marine_report
+msgid "FCL Marine Policy"
+msgstr "FCL Marine Policy"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.fdl_policy_action
+msgid "FDL Cover"
+msgstr "FDL Cover"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_id
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_id
+#: model:ir.model.fields,field_description:e-marine.field_condition_id
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_id
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_id
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_id
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: e-marine
+#: selection:policy.marine,type:0
+msgid "Individual"
+msgstr "فرد"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_insured
+msgid "Insured"
+msgstr "Insured"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_is_canceled
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_is_canceled
+msgid "Is Canceled"
+msgstr "Is Canceled"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_is_endorsement
+msgid "Is Endorsement"
+msgstr "Is Endorsement"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_issue_date
+msgid "Issuance Date"
+msgstr "Issuance Date"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_issue_fees
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_issue_fees
+msgid "Issue Fees"
+msgstr "Issue Fees"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_last_cover_id
+msgid "Last Cover"
+msgstr "Last Cover"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch___last_update
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine___last_update
+#: model:ir.model.fields,field_description:e-marine.field_condition___last_update
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine___last_update
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency___last_update
+#: model:ir.model.fields,field_description:e-marine.field_marine_product___last_update
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_write_uid
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_write_uid
+#: model:ir.model.fields,field_description:e-marine.field_condition_write_uid
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_write_uid
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_write_uid
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_write_uid
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_write_date
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_write_date
+#: model:ir.model.fields,field_description:e-marine.field_condition_write_date
+#: model:ir.model.fields,field_description:e-marine.field_endorsement_marine_write_date
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_write_date
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_write_date
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_min_premium
+msgid "Limit Net Premium"
+msgstr "Limit Net Premium"
+
+#. module: e-marine
+#: model:res.groups,name:e-marine.manager_group
+msgid "Manager "
+msgstr "Manager "
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.tree_certificate_marine
+msgid "Marine"
+msgstr "Marine"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_travel_agency
+#: model:ir.ui.view,arch_db:e-marine.tree_travel_agency
+msgid "Marine Agency"
+msgstr "Marine Agency"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.marine_certificate_action
+#: model:ir.actions.report,name:e-marine.policy_certificate_report
+msgid "Marine Certificate"
+msgstr "Marine Certificate"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.marine_policy_action
+#: model:ir.actions.report,name:e-marine.policy_marine_report1
+#: model:ir.ui.view,arch_db:e-marine.form_certificate_marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+#: model:ir.ui.view,arch_db:e-marine.tree_policy_marine_indv
+msgid "Marine Policy"
+msgstr "Marine Policy"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.marine_policy_action_indv
+msgid "Marine Policy Individual"
+msgstr "Marine Policy Individual"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.marine_agency_action
+msgid "Marine Shipping"
+msgstr "Marine Shipping"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_max_per_cert
+msgid "Max Per Shipment"
+msgstr "Max Per Shipment"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_mobile
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_mobile
+msgid "Mobile Number"
+msgstr "Mobile Number"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_net_premium
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_net_premium
+msgid "Net Premium"
+msgstr "Net Premium"
+
+#. module: e-marine
+#: selection:endorsement.marine,endorsement_type:0
+#: selection:policy.marine,endorsement_type:0
+msgid "Non Tech"
+msgstr "Non Tech"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: selection:policy.marine,cover_type:0
+msgid "OIL"
+msgstr "OIL"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.oil_policy_action
+msgid "OIL Cover"
+msgstr "OIL Cover"
+
+#. module: e-marine
+#: selection:policy.marine,cover_type:0
+msgid "OPN"
+msgstr "OPN"
+
+#. module: e-marine
+#: selection:certificate.marine,state:0
+#: model:ir.ui.view,arch_db:e-marine.view_certificate_search
+#: selection:policy.marine,state:0
+msgid "Pending"
+msgstr "Pending"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_agency_branch_phone
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_phone
+msgid "Phone Number"
+msgstr "Phone Number"
+
+#. module: e-marine
+#: model:ir.ui.menu,name:e-marine.marine_menu_pol
+msgid "Policy"
+msgstr "Policy"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+msgid "Policy Information"
+msgstr "Policy Information"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_type
+msgid "Policy Type"
+msgstr "Policy Type"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_marine_product_name
+msgid "Product Name"
+msgstr "Product Name"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.product_action
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_product
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_product
+#: model:ir.ui.menu,name:e-marine.product_menu
+#: model:ir.ui.view,arch_db:e-marine.form_products
+#: model:ir.ui.view,arch_db:e-marine.tree_products
+msgid "Products"
+msgstr "Products"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_proportional_stamp
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_proportional_stamp
+msgid "Proportional Stamp"
+msgstr "Proportional Stamp"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_rate
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_rate
+msgid "Rate"
+msgstr "السعر"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_remain
+msgid "Remaining"
+msgstr "Remaining"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+msgid "Renew"
+msgstr "Renew"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_is_renewal
+msgid "Renewal"
+msgstr "Renewal"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_marine_agency
+msgid "Set up Your Travel Agency"
+msgstr "Set up Your Travel Agency"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_agency_branch
+msgid "Set up Your Travel Agency Branch"
+msgstr "Set up Your Travel Agency Branch"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_res_users_ship
+msgid "Shipment"
+msgstr "Shipment"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_agency
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_agency
+msgid "Shipping"
+msgstr "Shipping"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.agency_branch_action
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_agency_branch
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_agency_branch
+#: model:ir.ui.menu,name:e-marine.branch_menu
+msgid "Shipping Branch"
+msgstr "Shipping Branch"
+
+#. module: e-marine
+#: model:ir.ui.menu,name:e-marine.agency_menu
+msgid "Shipping Company"
+msgstr "Shipping Company"
+
+#. module: e-marine
+#: selection:condition,type:0
+msgid "Special"
+msgstr "Special"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_cert_special_terms
+msgid "Special & Conditions"
+msgstr "Special & Conditions"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_certificate_marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+msgid "Special Conditions"
+msgstr "Special Conditions"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_state_track
+msgid "State Track"
+msgstr "State Track"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_state
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_state
+msgid "Status"
+msgstr "الحالة "
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_sum_insured
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_sum_insured
+msgid "Sum Insured"
+msgstr "Sum Insured"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_supervisory_stamp
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_supervisory_stamp
+msgid "Supervisory Stamp"
+msgstr "Supervisory Stamp"
+
+#. module: e-marine
+#: selection:endorsement.marine,endorsement_type:0
+#: selection:policy.marine,endorsement_type:0
+msgid "Technical"
+msgstr "تقني"
+
+#. module: e-marine
+#: model:ir.actions.act_window,name:e-marine.terms_action
+#: model:ir.ui.view,arch_db:e-marine.tree_terms
+msgid "Terms"
+msgstr "Terms"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_cert_terms
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_new_special_terms
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_new_terms
+#: model:ir.ui.menu,name:e-marine.term_menu
+#: model:ir.ui.view,arch_db:e-marine.form_certificate_marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+msgid "Terms & Conditions"
+msgstr "Terms & Conditions"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_today
+msgid "Today"
+msgstr "اليوم"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_total
+#: model:ir.model.fields,field_description:e-marine.field_policy_marine_total
+msgid "Total"
+msgstr "الإجمالي "
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_agency_branch
+#: model:ir.ui.view,arch_db:e-marine.tree_agency_branch
+msgid "Travel Agency Branch"
+msgstr "Travel Agency Branch"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.tree_policy_marine
+msgid "Travel Policy"
+msgstr "Travel Policy"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_condition_term_name
+msgid "Trem & Condition"
+msgstr "Trem & Condition"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_condition_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: e-marine
+#: model:ir.model.fields,field_description:e-marine.field_certificate_marine_user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: e-marine
+#: model:res.groups,name:e-marine.all_doc_group
+msgid "User: All Document"
+msgstr "User: All Document"
+
+#. module: e-marine
+#: model:res.groups,name:e-marine.user_group
+msgid "User: Own Shipping Documents"
+msgstr "User: Own Shipping Documents"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_res_users
+#: model:ir.model.fields,field_description:e-marine.field_marine_agency_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: e-marine
+#: model:ir.actions.act_window,help:e-marine.marine_certificate_action
+msgid "Your Certificates"
+msgstr "Your Certificates"
+
+#. module: e-marine
+#: model:ir.actions.act_window,help:e-marine.cargo_policy_action
+#: model:ir.actions.act_window,help:e-marine.fdl_policy_action
+#: model:ir.actions.act_window,help:e-marine.marine_policy_action
+#: model:ir.actions.act_window,help:e-marine.oil_policy_action
+msgid "Your Marine Policy"
+msgstr "Your Marine Policy"
+
+#. module: e-marine
+#: model:ir.actions.act_window,help:e-marine.product_action
+msgid "Your Products"
+msgstr "Your Products"
+
+#. module: e-marine
+#: model:ir.actions.act_window,help:e-marine.agency_branch_action
+msgid "Your Shipping Branch"
+msgstr "Your Shipping Branch"
+
+#. module: e-marine
+#: model:ir.actions.act_window,help:e-marine.marine_agency_action
+msgid "Your Shipping Companies"
+msgstr "Your Shipping Companies"
+
+#. module: e-marine
+#: model:ir.actions.act_window,help:e-marine.terms_action
+msgid "Your Terms"
+msgstr "Your Terms"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.form_certificate_marine
+#: model:ir.ui.view,arch_db:e-marine.form_policy_marine
+msgid "approved"
+msgstr "approved"
+
+#. module: e-marine
+#: selection:endorsement.marine,endorsement_type:0
+#: selection:policy.marine,endorsement_type:0
+msgid "canceled"
+msgstr "canceled"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_certificate_marine
+msgid "certificate.marine"
+msgstr "certificate.marine"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_condition
+msgid "condition"
+msgstr "condition"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_endorsement_marine
+msgid "endorsement.marine"
+msgstr "endorsement.marine"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_marine_product
+msgid "marine.product"
+msgstr "marine.product"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.end_form
+msgid "my endorsement form"
+msgstr "my endorsement form"
+
+#. module: e-marine
+#: model:ir.model,name:e-marine.model_policy_marine
+msgid "policy.marine"
+msgstr "policy.marine"
+
+#. module: e-marine
+#: model:res.groups,comment:e-marine.all_doc_group
+msgid "the user will have access to all of the shipping documents.\n"
+"        "
+msgstr "the user will have access to all of the shipping documents.\n"
+"        "
+
+#. module: e-marine
+#: model:res.groups,comment:e-marine.user_group
+msgid "the user will have access to his Shipping Document"
+msgstr "the user will have access to his Shipping Document"
+
+#. module: e-marine
+#: model:res.groups,comment:e-marine.manager_group
+msgid "the user will have an access to All Documents."
+msgstr "the user will have an access to All Documents."
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "إجمالــــــــى القسط المستحق"
+msgstr "إجمالــــــــى القسط المستحق"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "اجمالي صافي القسط"
+msgstr "اجمالي صافي القسط"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "اسم المؤمن له"
+msgstr "اسم المؤمن له"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "اسم المؤمن له:00"
+msgstr "اسم المؤمن له:00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "الاجمالي"
+msgstr "الاجمالي"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "الاشياء المؤمن عليها :"
+msgstr "الاشياء المؤمن عليها :"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "البضائع المؤمن عليها"
+msgstr "البضائع المؤمن عليها"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "التعبئة"
+msgstr "التعبئة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "الرحلة"
+msgstr "الرحلة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية (باستثناء منطقة شمال سيناء)"
+msgstr "الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية (باستثناء منطقة شمال سيناء)"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "السعر"
+msgstr "السعر"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "الشروط الخاصة"
+msgstr "الشروط الخاصة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "الشروط والاشتراطات العامة والخاصة"
+msgstr "الشروط والاشتراطات العامة والخاصة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "الضريبة النوعية : 0,00"
+msgstr "الضريبة النوعية : 0,00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "العنوان"
+msgstr "العنوان"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "العنوان:00"
+msgstr "العنوان:00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "القسط"
+msgstr "القسط"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "القسط الصافي : 0,00"
+msgstr "القسط الصافي : 0,00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "الوحدة الناقلة :"
+msgstr "الوحدة الناقلة :"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "اي بنود او ملاحق تعتبر جزء من هذه الوثيقة"
+msgstr "اي بنود او ملاحق تعتبر جزء من هذه الوثيقة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "بما ان المؤمن له والوارد اسمه في جدول هذه الوثيقة قد قدم الي شركة اروب لتأمينات الممتلكات والمسؤوليات مصر (المنوه عنها فيما بعد بالشركة) طلب كتابي والذي يعتبر أساسا لهذا التعاقد و جزء لا يتجزء من هذه الوثيقة وبعد سداد المؤمن له القسط المبين في الجدول تلتزم الشركة بتعويض المؤمن له عن الخسارة و/او الضرر او الفقد الذي يلحق بالبضاعة المؤمن بها بالاضافة الي المصروفات المتكبدة بسبب اي من الاخطار المحددة بالوثيقة."
+msgstr "بما ان المؤمن له والوارد اسمه في جدول هذه الوثيقة قد قدم الي شركة اروب لتأمينات الممتلكات والمسؤوليات مصر (المنوه عنها فيما بعد بالشركة) طلب كتابي والذي يعتبر أساسا لهذا التعاقد و جزء لا يتجزء من هذه الوثيقة وبعد سداد المؤمن له القسط المبين في الجدول تلتزم الشركة بتعويض المؤمن له عن الخسارة و/او الضرر او الفقد الذي يلحق بالبضاعة المؤمن بها بالاضافة الي المصروفات المتكبدة بسبب اي من الاخطار المحددة بالوثيقة."
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول ."
+msgstr "بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول ."
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "تبدأ فى بداية يوم 00/00/0000  حتى نهاية يوم 00/00/0000أو استهلاك مبلغ التأمين و/او اتمام النقل أيهما أسبق مبلغ التأمين :  00,000,000(دولار) يشترط علي ان لا يزيد مبلغ تأمين الشحنة المنقولةعلي سيارة واحدة عن اثنان مليون دولار امريكي بشرط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة ."
+msgstr "تبدأ فى بداية يوم 00/00/0000  حتى نهاية يوم 00/00/0000أو استهلاك مبلغ التأمين و/او اتمام النقل أيهما أسبق مبلغ التأمين :  00,000,000(دولار) يشترط علي ان لا يزيد مبلغ تأمين الشحنة المنقولةعلي سيارة واحدة عن اثنان مليون دولار امريكي بشرط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة ."
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "جدول وثيقة تأمين النقل الداخلي"
+msgstr "جدول وثيقة تأمين النقل الداخلي"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "خاضعة لأحكام القانون 10 لسنة 1981"
+msgstr "خاضعة لأحكام القانون 10 لسنة 1981"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة تم التوقيع على هذه الوثيقة بتاريخ :   00/ 0 /0000"
+msgstr "دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة تم التوقيع على هذه الوثيقة بتاريخ :   00/ 0 /0000"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "دولار"
+msgstr "دولار"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "رسم ألاشراف والرقابة : 0,00"
+msgstr "رسم ألاشراف والرقابة : 0,00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "رسم الاشراف والرقابة"
+msgstr "رسم الاشراف والرقابة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "رسوم الاشراف والرقابة + واحد في الالف مقابل اعتماد الوثيقة + اثنين في الالف مقابل صندوق حملة الوثائق"
+msgstr "رسوم الاشراف والرقابة + واحد في الالف مقابل اعتماد الوثيقة + اثنين في الالف مقابل صندوق حملة الوثائق"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "رقم الفاتورة"
+msgstr "رقم الفاتورة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+msgid "رقم الملحق 155"
+msgstr "رقم الملحق 155"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "رقم الوثيقة"
+msgstr "رقم الوثيقة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "رقم بوليصة الشحن"
+msgstr "رقم بوليصة الشحن"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "سعر التأمين"
+msgstr "سعر التأمين"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "سنت"
+msgstr "سنت"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "شركة آروب لـتأمينات الممتلكات والمسئوليات"
+msgstr "شركة آروب لـتأمينات الممتلكات والمسئوليات"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "صافي القسط"
+msgstr "صافي القسط"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "قيمة الرسالة"
+msgstr "قيمة الرسالة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "لصالح"
+msgstr "لصالح"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "لصالح الهيئة العامة للأستثمار و المناطق الحرة"
+msgstr "لصالح الهيئة العامة للأستثمار و المناطق الحرة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "مبلغ التأمين"
+msgstr "مبلغ التأمين"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "مبلغ التأمين ( دولار )"
+msgstr "مبلغ التأمين ( دولار )"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "مدة التأمين"
+msgstr "مدة التأمين"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "مدة التأمين :"
+msgstr "مدة التأمين :"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "مسجلة بالهيئة العامة  للرقابة المالية تحت رقم ( 25  )"
+msgstr "مسجلة بالهيئة العامة  للرقابة المالية تحت رقم ( 25  )"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "مصاريف أصدار : 0,00"
+msgstr "مصاريف أصدار : 0,00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "مصاريف اصدار الوثيقة"
+msgstr "مصاريف اصدار الوثيقة"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "نصف الدمغة النسبية"
+msgstr "نصف الدمغة النسبية"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "نصف الدمغة النسبية: 0,00"
+msgstr "نصف الدمغة النسبية: 0,00"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "نصف الضريبة النوعية"
+msgstr "نصف الضريبة النوعية"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.fcl_marine_policy_report
+msgid "وثيقة تأمين نقل داخلى  برقم  ( 00000)"
+msgstr "وثيقة تأمين نقل داخلى  برقم  ( 00000)"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "وسيلة النقل"
+msgstr "وسيلة النقل"
+
+#. module: e-marine
+#: model:ir.ui.view,arch_db:e-marine.marine_certificate_report
+#: model:ir.ui.view,arch_db:e-marine.marine_policy_report
+msgid "وفقا للجدول المرفق"
+msgstr "وفقا للجدول المرفق"
+

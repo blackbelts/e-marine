@@ -1,0 +1,155 @@
+<odoo>
+    <report id="fcl_policy_marine_report"
+                string="FCL Marine Policy"
+                model="policy.marine"
+                report_type="qweb-pdf"
+                name="e-marine.fcl_marine_policy_report"
+
+        />
+    <template id="fcl_marine_policy_report">
+        <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Homemade+Apple"/>
+                        <style>
+                             table {
+                                width: 100%;
+                                border: 1px solid #000 !important;
+                                text-align: right;
+                            }
+
+                            table td,
+                            table th {
+                                font-size: 10px;
+                                padding: 1px !important;
+                            }
+
+                            .table,
+                            .table th,
+                            .table td {
+                                border: 1px solid #000 !important;
+                                border-collapse: collapse;
+                                padding: 1px !important;
+                            }
+                            .table th {
+                                text-align: right !important;
+                            }
+
+
+                        </style>
+                        <div class="header">
+                            <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                            <div class="text-center">
+                                <h5 style="color: #073e89;">شركة آروب لـتأمينات الممتلكات والمسئوليات</h5>
+                                <h5 style="color: #073e89;">مسجلة بالهيئة العامة  للرقابة المالية تحت رقم ( 25  )</h5>
+                                <h5 style="color: #073e89;">خاضعة لأحكام القانون 10 لسنة 1981</h5>
+
+
+                            </div>
+                        </div>
+                        <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
+                            <div class="text-center">
+                                <h5 style="color: #073e89;">وثيقة تأمين نقل داخلى  برقم  ( 00000)</h5>
+                                <h5 style="color: #073e89;">لصالح الهيئة العامة للأستثمار و المناطق الحرة</h5>
+                            </div>
+                            <p style="font-size:15px; padding-left: 25px !important; padding-right: 25px !important;">بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول .</p>
+                            <div style="padding-left: 25px !important; padding-right: 25px !important;">
+                                <div  style="width: 50% !important; float:right;">
+                                    <div style="border: 1px solid #000; text-align:right;">
+                                        <p style="padding:1px;"> اسم المؤمن له: <span t-esc="o.insured"/> </p>
+                                        <p style="padding:1px;"> العنوان:<span t-esc="o.address"/></p>
+                                    </div>
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;">
+                                        <p style="padding:1px;"> الاشياء المؤمن عليها :</p>
+                                    </div>
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;">
+                                        <p style="padding:1px;">مدة التأمين : </p>
+                                        <p style="padding:1px;">تبدأ فى بداية يوم <span t-esc="o.start_date"/>  حتى نهاية يوم <span t-esc="o.end_date"/> أو استهلاك مبلغ التأمين و/او اتمام النقل أيهما أسبق .</p>
+                                        <p style="padding:1px;">مبلغ التأمين :  <span t-esc="o.sum_insured"/> (دولار)</p>
+                                        <p style="padding:1px;">يشترط علي ان لا يزيد مبلغ تأمين الشحنة المنقولة علي سيارة واحدة عن اثنان مليون دولار امريكي .</p>
+                                        <p style="padding:1px;">يشترط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة .</p>
+                                    </div>
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;">
+                                        <p style="padding:1px;">الوحدة الناقلة : <span t-esc="o.trans_means"/></p>
+                                    </div>
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;">
+                                        <p style="padding:1px;">الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية (باستثناء منطقة شمال سيناء)</p>
+                                    </div>
+                                </div>
+                                <div style="width: 50% !important; float:left;">
+                                    <table class="table table-hover" style="margin-bottom:0px !important; border-right:none !important;">
+                                        <thead>
+                                            <tr>
+                                                <th style="border-bottom:none !important; border-right:none !important;" scope="col">مبلغ التأمين ( دولار )</th>
+                                                <th style="border-bottom:none !important; " scope="col">السعر</th>
+                                                <th style="border-bottom:1px solid #000 !important;" colspan="2">القسط</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="border-bottom:none !important; border-right:none !important;">00,000,000</td>
+                                                <td style="border-bottom:none !important;"></td>
+                                                <td>سنت</td>
+                                                <td>دولار</td>
+                                            </tr>
+					                    </tbody>
+                                    </table>
+                                    <div  style="border: 1px solid #000; border-top: none; margin-top:0px !important; border-right:none;">
+                                        <p style="padding:1px;">القسط الصافي :  <span t-esc="o.net_premium"/></p>
+                                        <p style="padding:1px;">نصف الدمغة النسبية : <span t-esc="o.proportional_stamp"/> </p>
+                                        <p style="padding:1px;">الضريبة النوعية : <span t-esc="o.dimensional_stamp"/></p>
+                                        <p style="padding:1px;">رسم ألاشراف والرقابة : <span t-esc="o.supervisory_stamp"/> </p>
+                                        <p style="padding:1px;">مصاريف أصدار : <span t-esc="o.issue_fees"/></p>
+                                    </div>
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none;">
+                                        <p style="padding:1px;">إجمالــــــــى القسط المستحق</p>
+                                        <p style="padding:1px;"><span t-esc="o.total"/></p>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="text-center" style="width: 100% !important; float:left; padding-top:10px;">
+                                    <h4>الشروط الخاصة</h4>
+                                </div>
+                                <div style="border: 1px solid #000; width: 100% !important; float:left;">
+                                    <p style="font-size: 12px !important; padding:1px;">دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة</p>
+                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم التوقيع على هذه الوثيقة بتاريخ :   00/ 0 /0000</p>
+                                </div>
+                                <div style="width: 100% !important; float:left;">
+                                    <p style="font-size: 12px">الشروط الخاصة : تدفع التعويضات التي قد تستحق بموجب هذه الوثيقة إلي الهيئة العامة للأستثمار والمناطق الحرة.</p>
+                                </div>
+                                <div class="text-center" style="width: 100% !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>
+                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>
+                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>5343464</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                            <div class="footer" style="width:100px;">
+                                <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important; float:left;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>
+                                <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important; float:right !important;">
+                                    تحريرا في: 00/00/0000
+                                </span>
+                                <img style="float:left !important; width:100% !important;" class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                            </div>
+                        </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

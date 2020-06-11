@@ -1,0 +1,174 @@
+<odoo>
+    <report id="policy_certificate_report"
+                string="Marine Certificate"
+                model="certificate.marine"
+                report_type="qweb-pdf"
+                name="e-marine.marine_certificate_report"
+
+        />
+    <template id="marine_certificate_report">
+        <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Homemade+Apple"/>
+                        <style>
+                             table {
+                                width: 100%;
+                                border: 1px solid #ddd;
+                                text-align: right;
+                            }
+
+                            table td,
+                            table th {
+                                font-size: 10px;
+                                padding: 1px !important;
+                            }
+
+                            .table,
+                            .table th,
+                            .table td {
+                                border: 1px solid #ddd;
+                                border-collapse: collapse;
+                                padding: 1px !important;
+                            }
+                            .table th {
+                                color: #073e89;
+                                text-align: right !important;
+                            }
+
+
+                        </style>
+                        <div class="header" >
+                            <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                        </div>
+                        <div class="page" style="direction: rtl !important;">
+                            <div class="text-center">
+                                <h4 style="color: #073e89;">OIL</h4>
+                                <h4 style="color: #073e89;">جدول وثيقة تأمين النقل الداخلي</h4>
+                            </div>
+                            <p style="font-size:10px; padding-left: 25px !important; padding-right: 25px !important;">بما ان المؤمن له والوارد اسمه في جدول هذه الوثيقة قد قدم الي شركة اروب لتأمينات الممتلكات والمسؤوليات مصر (المنوه عنها فيما بعد بالشركة) طلب كتابي والذي يعتبر أساسا لهذا التعاقد و جزء لا يتجزء من هذه الوثيقة وبعد سداد المؤمن له القسط المبين في الجدول تلتزم الشركة بتعويض المؤمن له عن الخسارة و/او الضرر او الفقد الذي يلحق بالبضاعة المؤمن بها بالاضافة الي المصروفات المتكبدة بسبب اي من الاخطار المحددة بالوثيقة. </p>
+                            <div class="row mt32 mb32" style="padding-left: 25px !important; padding-right: 25px !important;">
+                                <div  style="width: 100% !important;">
+                                    <table class="table table-hover">
+                                            <tr>
+                                                <th scope="col">رقم الوثيقة</th>
+                                                <td>
+                                                    <p style="float:right !important;">500</p>
+                                                    <p style="float:left !important;">رقم الملحق 155</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">اسم المؤمن له</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">لصالح</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">العنوان</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">مدة التأمين</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">البضائع المؤمن عليها</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">التعبئة</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">رقم الفاتورة</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">رقم بوليصة الشحن</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">قيمة الرسالة</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">مبلغ التأمين</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">وسيلة النقل</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">الرحلة</th>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th style="border: none !important; color: #000 !important;" scope="col">الشروط والاشتراطات العامة والخاصة</th>
+                                                <td style="border: none !important;">وفقا للجدول المرفق</td>
+                                            </tr>
+                                    </table>
+                                </div>
+                                <div  style="width: 100% !important; margin-top:-8px !important;">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="border: none !important;" scope="col">سعر التأمين</th>
+                                                <th style="border: none !important;" scope="col">صافي القسط</th>
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="border: none !important;"></td>
+                                                <td style="border: none !important;"></td>
+                                            </tr>
+					                    </tbody>
+                                    </table>
+                                </div>
+                                <div  style="width: 100% !important;">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th scope="col">اجمالي صافي القسط</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">نصف الدمغة النسبية</th>
+                                            <td>8000</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">نصف الضريبة النوعية</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">رسم الاشراف والرقابة</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">مصاريف اصدار الوثيقة</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">الاجمالي</th>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="width: 100% !important; margin-top:-15px !important; float: left;">
+                                    <p style="font-size: 10px;">رسوم الاشراف والرقابة + واحد في الالف مقابل اعتماد الوثيقة + اثنين في الالف مقابل صندوق حملة الوثائق</p>
+                                    <p style="font-size: 10px; margin-top:-10px !important;">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
+                                </div>
+                            </div>
+                            <div class="footer" style="float:left; width:100px;">
+                                <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>
+                                <img class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                            </div>
+                        </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

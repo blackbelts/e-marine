@@ -1,0 +1,280 @@
+<odoo>
+    <record model="ir.ui.view" id="tree_policy_marine">
+        <field name="name">tree.policy.marine</field>
+        <field name="model">policy.marine</field>
+        <field name="priority" eval="0"/>
+        <field name="arch" type="xml">
+            <tree decoration-warning="state == 'pending'" decoration-danger="state == 'canceled'"
+                  string="Travel Policy">
+                <field name="cover_num"/>
+                <field name="endorsement_no"/>
+                <field name="state_track"/>
+                <field name="agency"/>
+                <field name="agency_branch"/>
+
+                <field name="issue_date"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <!--<field name="age"/>-->
+                <field name="min_premium"/>
+                <field name="sum_insured"/>
+                <field name="remain"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="tree_policy_marine_indv">
+        <field name="name">tree.policy.marine</field>
+        <field name="model">policy.marine</field>
+        <field name="priority" eval="0"/>
+        <field name="arch" type="xml">
+            <tree decoration-warning="state == 'pending'" decoration-danger="state == 'canceled'"
+                  string="Marine Policy">
+                <field name="cover_num"/>
+                <field name="endorsement_no"/>
+                <field name="state_track"/>
+                <field name="agency"/>
+                <field name="agency_branch"/>
+                <field name="issue_date"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="sum_insured"/>
+                <field name="net_premium"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_policy_search" model="ir.ui.view">
+        <field name="name">policy.marine.search</field>
+        <field name="model">policy.marine</field>
+        <!--<field name="context">{"search_default_active":1}</field>-->
+        <field name="arch" type="xml">
+            <search>
+                <field name="cover_num"/>
+                <filter string="Pending" name="pending" domain="[('state','=','pending')]"/>
+                <filter string="Approved" name="approved" domain="[('state','=','approved')]"/>
+                <filter string="Canceled" name="approved" domain="[('state','=','canceled')]"/>
+            </search>
+        </field>
+    </record>
+    <record id="seq_travel" model="ir.sequence">
+        <field name="name">Policy</field>
+        <field name="code">policy</field>
+        <field name="prefix">/</field>
+        <field name="padding">4</field>
+        <!--<field name="company_id" eval="False"/>-->
+    </record>
+    <record model="ir.ui.view" id="form_policy_marine">
+        <field name="name">form.policy.marine</field>
+        <field name="model">policy.marine</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Marine Policy">
+                <header>
+
+                    <field name="state" widget="statusbar" statusbar_visible="pending,approved"/>
+                    <button name="confirm_policy" string="approved" type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('state', '=', 'approved'),('state', '=', 'canceled')]}"/>
+                    <button name="create_endo" string="Endorsement" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', '!=', 'approved'),('active', '=', False)]}"/>
+                    <button name="renew_policy" string="Renew" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': [('differnce1', '&gt;=', 90)]}"/>
+
+                    <!--<button name="send_mail_template" string="send" type="object"-->
+                    <!--class="oe_highlight"-->
+                    <!--/>-->
+                    <!--<button name="get_financial_data" string="Compute Price" type="object"-->
+                    <!--class="oe_highlight"-->
+                    <!--attrs="{'invisible': ['|',('state', '=', 'approved'),('state', '=', 'canceled')]}"/>-->
+                    <!--                     <button name="get_financial" string="TEST" type="object"-->
+                    <!--                            class="oe_highlight"/>-->
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="cover_num"/>
+                        <h1>
+                            <field name="cover_num"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="endorsement_no" readonly="1" force_save="1"/>
+                        <field name="is_endorsement" invisible="1" />
+                        <field name="endorsement_type" readonly="1" force_save="1"/>
+                        <field name="last_cover_id" readonly="1"/>
+                        <field name="is_renewal" type="checkbox" readonly="1" force_save="1" widget="toggle_button"/>
+
+
+                    </group>
+                    <h3>Policy Information</h3>
+                    <group>
+                        <group>
+                            <field name="issue_date"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="cover_type"/>
+                            <field name="type"/>
+                            <field name="active" invisible="1"/>
+                            <field name="differnce1" invisible="1" />
+                        </group>
+                        <group>
+                            <!--<field name="agent_name"/>-->
+                            <field name="agency"/>
+                            <field name="agency_branch"/>
+                            <field name="insured"/>
+                            <field name="in_favour"/>
+                            <field name="address"/>
+                            <field name="product" widget="many2many_tags"/>
+                            <field name="package_type" />
+                        </group>
+                    </group>
+                    <group string="Shipping Info">
+                            <!--<field name="agent_name"/>-->
+                            <group>
+                                <field name="inv_num"/>
+                                <field name="ship_num"/>
+                                <field name="file_num"/>
+                            </group>
+                            <group>
+                                <field name="trans_means" />
+                                <field name="ship_from" />
+                                <field name="ship_to" />
+                            </group>
+                        </group>
+                    <group string="financial Info">
+                        <group>
+                            <field name="currency_id"/>
+                            <field name="sum_insured" attrs="{'readonly': [('state', '=','approved')]}"/>
+                            <field name="max_per_cert" attrs="{'invisible': [('type', '=','individual')]}" />
+                            <field name="remain"  attrs="{'invisible': [('type', '=','individual')]}"  />
+                            <field name="rate" attrs="{'readonly': [('state', '=','approved')]}"/>
+                            <field name="min_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '=','individual')]}"/>
+                            <field name="war" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>
+                            <field name="net_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>
+
+                        </group>
+                        <group attrs="{'invisible': [('type', '!=','individual')]}">
+                            <field name="issue_fees" attrs="{'readonly': [('state', '=','approved')]}"/>
+                            <field name="proportional_stamp" readonly="1" force_save="1"/>
+                            <field name="dimensional_stamp" attrs="{'readonly': [('state', '=','approved')]}"/>
+                            <field name="supervisory_stamp" readonly="1" force_save="1"/>
+                            <field name="policy_holder" readonly="1" force_save="1"/>
+                            <field name="revising_fees" readonly="1" force_save="1"/>
+                            <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
+                        </group>
+
+
+                    </group>
+                    <notebook>
+                        <page string="Terms &amp; Conditions">
+                            <field name="new_terms" >
+                                <tree>
+                                    <field name="term_name"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                        <page string="Special Conditions">
+                            <field name="new_special_terms">
+                                <tree>
+                                    <field name="term_name"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                    </notebook>
+
+                    <!--<group>-->
+                    <!--<field name="cancel_reason" attrs="{'invisible': [('state', '!=','canceled')]}"/>-->
+
+                    <!--</group>-->
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_policy_search" model="ir.ui.view">
+        <field name="name">Cover.search</field>
+        <field name="model">policy.marine</field>
+        <!--<field name="context">{"search_default_active":1}</field>-->
+        <field name="arch" type="xml">
+            <search>
+                <field name="cover_num"/>
+                <field name="insured"/>
+
+                <!--<field name="new_risk_ids.chassis_no"/>-->
+                <filter string="All" name="active" domain="['|',('active','=',False),('active','=',True)]"/>
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="marine_policy_action">
+        <field name="name">Marine Policy</field>
+        <field name="res_model">policy.marine</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Your Marine Policy
+            </p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="marine_policy_action_indv">
+        <field name="name">Marine Policy Individual</field>
+        <field name="res_model">policy.marine</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="tree_policy_marine_indv"/>
+        <field name='domain'>[('type','=','individual')]</field>
+        <field name="context">{'default_type': 'individual' }</field>
+
+        <!--        <field name='context'>[('type','=','individual')]</field>-->
+
+
+    </record>
+    <record model="ir.actions.act_window" id="marine_policy_action">
+        <field name="name">Marine Policy</field>
+        <field name="res_model">policy.marine</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name='domain'>[('type','=','contract')]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Your Marine Policy
+            </p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="oil_policy_action">
+        <field name="name">OIL Cover</field>
+        <field name="res_model">policy.marine</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_cover_type':'OIL'}</field>
+
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Your Marine Policy
+            </p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="fdl_policy_action">
+        <field name="name">FDL Cover</field>
+        <field name="res_model">policy.marine</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_cover_type':'fdl'}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Your Marine Policy
+            </p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="cargo_policy_action">
+        <field name="name">Cargo Cover</field>
+        <field name="res_model">policy.marine</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_cover_type':'cargo'}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Your Marine Policy
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

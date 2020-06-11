@@ -1,0 +1,171 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tree_marine">
+            <field name="name">tree.Marine.agency</field>
+            <field name="model">marine.agency</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Marine Agency">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="mobile"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="form_marine">
+            <field name="name">form.Marine.agency</field>
+            <field name="model">marine.agency</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="Marine Agency">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="users" widget="many2many_tags"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="marine_agency_action">
+            <field name="name">Marine Shipping</field>
+            <field name="res_model">marine.agency</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Your Shipping Companies
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tree_agency_branch">
+            <field name="name">tree.agency.branch</field>
+            <field name="model">agency.branch</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Travel Agency Branch">
+                    <field name="name"/>
+                    <field name="agency"/>
+                    <field name="address"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="mobile"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="form_agency_branch">
+            <field name="name">form.agency.branch</field>
+            <field name="model">agency.branch</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="Travel Agency Branch">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="agency"/>
+                            <field name="address"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="agency_branch_action">
+            <field name="name">Shipping Branch</field>
+            <field name="res_model">agency.branch</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Your Shipping Branch
+                </p>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="tree_products">
+            <field name="name">tree.products</field>
+            <field name="model">marine.product</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Products">
+                    <field name="name"/>
+                    <field name="prod_desc"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="form_products">
+            <field name="name">form.products</field>
+            <field name="model">marine.product</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="Products">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="prod_desc"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="product_action">
+            <field name="name">Products</field>
+            <field name="res_model">marine.product</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Your Products
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tree_terms">
+            <field name="name">tree.Terms</field>
+            <field name="model">condition</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Terms" editable="bottom">
+                    <field name="term_name"/>
+                    <field name="type"/>
+
+                </tree>
+            </field>
+        </record>
+        <!--<record model="ir.ui.view" id="form_products">-->
+        <!--<field name="name">form.products</field>-->
+        <!--<field name="model">marine.product</field>-->
+        <!--<field name="priority" eval="16"/>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<form string="Products">-->
+        <!--<sheet>-->
+        <!--<group>-->
+        <!--<field name="name"/>-->
+        <!--<field name="prod_desc"/>-->
+        <!--</group>-->
+        <!--</sheet>-->
+        <!--</form>-->
+        <!--</field>-->
+        <!--</record>-->
+        <record model="ir.actions.act_window" id="terms_action">
+            <field name="name">Terms</field>
+            <field name="res_model">condition</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Your Terms
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

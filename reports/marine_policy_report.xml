@@ -1,0 +1,281 @@
+<odoo>
+    <report id="policy_marine_report1"
+            string="Marine Policy"
+            model="policy.marine"
+            report_type="qweb-pdf"
+            name="e-marine.marine_policy_report"
+
+    />
+    <template id="marine_policy_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Homemade+Apple"/>
+                    <style>
+                        table {
+                        width: 100%;
+                        border: 1px solid #000 !important;
+                        text-align: right;
+                        direction: rtl !important;
+                        }
+
+                        table td,
+                        table th {
+                        font-size: 12px;
+                        border: 1px solid #000 !important;
+                        padding: 3px !important;
+                        text-align: right !important;
+                        }
+
+                        .table,
+                        .table th,
+                        .table td {
+                        border: 1px solid #000 !important;
+                        border-collapse: collapse;
+                        padding: 3px !important;
+                        text-align: right !important;
+                        }
+                        th {
+                        color: #073e89 !important;
+                        text-align: right !important;
+                        }
+                        tr:nth-child(even) {background-color: #f2f2f2;}
+
+                    </style>
+                    <div class="header">
+                        <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                        <div class="text-center">
+                            <h4 style="color: #073e89;"><span t-field="o.cover_type" /></h4>
+                            <t t-if="o.cover_type in ['oil','dil']" >
+                                <h4 style="color: #073e89;">وثيقة تأمين النقل الداخلي</h4>
+                            </t>
+                            <t t-if="o.cover_type in ['cil','dpn','opn','crg','drg']" >
+                                <h4 style="color: #073e89;">وثيقة تأمين بحرى / جوي "بضائع"</h4>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
+
+                        <p style="font-size:12px; padding-left: 25px !important; padding-right: 25px !important;">بما ان المؤمن له والوارد اسمه في جدول هذه الوثيقة قد قدم الي شركة اروب لتأمينات الممتلكات والمسؤوليات مصر (المنوه عنها فيما بعد بالشركة) طلب كتابي والذي يعتبر أساسا لهذا التعاقد و جزء لا يتجزء من هذه الوثيقة وبعد سداد المؤمن له القسط المبين في الجدول تلتزم الشركة بتعويض المؤمن له عن الخسارة و/او الضرر او الفقد الذي يلحق بالبضاعة المؤمن بها بالاضافة الي المصروفات المتكبدة بسبب اي من الاخطار المحددة بالوثيقة. </p>
+                        <div style="padding-left: 25px !important; padding-right: 25px !important;">
+                            <div  style="width: 100% !important; float:right;">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" >رقم الوثيقة</th>
+                                        <td>
+                                            <span style="padding-left:30%;" t-esc="o.cover_num"/>
+                                            <t t-if="o.is_endorsement == true">
+                                                رقم الملحق :<span t-esc="o.endorsement_no"/>
+                                            </t>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;">اسم المؤمن له</th>
+                                        <td><span t-esc="o.insured"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">لصالح</th>
+                                        <td><span t-esc="o.in_favour"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">العنوان</th>
+                                        <td><span t-esc="o.address"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مدة التأمين</th>
+                                        <td>
+                                            من :<span style="padding-left:30%;" t-esc="o.start_date"/>
+                                            إلي :<span style="padding-left:10%;" t-esc="o.end_date"/>
+                                            <t t-if="o.type == 'contract'">
+                                                أو يتم استنفاذ مبلغ التأمين
+                                            </t>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">البضائع المؤمن عليها</th>
+                                        <td>
+                                            <t t-foreach="o.product" t-as="p">
+                                                <span t-esc="p.name"/> <t/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نوع التعبئة</th>
+                                        <td><span t-esc="o.package_type"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
+                                        <td><span t-esc="o.inv_num"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>
+                                        <td style="text-align:center !important;">بنك :</td>
+                                    </tr>
+                                    <t t-if="o.cover_type in ['cil','dpn','opn','crg','drg']" >
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
+                                            <td><span t-esc="o.file_num"/></td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
+                                        <td><span t-esc="o.sum_insured"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مبلغ التأمين</th>
+                                        <td><span t-esc="o.sum_insured"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
+                                        <td><span t-esc="o.trans_means"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;vertical-align: middle !important;" scope="col">الرحلة</th>
+                                        <td>
+                                            من : <span style="padding-left:30%;" t-esc="o.ship_from"/>
+                                            إلي : <span t-esc="o.ship_to"/>
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th style="border: none !important; color: #000 !important; text-align: right !important; width:30% !important;" scope="col">الشروط والاشتراطات العامة والخاصة</th>
+                                        <td style="border: none !important; color: #000 !important; text-align:center !important;">وفقا للجدول المرفق</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div  style="width: 100% !important; margin-top:-8px !important; float:right;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important;" scope="col">سعر التأمين %</th>
+                                            <th style="text-align: right !important;color: #073e89 !important;" scope="col">صافي القسط</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span t-esc="o.net_premium"/>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <t t-if="o.cover_type in ['oil','dil']" >
+                                <div  style="width: 100% !important; float:right;">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">القسط الصافى</th>
+                                            <td>
+                                                <span t-esc="o.net_premium"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الدمغة النسبية</th>
+                                            <td><span t-esc="o.proportional_stamp"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الضريبة النوعية</th>
+                                            <td><span t-esc="o.dimensional_stamp"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رسم الاشراف والرقابة</th>
+                                            <td><span t-esc="o.supervisory_stamp"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مصاريف اصدار الوثيقة</th>
+                                            <td><span t-esc="o.issue_fees"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">الاجمالي</th>
+                                            <td><span t-esc="o.total"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </t>
+                            <t t-if="o.cover_type in ['cil','dpn','opn','crg','drg']" >
+                                <div  style="width: 50% !important; float:right;">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">القسط الصافى</th>
+                                             <td>
+                                                <span t-esc="o.net_premium"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">نصف الدمغة النسبية</th>
+                                            <td><span t-esc="o.proportional_stamp"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">نصف الضريبة النوعية</th>
+                                            <td><span t-esc="o.dimensional_stamp"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">رسم الاشراف والرقابة</th>
+                                            <td><span t-esc="o.supervisory_stamp"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">مصاريف اصدار الوثيقة</th>
+                                            <td><span t-esc="o.issue_fees"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">الاجمالي</th>
+                                            <td><span t-esc="o.total"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div style="width: 50% !important; border: 1px solid #000; border-right:none; float:left; font-size:9px !important;">
+                                    <p style="text-align: center;">ملاحظة هامة</p>
+                                    <span style="margin-top: -2px; padding-right: 2px;">
+                                        يلتزم المؤمن له بمجرد علمه بوصول السفينة / الطائرة الناقلة للبضائع المؤمن عليها إلى ميناء في مطار الوصول الالتزام بالاتي :
+                                    </span>
+                                    <br/><br/>
+                                    <span style="padding-right: 2px;">1- إخطار مكتب مراقبة ومعاينة البضائع في ميناء الوصول لكتابة بيان البضائع المؤمن عليها.</span>
+                                    <br/><br/>
+                                    <span style="padding-right: 2px;">2- تحرير محضر معابنة مع مندوبي المكتب لاثبات حالة البضائع قبل صرفها من الجمارك اذا كان قد لحقها تلف ظاهر وبعتبر عدم تحرير هذا المحضر دليل على أن البضاعة صرفت سليمة</span>
+                                    <br/><br/>
+                                    <span style="padding-right: 2px;">3- في حال حدوث ضرر تنشأ عنه مطالبة يتعين علي المؤمن له النقدم فورا بخطاب ثابت التاريخ لشركة اروب لتأمينات الممتلكات والمسؤليات - مصر .</span>
+                                </div>
+                            </t>
+                            <div style="width: 100% !important; margin-top:-5px !important; float: right;">
+                                <p style="font-size: 12px; margin-top:-10px !important;">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
+                            </div>
+                            <div class="text-center" style="width: 100% !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>
+                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>
+                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>5343464</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="footer" style="float:left; width:100px;">
+                            <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>
+                            <img style="width:100% !important;"  class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
