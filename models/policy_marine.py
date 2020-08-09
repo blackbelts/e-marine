@@ -38,13 +38,13 @@ class PolicyMarine(models.Model):
       active = fields.Boolean(string="Active", default=True)
       min_premium=fields.Float('Limit Net Premium')
       net_premium=fields.Float('Net Premium')
-      package_type=fields.Char('Package Type')
-      inv_num=fields.Char('Invoice Number')
+      package_type=fields.Char('Nature of packing')
+      inv_num=fields.Char('Order or Invoice No')
       ship_num=fields.Char('Shipping Number')
       file_num=fields.Char('Filing Number')
-      trans_means=fields.Char('Means of Transportation')
-      ship_from=fields.Char('Shipping From')
-      ship_to=fields.Char('Shipping To')
+      trans_means=fields.Char('Conveyance mode')
+      ship_from=fields.Char('country origin')
+      ship_to=fields.Char('Destination country')
 
 
 
