@@ -63,7 +63,7 @@
         </record>
         <record model="ir.ui.view" id="form_agency_branch">
             <field name="name">form.agency.branch</field>
-            <field name="model">agency.branch</field>
+            <field name="model">agency.branch.marine</field>
             <field name="priority" eval="16"/>
             <field name="arch" type="xml">
                 <form string="Travel Agency Branch">
@@ -82,7 +82,7 @@
         </record>
         <record model="ir.actions.act_window" id="agency_branch_action">
             <field name="name">Shipping Branch</field>
-            <field name="res_model">agency.branch</field>
+            <field name="res_model">agency.branch.marine</field>
 <!--            <field name="view_type">form</field>-->
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
