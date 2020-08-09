@@ -4,7 +4,7 @@
                   <!--groups="smart_travel_agency.branch_group,smart_travel_agency.agency_group,smart_travel_agency.all_agencies_group"-->
                   <!--web_icon="smart_travel_agency,static/description/icon.png"/>-->
         <menuitem id="marine_menu" name="E-Marine"
-                  />
+                  groups="e-marine.user_group,e-marine.all_doc_group,e-marine.manager_group"/>
          <menuitem id="marine_menu_pol" name="Policy"
                   parent="marine_menu" sequence="1"/>
          <menuitem id="marine_policy" name="Contract"
