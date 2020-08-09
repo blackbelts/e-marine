@@ -90,7 +90,7 @@ class PolicyMarine(models.Model):
       # agent_code=fields.('Agent Code')
       agent_name=fields.Many2one('res.users',  default=lambda self: self.env.user)
       agency=fields.Many2one('marine.agency',string='Shipping')
-      agency_branch=fields.Many2one('agency.branch',string='Shipping Branch')
+      agency_branch=fields.Many2one('agency.branch.marine',string='Shipping Branch')
       currency_id=fields.Many2one('res.currency',string='Currency',required=True)
       endorsement_no = fields.Integer(string="Endorsement Number")
 

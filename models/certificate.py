@@ -39,7 +39,7 @@ class PolicyMarinecert(models.Model):
       end_date = fields.Date('Effective To')
       user_id = fields.Many2one('res.users', default=lambda self: self.env.user)
       agency = fields.Many2one('marine.agency',related='open_cover_id.agency', string='Shipping',store=True)
-      agency_branch = fields.Many2one('agency.branch', related='open_cover_id.agency_branch',string='Shipping Branch')
+      agency_branch = fields.Many2one('agency.branch.marine', related='open_cover_id.agency_branch',string='Shipping Branch')
       currency_id=fields.Many2one(related='open_cover_id.currency_id',string='Currency')
       product=fields.Many2many('marine.product',string='Products')
       net_premium = fields.Float('Net Premium',compute='get_prem',store=True)
