@@ -24,7 +24,7 @@ class Agency(models.Model):
 
 
 class AgencyBranch(models.Model):
-    _name = 'agency.branch'
+    _name = 'agency.branch.marine'
     _rec_name = 'name'
     _description = 'Set up Your Travel Agency Branch'
 
