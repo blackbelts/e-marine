@@ -47,7 +47,7 @@
 
         <record model="ir.ui.view" id="tree_agency_branch">
             <field name="name">tree.agency.branch</field>
-            <field name="model">agency.branch</field>
+            <field name="model">agency.branch.marine</field>
             <field name="priority" eval="16"/>
             <field name="arch" type="xml">
                 <tree string="Travel Agency Branch">
