@@ -59,8 +59,6 @@ class PolicyMarine(models.Model):
       new_special_terms=fields.Many2many('condition', 'term_special_cover_rel', 'cover_special_id', 'term_special_id',
                                          string='Terms & Conditions',domain="[('type', '=', 'special')]")
 
-
-
       rate=fields.Float('Rate')
       is_endorsement = fields.Boolean(string="", default=False)
       is_canceled = fields.Boolean(string="", )
