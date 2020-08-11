@@ -128,11 +128,11 @@
                                     </t>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
-                                        <td><span t-esc="o.sum_insured"/></td>
+                                        <td><span t-esc="'{0:,.2f}'.format(o.sum_insured)" /></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مبلغ التأمين</th>
-                                        <td><span t-esc="o.sum_insured"/></td>
+                                        <td><span t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
@@ -167,9 +167,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
+                                            <td><span t-esc="o.rate"/></td>
                                             <td>
-                                                <span t-esc="o.net_premium"/>
+                                                <span t-esc="'{0:,.2f}'.format(o.net_premium)"/>
                                             </td>
 
                                         </tr>
@@ -182,28 +182,28 @@
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">القسط الصافى</th>
                                             <td>
-                                                <span t-esc="o.net_premium"/>
+                                                <span t-esc="'{0:,.2f}'.format(o.net_premium)"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الدمغة النسبية</th>
-                                            <td><span t-esc="o.proportional_stamp"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.proportional_stamp)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الضريبة النوعية</th>
-                                            <td><span t-esc="o.dimensional_stamp"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.dimensional_stamp)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رسم الاشراف والرقابة</th>
-                                            <td><span t-esc="o.supervisory_stamp"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.supervisory_stamp)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مصاريف اصدار الوثيقة</th>
-                                            <td><span t-esc="o.issue_fees"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.issue_fees)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">الاجمالي</th>
-                                            <td><span t-esc="o.total"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -214,28 +214,28 @@
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">القسط الصافى</th>
                                              <td>
-                                                <span t-esc="o.net_premium"/>
+                                                <span t-esc="'{0:,.2f}'.format(o.net_premium)"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">نصف الدمغة النسبية</th>
-                                            <td><span t-esc="o.proportional_stamp"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.proportional_stamp)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">نصف الضريبة النوعية</th>
-                                            <td><span t-esc="o.dimensional_stamp"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.dimensional_stamp)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">رسم الاشراف والرقابة</th>
-                                            <td><span t-esc="o.supervisory_stamp"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.supervisory_stamp)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">مصاريف اصدار الوثيقة</th>
-                                            <td><span t-esc="o.issue_fees"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.issue_fees)"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">الاجمالي</th>
-                                            <td><span t-esc="o.total"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -246,11 +246,11 @@
                                         يلتزم المؤمن له بمجرد علمه بوصول السفينة / الطائرة الناقلة للبضائع المؤمن عليها إلى ميناء في مطار الوصول الالتزام بالاتي :
                                     </span>
                                     <br/><br/>
-                                    <span style="padding-right: 2px;">1- إخطار مكتب مراقبة ومعاينة البضائع في ميناء الوصول لكتابة بيان البضائع المؤمن عليها.</span>
+                                    <span style="padding-right: 2px;"><span> ١ - </span>إخطار مكتب مراقبة ومعاينة البضائع في ميناء الوصول لكتابة بيان البضائع المؤمن عليها</span>
                                     <br/><br/>
-                                    <span style="padding-right: 2px;">2- تحرير محضر معابنة مع مندوبي المكتب لاثبات حالة البضائع قبل صرفها من الجمارك اذا كان قد لحقها تلف ظاهر وبعتبر عدم تحرير هذا المحضر دليل على أن البضاعة صرفت سليمة</span>
+                                    <span style="padding-right: 2px;"><span> ٢ - </span>تحرير محضر معابنة مع مندوبي المكتب لاثبات حالة البضائع قبل صرفها من الجمارك اذا كان قد لحقها تلف ظاهر وبعتبر عدم تحرير هذا المحضر دليل على أن البضاعة صرفت سليمة</span>
                                     <br/><br/>
-                                    <span style="padding-right: 2px;">3- في حال حدوث ضرر تنشأ عنه مطالبة يتعين علي المؤمن له النقدم فورا بخطاب ثابت التاريخ لشركة اروب لتأمينات الممتلكات والمسؤليات - مصر .</span>
+                                    <span style="padding-right: 2px;"><span> ٣ - </span> في حال حدوث ضرر تنشأ عنه مطالبة يتعين علي المؤمن له النقدم فورا بخطاب ثابت التاريخ لشركة اروب لتأمينات الممتلكات والمسؤليات - مصر </span>
                                 </div>
                             </t>
                             <div style="width: 100% !important; margin-top:-5px !important; float: right;">
