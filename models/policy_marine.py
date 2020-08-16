@@ -28,28 +28,31 @@ class PolicyMarine(models.Model):
       cover_num=fields.Char('Open Cover',readonly=True)
       insured=fields.Char('Insured')
       in_favour=fields.Char('IN Favour of')
-      address=fields.Char('Address')
-
-
+      address=fields.Char(' Insured Address')
       issue_date=fields.Date('Issuance Date',default=datetime.today())
       start_date=fields.Date('Effective from',default=datetime.today())
-
       end_date=fields.Date('Effective To',default=datetime.today())
       active = fields.Boolean(string="Active", default=True)
       min_premium=fields.Float('Limit Net Premium')
       net_premium=fields.Float('Net Premium')
-      package_type=fields.Char('Nature of packing')
+      nature_pakage=fields.Many2many('marine.package',string='Nature of pakage')
       inv_num=fields.Char('Order or Invoice No')
       ship_num=fields.Char('Shipping Number')
-      file_num=fields.Char('Filing Number')
-      trans_means=fields.Char('Conveyance mode')
-      ship_from=fields.Char('country origin')
-      ship_to=fields.Char('Destination country')
-
-
-
-
-
+      file_num=fields.Char('L/C No')
+      conveyance_mode=fields.Selection([('Air or Sea Shipment', 'Air or Sea Shipment'),
+                                           ('Air Shipment', 'Air Shipment'),
+                                           ('Sea Shipment', 'Sea Shipment'),
+                                           ('Land Shipment', 'Land Shipment')],string='Conveyance mode')
+      ship_from=fields.Char('Country origin')
+      ship_to=fields.Char('Destination Country')
+      bank = fields.Char('Bank')
+      carrier_name = fields.Char('Carrier/Veseel Name')
+      supplier = fields.Char('Supplier')
+      consignee = fields.Char('Consignee')
+      consignee_value = fields.Char('Consignee Value')
+      invoice_currency = fields.Many2one('res.currency',string='Invoice Currency')
+      invoice_ammount = fields.Char('Invoice Amount')
+      valution_notes=fields.Many2many('marine.valuation',string='Valution Notes')
       sum_insured=fields.Float('Sum Insured')
       max_per_cert=fields.Float('Max Per Shipment')
       # terms=fields.Many2many('condition',string='Terms & Conditions' ,domain="[('type', '=', 'basic')]")
@@ -206,10 +209,14 @@ class PolicyMarine(models.Model):
                         'default_end_date': self.end_date,
                         'default_endorsement_type': self.endorsement_type,
                         'default_cover_num': self.cover_num,
+                        'default_in_favour': self.in_favour,
+                        'default_ship_from': self.ship_from,
                         'default_agency': self.agency.id,
                         'default_insured': self.insured,
                         'default_cover_type': self.cover_type,
                         'default_type': self.type,
+                        'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
+                        'default_valution_notes': [(6, 0, self.valution_notes.ids)],
 
                         'default_rate': self.rate,
 
@@ -230,6 +237,21 @@ class PolicyMarine(models.Model):
                         # 'default_sales_person1': self.cover_id.sales_person1.id,
                         'default_currency_id': self.currency_id.id,
                         'default_is_endorsement': self.is_endorsement,
+                        'default_revising_fees': self.revising_fees,
+                        'default_war': self.war,
+                        'default_proportional_stamp': self.proportional_stamp,
+                        'default_dimensional_stamp': self.dimensional_stamp,
+                        'default_supervisory_stamp': self.supervisory_stamp,
+                        'default_policy_holder': self.policy_holder,
+                        'default_supplier': self.supplier,
+                        'default_bank': self.bank,
+                        'default_carrier_name': self.carrier_name,
+                        'default_consignee': self.consignee,
+                        'default_consignee_value': self.consignee_value,
+                        'default_invoice_currency': self.invoice_currency.id,
+                        'default_invoice_ammount': self.invoice_ammount,
+                        'default_conveyance_mode': self.conveyance_mode,
+
                         'default_is_renewal': True,
                         'default_endorsement_no':self.endorsement_no,
                         'default_is_canceled': self.is_canceled,

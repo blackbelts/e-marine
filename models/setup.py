@@ -62,6 +62,21 @@ class Products(models.Model):
      prod_desc=fields.Char('Description')
 
 
+class Packaging(models.Model):
+    _name = 'marine.package'
+    _rec_name = 'name'
+    name = fields.Char('Package Name')
+    desc = fields.Char('Description')
+
+
+
+class Valuation(models.Model):
+    _name = 'marine.valuation'
+    _rec_name = 'name'
+    name = fields.Char('Valuation Name')
+    desc = fields.Char('Description')
+
+
 class TermsandConditions(models.Model):
     _name = 'condition'
     _rec_name = 'term_name'

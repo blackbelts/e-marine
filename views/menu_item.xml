@@ -39,6 +39,10 @@
                   action="marine_agency_action" sequence="0"/>
               <menuitem id="branch_menu" name="Shipping Branch" parent="configuration_menu"
                   action="agency_branch_action" sequence="1"/>
+        <menuitem id="package_menu" name="Nature of Packaging" parent="configuration_menu"
+                  action="package_action" sequence="2"/>
+        <menuitem id="valuation_menu" name="Valuations Notes" parent="configuration_menu"
+                  action="valuation_action" sequence="3"/>
 
 
         <menuitem id="product_menu" name="Products" parent="configuration_menu"
