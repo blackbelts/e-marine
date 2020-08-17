@@ -103,7 +103,7 @@
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نوع التعبئة</th>
-                                        <td><span t-esc="o.package_type"/></td>
+                                        <td><span t-esc="o.nature_pakage"/></td>
                                     </tr>
                                     <tr>
                                     <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
@@ -122,7 +122,7 @@
 
                                             <td>
                                                 <span  style="padding-left:30%;" t-esc="o.file_num"/>
-                                                <span style="padding-left:10%;"/>بنك :
+                                                <span style="padding-left:10%;" t-esc="o.bank"/>بنك :
                                             </td>
                                         </tr>
                                     </t>
@@ -136,7 +136,7 @@
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
-                                        <td><span t-esc="o.trans_means"/></td>
+                                        <td><span t-esc="o.conveyance_mode"/></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;vertical-align: middle !important;" scope="col">الرحلة</th>
