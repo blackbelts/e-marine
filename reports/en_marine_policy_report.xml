@@ -1,0 +1,228 @@
+<odoo>
+    <report id="en_policy_marine_report"
+            string="En Marine Policy"
+            model="policy.marine"
+            report_type="qweb-pdf"
+            name="e-marine.en_marine_policy_report"
+
+    />
+    <template id="en_marine_policy_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Homemade+Apple"/>
+                    <style>
+                        table {
+                        width: 100%;
+                        border: 1px solid #000 !important;
+                        }
+
+                        table td,
+                        table th {
+                        font-size: 12px;
+                        border: 1px solid #000 !important;
+                        padding: 3px !important;
+                        }
+
+                        .table,
+                        .table th,
+                        .table td {
+                        border: 1px solid #000 !important;
+                        border-collapse: collapse;
+                        padding: 3px !important;
+                        }
+                        th {
+                        color: #073e89 !important;
+                        }
+                        tr:nth-child(even) {background-color: #f2f2f2;}
+
+                    </style>
+                    <div class="header">
+                        <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                        <div class="text-center">
+                            <h6>CARGO INLAND (DOLLAR) – POLICY</h6>
+                            <h6>CIL OR OIL (DILOR DOL) / NO. 000)</h6>
+                            <h6>SCHEDULE</h6>
+                        </div>
+                    </div>
+                    <div class="page">
+
+                        <p style="font-size:12px; padding-left: 25px !important; padding-right: 25px !important;">We, AROPE Insurance (hereinafter called the Company), hereby agree, in consideration of the payment to us by on behalf of the policyholder and/or the insured, of the premium specified in the schedule , to insure against loss, damage, liability, or expense to the extent in the proportions and manner hereinafter provided:</p>
+                        <div style="padding-left: 25px !important; padding-right: 25px !important;">
+                            <div  style="width: 100% !important; float:left;">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Policy No</th>
+                                        <td>
+                                            <span style="padding-left:30%;" t-esc="o.cover_num"/>
+                                            <t t-if="o.is_endorsement == true">
+                                                Endorsement No<span t-esc="o.endorsement_no"/>
+                                            </t>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;">Insured</th>
+                                        <td><span t-esc="o.insured"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" scope="col">Agent</th>
+                                        <td><span t-esc="o.in_favour"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" scope="col">Period Of Insurance</th>
+                                        <td>
+                                            From: <span style="padding-right:30%;" t-esc="o.start_date"/>
+                                            To: <span style="padding-right:10%;" t-esc="o.end_date"/>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" scope="col">Pay . Frequency</th>
+                                        <td>
+                                            <span style="padding-right:30%;">Single</span>
+                                            Pay . Mode: <span style="padding-right:10%;" >Cash / Check</span>
+                                            Cur :<span></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div  style="width: 100% !important; margin-top:-8px !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="color: #073e89 !important;" scope="col">Net Premium</th>
+                                            <th style="color: #073e89 !important;" scope="col">Proportional Stamp</th>
+                                            <th style="color: #073e89 !important;" scope="col">Fixed Stamp</th>
+                                            <th style="color: #073e89 !important;" scope="col">Supervisory Fees</th>
+                                            <th style="color: #073e89 !important;" scope="col">Cost</th>
+                                            <th style="color: #073e89 !important;" scope="col">Total Premium</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.net_premium)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.proportional_stamp)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.dimensional_stamp)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.supervisory_stamp)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.issue_fees)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  style="width: 100% !important; float:left;">
+                                <p>SUBJECT ASSURED</p>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Conveyance mode</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Country of Origin</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Destination Country</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >L/C No.</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Bank</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Order or Invoice NO</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Supplier</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="text-center" style="width: 100% !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Covers descriptions</th>
+                                            <th scope="col">Sum Ins./ USD</th>
+                                            <th scope="col"> Average  Price</th>
+                                            <th scope="col">NOTES</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Institute Inland clauses</td>
+                                            <td>0000</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">
+                                <p style="margin-top:-10px !important;">TOTAL SUM AT RISK: 00</p>
+                                <p>SPECIAL CONDITIONS</p>
+                                <p>SPECIAL CLAUSES</p>
+                                <p>EXCLUSIONS</p>
+                                <p>ATTACHMENTS</p>
+
+                            </div>
+                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">
+                                <p>Any additions or amendments not bearing the company’s official signature shall be null and void.</p>
+
+                            </div>
+                        </div>
+                        <div class="footer" style="float:left; width:100px;">
+                            <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>
+<!--                            <img style="width:100% !important;"  class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>-->
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>
