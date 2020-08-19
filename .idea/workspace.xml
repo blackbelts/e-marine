@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8de97a7a-5f2a-4b0a-8064-8390939ce8cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/reports/marine_policy_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reports/marine_policy_report.xml" afterDir="false" />
+>>>>>>> 9c5a0b8cb04478084f84236b266743e4554784af
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +16,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1fxA6yvlbCTn0Br65RyywTNkObV" />
+=======
+  <component name="ProjectId" id="1fzbRILROrCkgzJwERat5u9ZbYy" />
+>>>>>>> 9c5a0b8cb04478084f84236b266743e4554784af
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
