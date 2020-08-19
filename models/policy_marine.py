@@ -94,6 +94,10 @@ class PolicyMarine(models.Model):
       agency_branch=fields.Many2one('agency.branch.marine',string='Shipping Branch')
       currency_id=fields.Many2one('res.currency',string='Currency',required=True)
       endorsement_no = fields.Integer(string="Endorsement Number")
+      broker= fields.Char(string="Broker")
+      broker_pin = fields.Integer(string="Broker PIN")
+      broker_fra_code = fields.Char(string="Broker FRA Code")
+
 
 
       state_track = fields.Char(default='New')

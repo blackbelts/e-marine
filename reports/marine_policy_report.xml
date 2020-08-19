@@ -107,16 +107,16 @@
                                         <td><span t-esc="o.nature_pakage"/></td>
                                     </tr>
                                     <tr>
-                                    <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
-                                    <td>
-                                        <span style="padding-left:30%;" t-esc="o.inv_num"/>
-                                        <span style="padding-left:10%;">رقم بوليصة الشحن</span></td>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
+                                        <td>
+                                            <span style="padding-left:30%;" t-esc="o.inv_num"/>
+                                            <span style="padding-left:10%;">رقم بوليصة الشحن</span></td>
 
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>-->
-<!--                                        <td style="text-align:center !important;">بنك :</td>-->
-<!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>-->
+                                    <!--                                        <td style="text-align:center !important;">بنك :</td>-->
+                                    <!--                                    </tr>-->
                                     <t t-if="o.cover_type in ['cil','dpn','opn','crg','drg']" >
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
@@ -149,18 +149,19 @@
                                     </tr>
 
                                 </table>
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th style="border: none !important; color: #000 !important; text-align: right !important; width:30% !important;" scope="col">الشروط والاشتراطات العامة والخاصة</th>
-                                        <td style="border: none !important; color: #000 !important; text-align:center !important;">وفقا للجدول المرفق</td>
-                                    </tr>
-                                </table>
+                                <!--                                <table class="table table-hover">-->
+                                <!--                                    <tr>-->
+                                <!--                                        <th style="border: none !important; color: #000 !important; text-align: right !important; width:30% !important;" scope="col">الشروط والاشتراطات العامة والخاصة</th>-->
+                                <!--                                        <td style="border: none !important; color: #000 !important; text-align:center !important;">وفقا للجدول المرفق</td>-->
+                                <!--                                    </tr>-->
+                                <!--                                </table>-->
                             </div>
                             <div  style="width: 100% !important; margin-top:-8px !important; float:right;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important;" scope="col">سعر التأمين %</th>
+                                            <th style="text-align: right !important;color: #073e89 !important;" scope="col">سعر الحرب %</th>
                                             <th style="text-align: right !important;color: #073e89 !important;" scope="col">صافي القسط</th>
 
 
@@ -169,6 +170,8 @@
                                     <tbody>
                                         <tr>
                                             <td><span t-esc="o.rate"/></td>
+                                            <td><span t-esc="o.war"/></td>
+
                                             <td>
                                                 <span t-esc="'{0:,.2f}'.format(o.net_premium)"/>
                                             </td>
@@ -214,7 +217,7 @@
                                     <table class="table table-hover">
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">القسط الصافى</th>
-                                             <td>
+                                            <td>
                                                 <span t-esc="'{0:,.2f}'.format(o.net_premium)"/>
                                             </td>
                                         </tr>
@@ -269,9 +272,10 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td>5343464</td>
-                                            <td></td>
+                                            <td><span t-esc="o.broker"/></td>
+                                            <td><span t-esc="o.broker_fra_code"/></td>
+                                            <td><span t-esc="o.broker_pin"/></td>
+
                                         </tr>
                                     </tbody>
                                 </table>
