@@ -148,7 +148,7 @@
                             </group>
 
                         </page>
-                        <page string="Shipping Info" autofocus="autofocus">
+                        <page string="Shipping Info" default_focus="1">
                             <!--<field name="agent_name"/>-->
                             <group>
                                 <group>
@@ -187,16 +187,30 @@
                                     <field name="sum_insured" attrs="{'readonly': [('state', '=','approved')]}"/>
                                     <field name="max_per_cert" attrs="{'invisible': [('type', '=','individual')]}" />
                                     <field name="remain"  attrs="{'invisible': [('type', '=','individual')]}"  />
-                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')]}"/>
+
+
+                                    <!--                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')]}"/>-->
                                 </group>
+
+
                                 <group>
                                     <field name="min_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '=','individual')]}"/>
-                                    <field name="war" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>
+                                    <!--                                    <field name="war" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>-->
                                     <field name="net_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>
                                 </group>
+
+
+                                <field name="covers_ids" attrs="{'invisible': [('type', '!=','individual')]}">
+                                    <tree editable="bottom">
+                                        <field name="cover"/>
+                                        <field name="rate"/>
+                                        <field name="premium"/>
+                                    </tree>
+                                </field>
+
                             </group>
                             <group>
-                                <group attrs="{'invisible': [('type', '!=','individual')]}">
+                                <group>
                                     <field name="issue_fees" attrs="{'readonly': [('state', '=','approved')]}"/>
                                     <field name="proportional_stamp" readonly="1" force_save="1"/>
                                     <field name="dimensional_stamp" attrs="{'readonly': [('state', '=','approved')]}"/>
@@ -205,7 +219,7 @@
                                     <field name="supervisory_stamp" readonly="1" force_save="1"/>
                                     <field name="policy_holder" readonly="1" force_save="1"/>
                                     <field name="revising_fees" readonly="1" force_save="1"/>
-                                    <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
+<!--                                    <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>-->
                                 </group>
                             </group>
                             <group>

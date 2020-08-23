@@ -132,11 +132,13 @@ class PolicyMarine(models.Model):
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
 
-      @api.onchange('sum_insured','rate')
+      @api.onchange('covers_ids')
       def compute_net(self):
-            if self.sum_insured and self.rate and self.type=='individual':
-                  self.net_premium=self.sum_insured*self.rate
-                  self.war=(self.sum_insured*.05)/100
+            if self.covers_ids and self.type=='individual':
+                  sum=0.0
+                  for rec in self.covers_ids:
+                        sum+=rec.premium
+                  self.net_premium=sum
 
 
       def create_endo(self):
@@ -159,6 +161,8 @@ class PolicyMarine(models.Model):
       is_renewal = fields.Boolean(string="Renewal")
       differnce1 = fields.Integer(compute='compute_date', force_save=True)
       today = fields.Date(string="", required=False, compute='todau_comp')
+      covers_ids = fields.One2many('policy.covers','policy_id',string="Covers")
+
 
       # @api.one
       def compute_date(self):
@@ -265,5 +269,26 @@ class PolicyMarine(models.Model):
 
                   },
             }
+
+
+class MarineCovers(models.Model):
+    _name = 'policy.covers'
+    _rec_name = 'cover'
+    cover = fields.Many2one('covers',string='Cover')
+    rate = fields.Float(string='Rate')
+    premium = fields.Float(string='Premium',compute='set_premium',)
+    policy_id= fields.Many2one('policy.marine',string='Policy')
+
+
+    @api.onchange('cover')
+    def set_rate(self):
+          if self.cover:
+                self.rate=self.cover.rate
+
+    @api.depends('rate','policy_id.sum_insured')
+    def set_premium(self):
+          for rec in self:
+            rec.premium = rec.cover.rate*rec.policy_id.sum_insured
+
 
 

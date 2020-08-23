@@ -85,6 +85,11 @@ class TermsandConditions(models.Model):
                                      ('special', 'Special'),
                                      ],
                                     string='Type',)
+class Covers(models.Model):
+    _name = 'covers'
+    _rec_name = 'cover_name'
+    cover_name = fields.Char('Cover')
+    rate = fields.Float(string='Rate')
 class Users(models.Model):
     _inherit = 'res.users'
 

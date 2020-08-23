@@ -13,6 +13,10 @@ access_marine46,access.marine6,model_agency_branch_marine,base.group_user,1,1,1,
 access_marine7,access.marine7,model_res_users,base.group_user,1,1,1,1
 access_marine8,access.marine8,model_marine_package,base.group_user,1,1,1,1
 access_marine9,access.marine9,model_marine_valuation,base.group_user,1,1,1,1
+access_marine10,access.marine10,model_covers,base.group_user,1,1,1,1
+access_marine11,access.marine11,model_policy_covers,base.group_user,1,1,1,1
+
+
 
 
 
