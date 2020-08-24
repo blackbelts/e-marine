@@ -54,6 +54,8 @@ class Endorsement_edit(models.Model):
                 # 'default_end_no': self.end_no,
 
                 'default_cover_num': self.cover_id.cover_num,
+                'default_inv_num': self.cover_id.inv_num,
+
                 'default_agency': self.cover_id.agency.id,
                 'default_rate': self.cover_id.rate,
                 'default_supplier': self.cover_id.supplier,
@@ -104,6 +106,10 @@ class Endorsement_edit(models.Model):
                 'default_ship_num': self.cover_id.ship_num,
                 'default_file_num': self.cover_id.file_num,
                 'default_is_renewal': self.cover_id.is_renewal,
+                'default_broker': self.cover_id.broker.id,
+                'default_broke_pin': self.cover_id.broker_pin,
+
+                'default_broker_fra_code': self.cover_id.broker_fra_code,
 
                 # 'default_new_risk_ids': records_risks,
                 'default_last_cover_id': self.cover_id.id,

@@ -104,7 +104,11 @@
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نوع التعبئة</th>
 
-                                        <td><span t-esc="o.nature_pakage"/></td>
+                                        <td>
+                                                <t t-foreach="o.nature_pakage" t-as="n">
+                                                <span t-esc="n.name"/> <t/>
+                                            </t>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
