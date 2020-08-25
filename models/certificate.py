@@ -60,7 +60,26 @@ class PolicyMarinecert(models.Model):
       total = fields.Float('Total',compute='get_total',store=True)
       cert_terms = fields.Many2many(related='open_cover_id.new_terms', string='Terms & Conditions',)
       cert_special_terms = fields.Many2many(related='open_cover_id.new_special_terms', string='Special & Conditions',)
+      ship_from = fields.Char(related='open_cover_id.ship_from',string='Country origin')
+      ship_to = fields.Char(related='open_cover_id.ship_to',string='Destination Country')
+      bank = fields.Char('Bank',related='open_cover_id.bank')
+      carrier_name = fields.Char('Carrier/Veseel Name',related='open_cover_id.carrier_name')
+      supplier = fields.Char('Supplier',related='open_cover_id.supplier')
+      consignee = fields.Char('Consignee',related='open_cover_id.consignee')
+      consignee_value = fields.Char('Consignee Value',related='open_cover_id.consignee_value')
+      invoice_currency = fields.Many2one(related='open_cover_id.invoice_currency', string='Invoice Currency')
+      invoice_ammount = fields.Char('Invoice Amount',related='open_cover_id.invoice_ammount')
+      valution_notes = fields.Many2many(related='open_cover_id.valution_notes', string='Valution Notes')
+      broker = fields.Many2one(related='open_cover_id.broker', string="Broker")
+      broker_pin = fields.Integer(related='open_cover_id.broker_pin',string="Agent Code")
+      broker_fra_code = fields.Char(related='open_cover_id.broker_fra_code',string="Broker FRA Code")
+      nature_pakage = fields.Many2many(related='open_cover_id.nature_pakage', string='Nature of pakage')
+      inv_num = fields.Char('Order or Invoice No',related='open_cover_id.inv_num',)
+      ship_num = fields.Char('Shipping Number',related='open_cover_id.ship_num')
+      file_num = fields.Char('L/C No',related='open_cover_id.file_num')
+      covers_ids = fields.One2many(related='open_cover_id.covers_ids',string="Covers")
 
+      conveyance_mode = fields.Selection( related='open_cover_id.conveyance_mode',string='Conveyance mode')
       @api.onchange('net_premium')
       def get_fees(self):
           if self.net_premium:
@@ -77,12 +96,16 @@ class PolicyMarinecert(models.Model):
 
 
       # @api.one
-      @api.depends('sum_insured','rate')
+      @api.onchange('sum_insured')
       def get_prem(self):
-          if self.rate and self.sum_insured :
+              if self.covers_ids:
+                  for rec in self.covers_ids:
+                      rec.premium=(rec.rate*self.sum_insured)/100
               if self.sum_insured <=self.open_cover_id.max_per_cert:
-                  self.net_premium=(self.sum_insured*self.rate)
-                  self.war=(self.sum_insured*.05)/100
+                  sum = 0
+                  for rec in self.covers_ids:
+                      sum += rec.premium
+                  self.net_premium = sum
 
               else:
                   raise exceptions.ValidationError('Sum Insured Should not '
@@ -92,7 +115,10 @@ class PolicyMarinecert(models.Model):
       def confirm_certificate(self):
           if self.sum_insured and self.open_cover_id:
                   print('88888888888888888')
-                  self.open_cover_id.remain -= self.sum_insured
+                  if self.open_cover_id.pre_paid==True:
+                      self.open_cover_id.remain -= self.net_premium
+                  else:
+                     self.open_cover_id.remain -= self.sum_insured
           self.state='approved'
           print(self.open_cover_id.remain)
 

@@ -159,6 +159,8 @@ class PolicyMarine(models.Model):
             }
 
       is_renewal = fields.Boolean(string="Renewal")
+      pre_paid = fields.Boolean(string="Pre-Paid")
+
       differnce1 = fields.Integer(compute='compute_date', force_save=True)
       today = fields.Date(string="", required=False, compute='todau_comp')
       covers_ids = fields.One2many('policy.covers','policy_id',string="Covers")
@@ -179,6 +181,9 @@ class PolicyMarine(models.Model):
 
 
       cert_ids=fields.One2many('certificate.marine','open_cover_id',string='Certificates')
+
+      def confirm(self):
+            return True
 
       @api.onchange('sum_insured')
       def get_default_remain(self):
@@ -284,11 +289,13 @@ class MarineCovers(models.Model):
     def set_rate(self):
           if self.cover:
                 self.rate=self.cover.rate
-
-    @api.depends('rate','policy_id.sum_insured')
+    @api.depends('rate','policy_id.sum_insured','policy_id.pre_paid')
     def set_premium(self):
-          for rec in self:
-            rec.premium = rec.cover.rate*rec.policy_id.sum_insured
+              for rec in self:
+                if rec.policy_id.type =='individual' or rec.policy_id.pre_paid==True :
+                      rec.premium = (rec.rate*rec.policy_id.sum_insured)/100
+                else:
+                      rec.premium=0.0
 
 
 
