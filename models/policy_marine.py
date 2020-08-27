@@ -134,7 +134,7 @@ class PolicyMarine(models.Model):
 
       @api.onchange('covers_ids')
       def compute_net(self):
-            if self.covers_ids and self.type=='individual':
+            if self.covers_ids :
                   sum=0.0
                   for rec in self.covers_ids:
                         sum+=rec.premium
