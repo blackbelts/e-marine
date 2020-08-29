@@ -74,7 +74,7 @@ class StampsandFees(models.Model):
     rate = fields.Float('Rate',digits = (12,3))
     stamp_value = fields.Float(sting='Stamp Value')
     type= fields.Selection([('rate', 'Rate'),
-                                ('value', 'Fixed Value')],sting='Calculation Method')
+                                ('value', 'Fixed Value')],default='rate',sting='Calculation Method')
 
 
 
