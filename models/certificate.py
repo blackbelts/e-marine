@@ -31,7 +31,7 @@ class PolicyMarinecert(models.Model):
           return super(PolicyMarinecert, self).create(vals)
 
       open_cover_id=fields.Many2one('policy.marine',string='Cover',required=True,domain="[('type', '=', 'contract'),('state', '=', 'approved')]")
-      insured=fields.Char(related='open_cover_id.insured',string='Customer')
+      insured=fields.Char(string='Customer')
 
       name=fields.Char('Certificate',readonly=True)
       certificate_num=fields.Char(string='Certificate Num',default=lambda self: self.env['ir.sequence'].next_by_code('certificate'))
@@ -40,7 +40,7 @@ class PolicyMarinecert(models.Model):
       user_id = fields.Many2one('res.users', default=lambda self: self.env.user)
       agency = fields.Many2one('marine.agency',related='open_cover_id.agency', string='Shipping',store=True)
       agency_branch = fields.Many2one('agency.branch.marine', related='open_cover_id.agency_branch',string='Shipping Branch')
-      currency_id=fields.Many2one(related='open_cover_id.currency_id',string='Currency')
+      currency_id=fields.Many2one(string='Currency')
       product=fields.Many2many('marine.product',string='Products')
       net_premium = fields.Float('Net Premium',compute='get_prem',store=True)
       war = fields.Float('war',compute='get_prem',store=True)
@@ -77,23 +77,77 @@ class PolicyMarinecert(models.Model):
       inv_num = fields.Char('Order or Invoice No',related='open_cover_id.inv_num',)
       ship_num = fields.Char('Shipping Number',related='open_cover_id.ship_num')
       file_num = fields.Char('L/C No',related='open_cover_id.file_num')
-      covers_ids = fields.One2many(related='open_cover_id.covers_ids',string="Covers")
+      covers_ids = fields.One2many(related='open_cover_id.covers_ids',string="Covers",)
+      stamp_cert_ids = fields.One2many(related='open_cover_id.stamp_ids',string="Stamps")
 
       conveyance_mode = fields.Selection( related='open_cover_id.conveyance_mode',string='Conveyance mode')
-      @api.onchange('net_premium')
-      def get_fees(self):
-          if self.net_premium:
-              self.proportional_stamp = (self.net_premium * .5) / 100
-              self.supervisory_stamp = (self.net_premium * .6) / 100
-              self.policy_holder = (self.net_premium * .2) / 100
-              self.revising_fees = (self.net_premium * .1) / 100
+      @api.onchange('open_cover_id')
+      def _get_contract_info(self):
+          if self.open_cover_id:
+              covers = []
+              # stamps = []
+              # for rec in self.open_cover_id.covers_ids:
+              #     object = (0, 0, {'cover': rec.cover.id, 'rate': rec.rate, 'premium': rec.premium})
+              #     covers.append(object)
+              # for rec in self.open_cover_id.stamp_ids:
+              #     object = (0, 0, {'stamp': rec.stamp.id, 'value': rec.value})
+              #     stamps.append(object)
+              self.insured= self.open_cover_id.insured
+              # self.inv_num =self.open_cover_id.inv_num
+              # self.agency= self.open_cover_id.agency.id
+              # self.rate= self.open_cover_id.rate
+              # self.supplier= self.open_cover_id.supplier
+              # self.bank= self.open_cover_id.bank
+              # self.carrier_name= self.open_cover_id.carrier_name
+              # self.consignee= self.open_cover_id.consignee
+              # self.consignee_value= self.open_cover_id.consignee_value
+              # self.invoice_currency= self.open_cover_id.invoice_currency.id
+              # self.invoice_ammount= self.open_cover_id.invoice_ammount
+              # # self.address= self.open_cover_id.address
+              # self.nature_pakage= [(6, 0, self.open_cover_id.nature_pakage.ids)]
+              # self.valution_notes= [(6, 0, self.open_cover_id.valution_notes.ids)],
+              # self.stamp_cert_ids= stamps
+              # self.covers_ids=covers
+
+              # self.new_terms= [(6, 0, self.open_cover_id.new_terms.ids)]
+              # self.new_special_terms=[(6, 0, self.open_cover_id.new_special_terms.ids)]
+              #
+              #
+              # 'default_app_date': self.open_cover_id.app_date,
+              # self.agency_branch=self.open_cover_id.agency_branch.id
+              # # 'default_sales_person1': self.open_cover_id.sales_person1.id,
+              self.currency_id=self.open_cover_id.currency_id.id
+              #
+              # self.conveyance_mode=self.open_cover_id.conveyance_mode
+              # self.favour=self.open_cover_id.in_favour
+              # self.ship_from=self.open_cover_id.ship_from
+              # self.ship_to= self.open_cover_id.ship_to
+              # self.ship_num= self.open_cover_id.ship_num
+              # self.file_num= self.open_cover_id.file_num
+              # self.broker=self.open_cover_id.broker.id
+              # self.broke_pin= self.open_cover_id.broker_pin
+              # self.broker_fra_code=self.open_cover_id.broker_fra_code
+
+
+              
+
 
       # @api.one
-      @api.depends('issue_fees', 'dimensional_stamp', 'net_premium')
-      def get_total(self):
-          if self.net_premium:
-              self.total = self.issue_fees + self.proportional_stamp + self.dimensional_stamp + self.supervisory_stamp + self.policy_holder + self.revising_fees + self.net_premium
 
+      @api.depends('stamp_cert_ids', 'net_premium')
+      def get_total(self):
+          if self.net_premium and self.stamp_cert_ids:
+              sum = 0.0
+              for rec in self.stamp_cert_ids:
+                  sum += rec.value
+              self.total = self.net_premium + sum
+
+      @api.depends('net_premium')
+      def get_stamps(self):
+          if self.stamp_cert_ids:
+              sum = 0.0
+              for rec in self.stamp_cert_ids:
+                  rec.value=(self.net_premium*rec.stamp.rete)/100
 
       # @api.one
       @api.onchange('sum_insured')

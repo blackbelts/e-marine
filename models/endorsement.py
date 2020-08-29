@@ -39,9 +39,13 @@ class Endorsement_edit(models.Model):
             self.is_canceled = True
         self.converted = True
         covers=[]
+        stamps=[]
         for rec in self.cover_id.covers_ids:
             object = (0, 0, {'cover': rec.cover.id, 'rate':rec.rate,'premium':rec.premium})
             covers.append(object)
+        for rec in self.cover_id.stamp_ids:
+            object = (0, 0, {'stamp': rec.stamp.id, 'value':rec.value})
+            stamps.append(object)
         return {
             'name': ('Policy'),
             'view_type': 'form',
@@ -91,6 +95,7 @@ class Endorsement_edit(models.Model):
                 'default_nature_pakage': [(6, 0, self.cover_id.nature_pakage.ids)],
                 'default_valution_notes': [(6, 0, self.cover_id.valution_notes.ids)],
                 'default_covers_ids': covers,
+                'default_stamp_ids': stamps,
 
                 'default_new_terms': [(6, 0, self.cover_id.new_terms.ids)],
                 'default_new_special_terms': [(6, 0, self.cover_id.new_special_terms.ids)],

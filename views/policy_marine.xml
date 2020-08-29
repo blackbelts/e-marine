@@ -188,7 +188,6 @@
                                     <field name="sum_insured" attrs="{'readonly': [('state', '=','approved')]}"/>
                                     <field name="net_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}"/>
 
-
                                     <!--                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '=','individual')]}"/>-->
                                 </group>
 
@@ -209,21 +208,15 @@
 
                                     </tree>
                                 </field>
+                                 <field name="stamp_ids" >
+                                    <tree editable="bottom">
+                                        <field name="stamp"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
 
                             </group>
-                            <group>
-                                <group  attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
-                                    <field name="issue_fees" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                    <field name="proportional_stamp" readonly="1" force_save="1"/>
-                                    <field name="dimensional_stamp" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                </group>
-                                <group attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
-                                    <field name="supervisory_stamp" readonly="1" force_save="1"/>
-                                    <field name="policy_holder" readonly="1" force_save="1"/>
-                                    <field name="revising_fees" readonly="1" force_save="1"/>
-                                    <!--                                    <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>-->
-                                </group>
-                            </group>
+
                             <group attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
                                 <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
                             </group>

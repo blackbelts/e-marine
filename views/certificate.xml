@@ -103,14 +103,14 @@
                                     <field name="inv_num"/>
                                     <field name="invoice_currency"/>
                                     <field name="invoice_ammount"/>
-                                     <field name="nature_pakage" widget="many2many_tags" />
+                                    <field name="nature_pakage" widget="many2many_tags" />
 
                                 </group>
                                 <group>
                                     <field name="bank"/>
                                     <field name="ship_num"/>
                                     <field name="file_num"/>
-                                     <field name="product" widget="many2many_tags" />
+                                    <field name="product" widget="many2many_tags" />
                                 </group>
                             </group>
                             <group>
@@ -146,20 +146,17 @@
                                         <field name="premium"/>
                                     </tree>
                                 </field>
+                                <field name="stamp_cert_ids" >
+                                    <tree editable="bottom">
+                                        <field name="stamp"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
                                 <!--                            <field name="war" attrs="{'readonly': [('state', '=','approved')]}"/>-->
                             </group>
                             <group>
-                                <group>
-                                    <field name="issue_fees" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                    <field name="proportional_stamp" readonly="1" force_save="1"/>
-                                    <field name="dimensional_stamp" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                    <field name="supervisory_stamp" readonly="1" force_save="1"/>
-                                </group>
-                                <group>
-                                    <field name="policy_holder" readonly="1" force_save="1"/>
-                                    <field name="revising_fees" readonly="1" force_save="1"/>
-                                    <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                </group>
+
+                                <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
 
                             </group>
                         </page>

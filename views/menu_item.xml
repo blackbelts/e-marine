@@ -51,6 +51,8 @@
                   action="terms_action" sequence="5"/>
         <menuitem id="cover_menu" name="Covers" parent="configuration_menu"
                   action="covers_action" sequence="6"/>
+        <menuitem id="stamps_menu" name="Stamps" parent="configuration_menu"
+                  action="stamps_action" sequence="7"/>
 
 
         <!--<menuitem id="certificate_booklet_view_menu" name="Certificate Booklet" parent="configuration_view_menu2"-->

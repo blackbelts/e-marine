@@ -162,6 +162,30 @@
                 </p>
             </field>
         </record>
+         <record model="ir.ui.view" id="tree_stamps">
+            <field name="name">tree.stamps</field>
+            <field name="model">marine.stamps</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Stamps" editable="bottom">
+                    <field name="stamp_name"/>
+                    <field name="type"/>
+                    <field name="rate"/>
+                    <field name="stamp_value"/>
+
+                </tree>
+            </field>
+        </record>
+         <record model="ir.actions.act_window" id="stamps_action">
+            <field name="name">Stamps</field>
+            <field name="res_model">marine.stamps</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Stamps
+                </p>
+            </field>
+        </record>
         <!--<record model="ir.ui.view" id="form_products">-->
         <!--<field name="name">form.products</field>-->
         <!--<field name="model">marine.product</field>-->

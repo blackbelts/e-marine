@@ -112,20 +112,15 @@ class PolicyMarine(models.Model):
       revising_fees = fields.Float('Revising and approval fees')
       total = fields.Float('Total',compute='get_total',store=True)
 
-      @api.onchange('net_premium')
-      def get_fees(self):
-            if self.net_premium:
-                  self.proportional_stamp=(self.net_premium*.5)/100
-                  self.supervisory_stamp = (self.net_premium * .6) / 100
-                  self.policy_holder = (self.net_premium * .2) / 100
-                  self.revising_fees = (self.net_premium * .1) / 100
-
 
       # @api.one
-      @api.depends('issue_fees', 'dimensional_stamp', 'net_premium')
+      @api.depends('stamp_ids', 'net_premium')
       def get_total(self):
-            if self.net_premium:
-                  self.total = self.issue_fees + self.proportional_stamp + self.dimensional_stamp + self.supervisory_stamp+ self.policy_holder+self.revising_fees+ self.net_premium
+            if self.net_premium and self.stamp_ids:
+                sum=0.0
+                for rec in self.stamp_ids:
+                    sum+=rec.value
+                self.total = self.net_premium +sum
 
       state = fields.Selection([('pending', 'Pending'),
                                 ('approved', 'Approved'),
@@ -164,6 +159,8 @@ class PolicyMarine(models.Model):
       differnce1 = fields.Integer(compute='compute_date', force_save=True)
       today = fields.Date(string="", required=False, compute='todau_comp')
       covers_ids = fields.One2many('policy.covers','policy_id',string="Covers")
+      stamp_ids = fields.One2many('policy.stamps','policy_stam_id',string="Stamps")
+
 
 
       # @api.one
@@ -296,6 +293,28 @@ class MarineCovers(models.Model):
                       rec.premium = (rec.rate*rec.policy_id.sum_insured)/100
                 else:
                       rec.premium=0.0
+
+class MarineStamps(models.Model):
+    _name = 'policy.stamps'
+    _rec_name = 'stamp'
+    stamp = fields.Many2one('marine.stamps',string='Stamp/Fees')
+    value = fields.Float(string='Value',compute='set_stamp',)
+    policy_stam_id= fields.Many2one('policy.marine',string='Policy')
+
+
+    @api.depends('stamp','policy_stam_id.net_premium',)
+    def set_stamp(self):
+              for rec in self:
+                if rec.policy_stam_id.type =='individual' or rec.policy_stam_id.pre_paid==True :
+                    if rec.stamp.type=='rate':
+                        rec.value = (rec.stamp.rate*rec.policy_stam_id.net_premium)/100
+                    else:
+                        rec.value=rec.stamp.stamp_value
+                else:
+                    if rec.stamp.type=='rate':
+                      rec.value=0.0
+                    else:
+                        rec.value=rec.stamp.stamp_value
 
 
 
