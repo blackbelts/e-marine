@@ -167,7 +167,7 @@
             <field name="model">marine.stamps</field>
             <field name="priority" eval="16"/>
             <field name="arch" type="xml">
-                <tree string="Stamps" editable="bottom">
+                <tree string="Stamps" >
                     <field name="stamp_name"/>
                     <field name="type"/>
                     <field name="rate"/>
