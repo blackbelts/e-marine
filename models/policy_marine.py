@@ -68,6 +68,7 @@ class PolicyMarine(models.Model):
       last_cover_id = fields.Many2one('policy.marine', readonly=True)
       endorsement_type = fields.Selection([('Technical', 'Technical'),
                                            ('Non Tech', 'Non Tech'),
+                                           ('born-dead', 'Born-Dead'),
                                            ('canceled', 'canceled'),
                                            ('extend', 'Extend')
                                            ],

@@ -7,14 +7,14 @@ class Endorsement_edit(models.Model):
     _rec_name = "endorsement_no"
 
     cover_id = fields.Many2one("policy.marine", string="Cover",domain="[('state', '=','approved')]")
-    endorsement_no = fields.Integer(string="Endorsement Number",compute='get_no',store=True)
+    endorsement_no = fields.Integer(string="Endorsement Number",compute='get_no')
 
     # cover_id = fields.Many2one('policy.broker')
     # @api.one
     @api.depends('cover_id')
     def get_no(self):
-        for rec in self:
-          if rec.cover_id:
+       for rec in self:
+        if rec.cover_id:
             rec.endorsement_no=rec.cover_id.endorsement_no+1
             # self.end_no='END / ' + str(self.endorsement_no)
     reasonedit = fields.Text(string="Endorsement Discribtion", required=False)
@@ -24,6 +24,7 @@ class Endorsement_edit(models.Model):
     endorsement_type = fields.Selection([('Technical', 'Technical'),
                                          ('Non Tech', 'Non Tech'),
                                          ('canceled','canceled'),
+                                         ('born-dead','Born-Dead'),
                                          ('extend','Extend')],
                                         string='Endorsement Type', required=True)
     is_canceled = fields.Boolean(string="", )
