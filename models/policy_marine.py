@@ -230,6 +230,14 @@ class PolicyMarine(models.Model):
       def renew_policy(self):
             form_view = self.env.ref('e-marine.form_policy_marine')
             self.active=False
+            covers = []
+            stamps = []
+            for rec in self.covers_ids:
+                object = (0, 0, {'cover': rec.cover.id, 'rate': rec.rate, 'premium': rec.premium})
+                covers.append(object)
+            for rec in self.stamp_ids:
+                object = (0, 0, {'stamp': rec.stamp.id, 'value': rec.value})
+                stamps.append(object)
             return {
                   'name': ('Policy'),
                   'view_type': 'form',
@@ -251,6 +259,10 @@ class PolicyMarine(models.Model):
                         'default_type': self.type,
                         'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
                         'default_valution_notes': [(6, 0, self.valution_notes.ids)],
+                      'default_broker': self.broker.id,
+                      'default_broke_pin': self.broker_pin,
+
+                      'default_broker_fra_code': self.broker_fra_code,
 
                         'default_rate': self.rate,
 
@@ -261,6 +273,10 @@ class PolicyMarine(models.Model):
                         'default_max_per_cert': self.max_per_cert,
 
                         'default_product': [(6, 0, self.product.ids)],
+                      'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
+                      'default_valution_notes': [(6, 0, self.valution_notes.ids)],
+                      'default_covers_ids': covers,
+                      'default_stamp_ids': stamps,
 
                         'default_issue_date': self.issue_date,
                         'default_start_date': self.start_date,
@@ -285,8 +301,9 @@ class PolicyMarine(models.Model):
                         'default_invoice_currency': self.invoice_currency.id,
                         'default_invoice_ammount': self.invoice_ammount,
                         'default_conveyance_mode': self.conveyance_mode,
+                      'default_address': self.address,
 
-                        'default_is_renewal': True,
+                      'default_is_renewal': True,
                         'default_endorsement_no':self.endorsement_no,
                         'default_is_canceled': self.is_canceled,
                         # 'default_new_risk_ids': records_risks,

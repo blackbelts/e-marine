@@ -138,7 +138,7 @@
                                 <group>
                                     <field name="currency_id"/>
                                     <field name="sum_insured" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')]}"/>
+<!--                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')]}"/>-->
                                     <field name="net_premium" attrs="{'readonly': [('state', '=','approved')]}"/>
                                 </group>
                                 <field name="covers_ids" >
