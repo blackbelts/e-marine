@@ -32,6 +32,8 @@
 
         <menuitem id="configuration_menu" name="Configuration"
                   parent="marine_menu"  sequence="3"/>
+        <menuitem id="end_menu" name="Endorsement"
+            action="my_action_for_Endorsement"   parent="marine_menu"  sequence="4"/>
 
 
 
