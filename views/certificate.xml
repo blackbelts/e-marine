@@ -53,10 +53,12 @@
             <form string="Marine Policy">
                 <header>
 
-                    <field name="state" widget="statusbar" statusbar_visible="pending,approved"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,approved,born-dead"/>
                     <button name="confirm_certificate" string="approved" type="object"
                             class="oe_highlight"
                             attrs="{'invisible': ['|',('state', '=', 'approved'),('state', '=', 'canceled')]}"/>
+                    <button name="born_dead_cert" string="Born-dead" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': [('state', '=', 'born-dead')]}"/>
+
                     <!--<button name="send_mail_template" string="send" type="object"-->
                     <!--class="oe_highlight"-->
                     <!--/>-->

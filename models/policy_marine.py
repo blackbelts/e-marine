@@ -69,7 +69,6 @@ class PolicyMarine(models.Model):
       endorsement_type = fields.Selection([('Technical', 'Technical'),
                                            ('Non Tech', 'Non Tech'),
                                            ('canceled', 'canceled'),
-                                           ('born-dead', 'Born-Dead'),
                                            ('extend', 'Extend')
                                            ],
                                           string='Endorsement Type')
@@ -116,14 +115,16 @@ class PolicyMarine(models.Model):
       # @api.one
       @api.depends('stamp_ids', 'net_premium')
       def get_total(self):
-            if self.net_premium and self.stamp_ids:
-                sum=0.0
-                for rec in self.stamp_ids:
-                    sum+=rec.value
-                self.total = self.net_premium +sum
+            for rec in self:
+                if rec.net_premium and rec.stamp_ids:
+                    sum=0.0
+                    for record in rec.stamp_ids:
+                        sum+=record.value
+                    rec.total = rec.net_premium +sum
 
       state = fields.Selection([('pending', 'Pending'),
                                 ('approved', 'Approved'),
+                                ('born-dead', 'Born-dead'),
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
 
@@ -160,7 +161,6 @@ class PolicyMarine(models.Model):
       today = fields.Date(string="", required=False, compute='todau_comp')
       covers_ids = fields.One2many('policy.covers','policy_id',string="Covers")
       stamp_ids = fields.One2many('policy.stamps','policy_stam_id',string="Stamps")
-
 
 
       # @api.one
@@ -201,6 +201,30 @@ class PolicyMarine(models.Model):
                   #        ('state', '=', 'approved')], )
                   # if last_confirmed_edit:
                   #       last_confirmed_edit.active = False
+
+      def born_dead_policy(self):
+            if self.active==False:
+                for rec in self.env['policy.marine'].search(['|', ('active', '=', True), ('active', '=', False),('cover_num', '=', self.cover_num)]):
+                    if rec.type=='contract':
+                        for record in self.env['certificate.marine'].search([('open_cover_id','=',rec.id)]):
+                            record.state = 'born-dead'
+                            record.net_premium = 0.0
+                    rec.state='born-dead'
+                    rec.net_premium=0.0
+            else:
+                self.state = 'born-dead'
+                self.net_premium = 0.0
+            #       self.state='approved'
+            # if self.is_endorsement == True:
+            #       self.last_cover_id.active=False
+                  # print("boss boss boss")
+                  # last_confirmed_edit = self.env['policy.marine'].search(
+                  #       [('cover_num', '=', self.cover_num),
+                  #        ('active', '=', 'True'), ('id', '!=', self.id),
+                  #        ('state', '=', 'approved')], )
+                  # if last_confirmed_edit:
+                  #       last_confirmed_edit.active = False
+
 
       # @api.multi
       def renew_policy(self):
@@ -293,6 +317,7 @@ class MarineCovers(models.Model):
                       rec.premium = (rec.rate*rec.policy_id.sum_insured)/100
                 else:
                       rec.premium=0.0
+
 
 class MarineStamps(models.Model):
     _name = 'policy.stamps'

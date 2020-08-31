@@ -23,7 +23,6 @@ class Endorsement_edit(models.Model):
     endorsement_type = fields.Selection([('Technical', 'Technical'),
                                          ('Non Tech', 'Non Tech'),
                                          ('canceled','canceled'),
-                                         ('born-dead','Born-Dead'),
                                          ('extend','Extend')],
                                         string='Endorsement Type', required=True)
     is_canceled = fields.Boolean(string="", )

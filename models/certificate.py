@@ -49,6 +49,7 @@ class PolicyMarinecert(models.Model):
       rate = fields.Float('Rate',related='open_cover_id.rate',store=True)
       state = fields.Selection([('pending', 'Pending'),
                                 ('approved', 'Approved'),
+                                ('born-dead', 'Born-dead'),
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
       issue_fees = fields.Float('Issue Fees')
@@ -181,3 +182,6 @@ class PolicyMarinecert(models.Model):
       def get_product(self):
           if self.open_cover_id:
               return {'domain': {'product': [('id', 'in', self.open_cover_id.product.ids)]}}
+
+      def born_dead_cert(self):
+              self.state='born-dead'
