@@ -77,7 +77,7 @@
                     <button name="confirm_policy" string="approved" type="object"
                             class="oe_highlight"
                             attrs="{'invisible': [('state', 'in',['approved','canceled','born-dead'])]}"/>
-                    <button name="create_endo" string="Endorsement" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', 'in',['canceled','born-dead']),('active', '=', False)]}"/>
+                    <button name="create_endo" string="Endorsement" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', 'in',['canceled','born-dead','pending']),('active', '=', False)]}"/>
                     <button name="renew_policy" string="Renew" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', 'in',['approved','canceled','born-dead']),('differnce1', '&gt;=', 90)]}"/>
                     <button name="born_dead_policy" string="Born-dead" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': [('state', '=', 'born-dead')]}"/>
                     <!--<button name="send_mail_template" string="send" type="object"-->
