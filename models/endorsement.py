@@ -7,7 +7,7 @@ class Endorsement_edit(models.Model):
     _rec_name = "endorsement_no"
 
     cover_id = fields.Many2one("policy.marine", string="Cover",domain="[('state', '=','approved')]")
-    endorsement_no = fields.Integer(string="Endorsement Number",compute='get_no')
+    endorsement_no = fields.Integer(string="Endorsement Number",compute='get_no',store=True)
 
     # cover_id = fields.Many2one('policy.broker')
     # @api.one
