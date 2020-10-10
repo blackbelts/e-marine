@@ -73,13 +73,13 @@
             <form string="Marine Policy">
                 <header>
 
-                    <field name="state" widget="statusbar" statusbar_visible="pending,approved"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,approved,born-dead"/>
                     <button name="confirm_policy" string="approved" type="object"
                             class="oe_highlight"
-                            attrs="{'invisible': ['|',('state', '=', 'approved'),('state', '=', 'canceled')]}"/>
-                    <button name="create_endo" string="Endorsement" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', '!=', 'approved'),('active', '=', False)]}"/>
-                    <button name="renew_policy" string="Renew" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': [('differnce1', '&gt;=', 90)]}"/>
-
+                            attrs="{'invisible': [('state', 'in',['approved','canceled','born-dead'])]}"/>
+                    <button name="create_endo" string="Endorsement" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', 'in',['canceled','born-dead','pending']),('active', '=', False)]}"/>
+                    <button name="renew_policy" string="Renew" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': ['|',('state', 'in',['approved','canceled','born-dead']),('differnce1', '&gt;=', 90)]}"/>
+                    <button name="born_dead_policy" string="Born-dead" type="object"  class="btn-primary o_sale_print" attrs="{'invisible': [('state', '=', 'born-dead')]}"/>
                     <!--<button name="send_mail_template" string="send" type="object"-->
                     <!--class="oe_highlight"-->
                     <!--/>-->
@@ -119,6 +119,7 @@
                                 <group>
                                     <field name="cover_type"/>
                                     <field name="type"/>
+                                    <field name="pre_paid" attrs="{'invisible': [('type', '=','individual')]}" />
                                     <field name="active" invisible="1"/>
                                     <field name="differnce1" invisible="1" />
                                 </group>
@@ -137,15 +138,18 @@
                             <group>
                                 <group>
                                     <field name="insured"/>
+                                    <field name="broker"/>
                                     <field name="in_favour"/>
                                 </group>
                                 <group>
                                     <field name="address"/>
+                                    <field name="broker_pin"/>
+                                    <field name="broker_fra_code"/>
                                 </group>
                             </group>
 
                         </page>
-                        <page string="Shipping Info">
+                        <page string="Shipping Info" default_focus="1">
                             <!--<field name="agent_name"/>-->
                             <group>
                                 <group>
@@ -177,36 +181,44 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="financial Info">
+                        <page string="financial Info" >
                             <group>
-                                <group>
-                                    <field name="currency_id"/>
-                                    <field name="sum_insured" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                    <field name="max_per_cert" attrs="{'invisible': [('type', '=','individual')]}" />
-                                    <field name="remain"  attrs="{'invisible': [('type', '=','individual')]}"  />
-                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <group attrs="{'readonly': [('endorsement_type','=','Non Tech')]}">
+                                    <field name="currency_id" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')]}"/>
+                                    <field name="sum_insured" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')]}"/>
+                                    <field name="net_premium" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')],'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}"/>
+
+                                    <!--                                    <field name="rate" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '=','individual')]}"/>-->
                                 </group>
-                                <group>
-                                    <field name="min_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '=','individual')]}"/>
-                                    <field name="war" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>
-                                    <field name="net_premium" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>
+
+
+                                <group >
+                                    <field name="min_premium" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')],'invisible': [('type', '=','individual')]}"/>
+                                    <field name="max_per_cert" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')],'invisible': [('type', '=','individual')]}" />
+                                    <field name="remain"  attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')],'invisible': [('type', '=','individual')]}"  />
+                                    <!--                                    <field name="war" attrs="{'readonly': [('state', '=','approved')],'invisible': [('type', '!=','individual')]}"/>-->
                                 </group>
+
+
+                                <field name="covers_ids" attrs="{'readonly': [('endorsement_type','=','Non Tech')]}" >
+                                    <tree editable="bottom">
+                                        <field name="cover"/>
+                                        <field name="rate"/>
+                                        <field name="premium"/>
+
+                                    </tree>
+                                </field>
+                                 <field name="stamp_ids" attrs="{'readonly': [('endorsement_type','=','Non Tech')]}" >
+                                    <tree editable="bottom">
+                                        <field name="stamp"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+
                             </group>
-                            <group>
-                                <group attrs="{'invisible': [('type', '!=','individual')]}">
-                                    <field name="issue_fees" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                    <field name="proportional_stamp" readonly="1" force_save="1"/>
-                                    <field name="dimensional_stamp" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                </group>
-                                <group>
-                                    <field name="supervisory_stamp" readonly="1" force_save="1"/>
-                                    <field name="policy_holder" readonly="1" force_save="1"/>
-                                    <field name="revising_fees" readonly="1" force_save="1"/>
-                                    <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
-                                </group>
-                            </group>
-                            <group>
-                                <field name="total" attrs="{'readonly': [('state', '=','approved')]}"/>
+
+                            <group attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
+                                <field name="total" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')]}"/>
                             </group>
 
                         </page>

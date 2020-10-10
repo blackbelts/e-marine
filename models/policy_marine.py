@@ -69,7 +69,6 @@ class PolicyMarine(models.Model):
       endorsement_type = fields.Selection([('Technical', 'Technical'),
                                            ('Non Tech', 'Non Tech'),
                                            ('canceled', 'canceled'),
-                                           ('born-dead', 'Born-Dead'),
                                            ('extend', 'Extend')
                                            ],
                                           string='Endorsement Type')
@@ -94,6 +93,10 @@ class PolicyMarine(models.Model):
       agency_branch=fields.Many2one('agency.branch.marine',string='Shipping Branch')
       currency_id=fields.Many2one('res.currency',string='Currency',required=True)
       endorsement_no = fields.Integer(string="Endorsement Number")
+      broker= fields.Many2one('res.users',string="Broker")
+      broker_pin = fields.Integer(string="Agent Code")
+      broker_fra_code = fields.Char(string="Broker FRA Code")
+
 
 
       state_track = fields.Char(default='New')
@@ -108,31 +111,30 @@ class PolicyMarine(models.Model):
       revising_fees = fields.Float('Revising and approval fees')
       total = fields.Float('Total',compute='get_total',store=True)
 
-      @api.onchange('net_premium')
-      def get_fees(self):
-            if self.net_premium:
-                  self.proportional_stamp=(self.net_premium*.5)/100
-                  self.supervisory_stamp = (self.net_premium * .6) / 100
-                  self.policy_holder = (self.net_premium * .2) / 100
-                  self.revising_fees = (self.net_premium * .1) / 100
-
 
       # @api.one
-      @api.depends('issue_fees', 'dimensional_stamp', 'net_premium')
+      @api.depends('stamp_ids', 'net_premium')
       def get_total(self):
-            if self.net_premium:
-                  self.total = self.issue_fees + self.proportional_stamp + self.dimensional_stamp + self.supervisory_stamp+ self.policy_holder+self.revising_fees+ self.net_premium
+            for rec in self:
+                if rec.net_premium and rec.stamp_ids:
+                    sum=0.0
+                    for record in rec.stamp_ids:
+                        sum+=record.value
+                    rec.total = rec.net_premium +sum
 
       state = fields.Selection([('pending', 'Pending'),
                                 ('approved', 'Approved'),
+                                ('born-dead', 'Born-dead'),
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
 
-      @api.onchange('sum_insured','rate')
+      @api.onchange('covers_ids')
       def compute_net(self):
-            if self.sum_insured and self.rate and self.type=='individual':
-                  self.net_premium=self.sum_insured*self.rate
-                  self.war=(self.sum_insured*.05)/100
+            if self.covers_ids :
+                  sum=0.0
+                  for rec in self.covers_ids:
+                        sum+=rec.premium
+                  self.net_premium=sum
 
 
       def create_endo(self):
@@ -153,8 +155,13 @@ class PolicyMarine(models.Model):
             }
 
       is_renewal = fields.Boolean(string="Renewal")
+      pre_paid = fields.Boolean(string="Pre-Paid")
+
       differnce1 = fields.Integer(compute='compute_date', force_save=True)
       today = fields.Date(string="", required=False, compute='todau_comp')
+      covers_ids = fields.One2many('policy.covers','policy_id',string="Covers")
+      stamp_ids = fields.One2many('policy.stamps','policy_stam_id',string="Stamps")
+
 
       # @api.one
       def compute_date(self):
@@ -171,6 +178,9 @@ class PolicyMarine(models.Model):
 
 
       cert_ids=fields.One2many('certificate.marine','open_cover_id',string='Certificates')
+
+      def confirm(self):
+            return True
 
       @api.onchange('sum_insured')
       def get_default_remain(self):
@@ -192,10 +202,42 @@ class PolicyMarine(models.Model):
                   # if last_confirmed_edit:
                   #       last_confirmed_edit.active = False
 
+      def born_dead_policy(self):
+            if self.active==False:
+                for rec in self.env['policy.marine'].search(['|', ('active', '=', True), ('active', '=', False),('cover_num', '=', self.cover_num)]):
+                    if rec.type=='contract':
+                        for record in self.env['certificate.marine'].search([('open_cover_id','=',rec.id)]):
+                            record.state = 'born-dead'
+                            record.net_premium = 0.0
+                    rec.state='born-dead'
+                    rec.net_premium=0.0
+            else:
+                self.state = 'born-dead'
+                self.net_premium = 0.0
+            #       self.state='approved'
+            # if self.is_endorsement == True:
+            #       self.last_cover_id.active=False
+                  # print("boss boss boss")
+                  # last_confirmed_edit = self.env['policy.marine'].search(
+                  #       [('cover_num', '=', self.cover_num),
+                  #        ('active', '=', 'True'), ('id', '!=', self.id),
+                  #        ('state', '=', 'approved')], )
+                  # if last_confirmed_edit:
+                  #       last_confirmed_edit.active = False
+
+
       # @api.multi
       def renew_policy(self):
             form_view = self.env.ref('e-marine.form_policy_marine')
             self.active=False
+            covers = []
+            stamps = []
+            for rec in self.covers_ids:
+                object = (0, 0, {'cover': rec.cover.id, 'rate': rec.rate, 'premium': rec.premium})
+                covers.append(object)
+            for rec in self.stamp_ids:
+                object = (0, 0, {'stamp': rec.stamp.id, 'value': rec.value})
+                stamps.append(object)
             return {
                   'name': ('Policy'),
                   'view_type': 'form',
@@ -217,6 +259,10 @@ class PolicyMarine(models.Model):
                         'default_type': self.type,
                         'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
                         'default_valution_notes': [(6, 0, self.valution_notes.ids)],
+                      'default_broker': self.broker.id,
+                      'default_broke_pin': self.broker_pin,
+
+                      'default_broker_fra_code': self.broker_fra_code,
 
                         'default_rate': self.rate,
 
@@ -227,6 +273,10 @@ class PolicyMarine(models.Model):
                         'default_max_per_cert': self.max_per_cert,
 
                         'default_product': [(6, 0, self.product.ids)],
+                      'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
+                      'default_valution_notes': [(6, 0, self.valution_notes.ids)],
+                      'default_covers_ids': covers,
+                      'default_stamp_ids': stamps,
 
                         'default_issue_date': self.issue_date,
                         'default_start_date': self.start_date,
@@ -251,8 +301,9 @@ class PolicyMarine(models.Model):
                         'default_invoice_currency': self.invoice_currency.id,
                         'default_invoice_ammount': self.invoice_ammount,
                         'default_conveyance_mode': self.conveyance_mode,
+                      'default_address': self.address,
 
-                        'default_is_renewal': True,
+                      'default_is_renewal': True,
                         'default_endorsement_no':self.endorsement_no,
                         'default_is_canceled': self.is_canceled,
                         # 'default_new_risk_ids': records_risks,
@@ -261,5 +312,51 @@ class PolicyMarine(models.Model):
 
                   },
             }
+
+
+class MarineCovers(models.Model):
+    _name = 'policy.covers'
+    _rec_name = 'cover'
+    cover = fields.Many2one('covers',string='Cover')
+    rate = fields.Float(string='Rate')
+    premium = fields.Float(string='Premium',compute='set_premium',)
+    policy_id= fields.Many2one('policy.marine',string='Policy')
+
+
+    @api.onchange('cover')
+    def set_rate(self):
+          if self.cover:
+                self.rate=self.cover.rate
+    @api.depends('rate','policy_id.sum_insured','policy_id.pre_paid')
+    def set_premium(self):
+              for rec in self:
+                if rec.policy_id.type =='individual' or rec.policy_id.pre_paid==True :
+                      rec.premium = (rec.rate*rec.policy_id.sum_insured)/100
+                else:
+                      rec.premium=0.0
+
+
+class MarineStamps(models.Model):
+    _name = 'policy.stamps'
+    _rec_name = 'stamp'
+    stamp = fields.Many2one('marine.stamps',string='Stamp/Fees')
+    value = fields.Float(string='Value',compute='set_stamp',)
+    policy_stam_id= fields.Many2one('policy.marine',string='Policy')
+
+
+    @api.depends('stamp','policy_stam_id.net_premium',)
+    def set_stamp(self):
+              for rec in self:
+                if rec.policy_stam_id.type =='individual' or rec.policy_stam_id.pre_paid==True :
+                    if rec.stamp.type=='rate':
+                        rec.value = (rec.stamp.rate*rec.policy_stam_id.net_premium)/100
+                    else:
+                        rec.value=rec.stamp.stamp_value
+                else:
+                    if rec.stamp.type=='rate':
+                      rec.value=0.0
+                    else:
+                        rec.value=rec.stamp.stamp_value
+
 
 

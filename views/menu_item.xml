@@ -5,12 +5,12 @@
                   <!--web_icon="smart_travel_agency,static/description/icon.png"/>-->
         <menuitem id="marine_menu" name="E-Marine"
                   groups="e-marine.user_group,e-marine.all_doc_group,e-marine.manager_group"/>
-         <menuitem id="marine_menu_pol" name="Policy"
-                  parent="marine_menu" sequence="1"/>
+<!--         <menuitem id="marine_menu_pol" name="Policy"-->
+<!--                  parent="marine_menu" sequence="1"/>-->
          <menuitem id="marine_policy" name="Contract"
-                parent="marine_menu_pol"    action="marine_policy_action"/>
+                parent="marine_menu"   sequence="0" action="marine_policy_action"/>
         <menuitem id="marine_policy_indv" name=" Individual Policy"
-                parent="marine_menu_pol"    action="marine_policy_action_indv"/>
+                parent="marine_menu"  sequence="1"  action="marine_policy_action_indv"/>
         <!--<menuitem id="oil_policy_view" name="OIL Cover"-->
                 <!--parent="marine_policy"  action="oil_policy_action"/>-->
          <!--<menuitem id="fdl_policy_view" name="FDL Cover"-->
@@ -32,6 +32,8 @@
 
         <menuitem id="configuration_menu" name="Configuration"
                   parent="marine_menu"  sequence="3"/>
+<!--        <menuitem id="end_menu" name="Endorsement"-->
+<!--            action="my_action_for_Endorsement"   parent="marine_menu"  sequence="4"/>-->
 
 
 
@@ -46,9 +48,13 @@
 
 
         <menuitem id="product_menu" name="Products" parent="configuration_menu"
-                  action="product_action" sequence="2"/>
+                  action="product_action" sequence="4"/>
           <menuitem id="term_menu" name="Terms &amp; Conditions" parent="configuration_menu"
-                  action="terms_action" sequence="3"/>
+                  action="terms_action" sequence="5"/>
+        <menuitem id="cover_menu" name="Covers" parent="configuration_menu"
+                  action="covers_action" sequence="6"/>
+        <menuitem id="stamps_menu" name="Stamps" parent="configuration_menu"
+                  action="stamps_action" sequence="7"/>
 
 
         <!--<menuitem id="certificate_booklet_view_menu" name="Certificate Booklet" parent="configuration_view_menu2"-->

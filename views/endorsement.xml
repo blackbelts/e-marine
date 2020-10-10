@@ -25,10 +25,10 @@
 
             </field>
         </record>
-        <!--<record id="my_view_for_endorsement_tree" model="ir.ui.view">-->
-            <!--<field name="name">Policy History</field>-->
-            <!--<field name="model">endorsement.edit</field>-->
-            <!--<field name="arch" type="xml">-->
+<!--        <record id="my_view_for_endorsement_tree" model="ir.ui.view">-->
+<!--            <field name="name">Policy History</field>-->
+<!--            <field name="model">endorsement.marine</field>-->
+<!--            <field name="arch" type="xml">-->
                 <!--<tree>-->
                     <!--<field name="policy_no" string="Policy No"/>-->
                     <!--<field name="endorsement_no"/>-->
@@ -45,14 +45,14 @@
                 <!--</tree>-->
             <!--</field>-->
         <!--</record>-->
-        <!--<record id="my_action_for_Endorsement" model="ir.actions.act_window">-->
-            <!--<field name="name">Policy History</field>-->
-            <!--<field name="res_model">endorsement.edit</field>-->
-            <!--<field name="view_mode">tree,form,search</field>-->
-            <!--<field name="view_type">form</field>-->
-            <!--&lt;!&ndash;&lt;!&ndash;<field name="search_view_id" ref="my_view_search_view"/>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;<field name='domain'>[('salesperson','=',uid)]</field>&ndash;&gt;-->
-            <!--&lt;!&ndash;<field name="context" >{'search_default_by_salesperson':1}</field>&ndash;&gt;-->
-        <!--</record>-->
+        <record id="my_action_for_Endorsement" model="ir.actions.act_window">
+            <field name="name">Policy History</field>
+            <field name="res_model">endorsement.marine</field>
+            <field name="view_mode">tree,form,search</field>
+<!--            <field name="view_type">form</field>-->
+            <!--&lt;!&ndash;<field name="search_view_id" ref="my_view_search_view"/>&ndash;&gt;-->
+            <!--<field name='domain'>[('salesperson','=',uid)]</field>-->
+            <!--<field name="context" >{'search_default_by_salesperson':1}</field>-->
+        </record>
     </data>
 </odoo>

@@ -67,7 +67,7 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" scope="col">Agent</th>
-                                        <td><span t-esc="o.in_favour"/></td>
+                                        <td><span t-esc="o.broker"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" scope="col">Period Of Insurance</th>
@@ -117,51 +117,51 @@
                                 <table class="table table-hover">
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Conveyance mode</th>
-                                        <td></td>
+                                        <td><span t-esc="o.conveyance_mode"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Country of Origin</th>
-                                        <td></td>
+                                        <td><span t-esc="o.ship_from"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Destination Country</th>
-                                        <td></td>
+                                        <td><span t-esc="o.ship_to"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >L/C No.</th>
-                                        <td></td>
+                                        <td><span t-esc="o.file_num"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Bank</th>
-                                        <td></td>
+                                        <td><span t-esc="o.bank"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Order or Invoice NO</th>
-                                        <td></td>
+                                        <td><span t-esc="o.inv_num"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Supplier</th>
-                                        <td></td>
+                                        <td><span t-esc="o.supplier"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>
-                                        <td></td>
+                                        <td><span t-esc="o.consignee"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>
-                                        <td></td>
+                                        <td><span t-esc="o.consignee_value"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>
-                                        <td></td>
+                                        <td><span t-esc="o.invoice_currency"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
-                                        <td></td>
+                                        <td><span t-esc="o.invoice_ammount"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
-                                        <td></td>
+                                        <td><span t-esc="o.valution_notes"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
@@ -169,7 +169,7 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>
-                                        <td></td>
+                                        <td><span t-esc="o.nature_pakage"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>
@@ -202,14 +202,53 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">
-                                <p style="margin-top:-10px !important;">TOTAL SUM AT RISK: 00</p>
-                                <p>SPECIAL CONDITIONS</p>
-                                <p>SPECIAL CLAUSES</p>
-                                <p>EXCLUSIONS</p>
-                                <p>ATTACHMENTS</p>
+                            <div class="text-center" style="width: 100% !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left !important;" scope="col">GENERAL CONDITIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <t t-foreach="o.new_terms" t-as="t">
+                                                    <span t-esc="t.term_name"/> <t/>
+                                                </t>
+                                            </td>
 
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <div class="text-center" style="width: 100% !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left !important;" scope="col">SPECIAL CONDITIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <t t-foreach="o.new_special_terms" t-as="t">
+                                                    <span t-esc="t.term_name"/> <t/>
+                                                </t>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+<!--                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">-->
+<!--                                <p style="margin-top:-10px !important;">TOTAL SUM AT RISK: 00</p>-->
+<!--                                <p>SPECIAL CONDITIONS</p>-->
+<!--                                <p>SPECIAL CLAUSES</p>-->
+<!--                                <p>EXCLUSIONS</p>-->
+<!--                                <p>ATTACHMENTS</p>-->
+
+<!--                            </div>-->
                             <div style="width: 100% !important; margin-top:-5px !important; float: left;">
                                 <p>Any additions or amendments not bearing the company’s official signature shall be null and void.</p>
 

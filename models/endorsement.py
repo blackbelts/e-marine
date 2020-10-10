@@ -7,14 +7,15 @@ class Endorsement_edit(models.Model):
     _rec_name = "endorsement_no"
 
     cover_id = fields.Many2one("policy.marine", string="Cover",domain="[('state', '=','approved')]")
-    endorsement_no = fields.Integer(string="Endorsement Number",compute='get_no')
+    endorsement_no = fields.Integer(string="Endorsement Number",compute='get_no',store=True)
 
     # cover_id = fields.Many2one('policy.broker')
     # @api.one
     @api.depends('cover_id')
     def get_no(self):
-        if self.cover_id:
-            self.endorsement_no=self.cover_id.endorsement_no+1
+       for rec in self:
+        if rec.cover_id:
+            rec.endorsement_no=rec.cover_id.endorsement_no+1
             # self.end_no='END / ' + str(self.endorsement_no)
     reasonedit = fields.Text(string="Endorsement Discribtion", required=False)
     end_date = fields.Date(string="End Date")
@@ -23,7 +24,6 @@ class Endorsement_edit(models.Model):
     endorsement_type = fields.Selection([('Technical', 'Technical'),
                                          ('Non Tech', 'Non Tech'),
                                          ('canceled','canceled'),
-                                         ('born-dead','Born-Dead'),
                                          ('extend','Extend')],
                                         string='Endorsement Type', required=True)
     is_canceled = fields.Boolean(string="", )
@@ -38,6 +38,14 @@ class Endorsement_edit(models.Model):
             print("hena hena hena")
             self.is_canceled = True
         self.converted = True
+        covers=[]
+        stamps=[]
+        for rec in self.cover_id.covers_ids:
+            object = (0, 0, {'cover': rec.cover.id, 'rate':rec.rate,'premium':rec.premium})
+            covers.append(object)
+        for rec in self.cover_id.stamp_ids:
+            object = (0, 0, {'stamp': rec.stamp.id, 'value':rec.value})
+            stamps.append(object)
         return {
             'name': ('Policy'),
             'view_type': 'form',
@@ -54,6 +62,8 @@ class Endorsement_edit(models.Model):
                 # 'default_end_no': self.end_no,
 
                 'default_cover_num': self.cover_id.cover_num,
+                'default_inv_num': self.cover_id.inv_num,
+
                 'default_agency': self.cover_id.agency.id,
                 'default_rate': self.cover_id.rate,
                 'default_supplier': self.cover_id.supplier,
@@ -84,6 +94,8 @@ class Endorsement_edit(models.Model):
                 'default_product': [(6,0,self.cover_id.product.ids)],
                 'default_nature_pakage': [(6, 0, self.cover_id.nature_pakage.ids)],
                 'default_valution_notes': [(6, 0, self.cover_id.valution_notes.ids)],
+                'default_covers_ids': covers,
+                'default_stamp_ids': stamps,
 
                 'default_new_terms': [(6, 0, self.cover_id.new_terms.ids)],
                 'default_new_special_terms': [(6, 0, self.cover_id.new_special_terms.ids)],
@@ -104,6 +116,10 @@ class Endorsement_edit(models.Model):
                 'default_ship_num': self.cover_id.ship_num,
                 'default_file_num': self.cover_id.file_num,
                 'default_is_renewal': self.cover_id.is_renewal,
+                'default_broker': self.cover_id.broker.id,
+                'default_broke_pin': self.cover_id.broker_pin,
+
+                'default_broker_fra_code': self.cover_id.broker_fra_code,
 
                 # 'default_new_risk_ids': records_risks,
                 'default_last_cover_id': self.cover_id.id,

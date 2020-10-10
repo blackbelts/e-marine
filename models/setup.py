@@ -67,6 +67,16 @@ class Packaging(models.Model):
     _rec_name = 'name'
     name = fields.Char('Package Name')
     desc = fields.Char('Description')
+class StampsandFees(models.Model):
+    _name = 'marine.stamps'
+    _rec_name = 'stamp_name'
+    stamp_name= fields.Char('Stamp Name')
+    rate = fields.Float('Rate',digits = (12,3))
+    stamp_value = fields.Float(sting='Stamp Value')
+    type= fields.Selection([('rate', 'Rate'),
+                                ('value', 'Fixed Value')],default='rate',sting='Calculation Method')
+
+
 
 
 
@@ -85,6 +95,11 @@ class TermsandConditions(models.Model):
                                      ('special', 'Special'),
                                      ],
                                     string='Type',)
+class Covers(models.Model):
+    _name = 'covers'
+    _rec_name = 'cover_name'
+    cover_name = fields.Char('Cover')
+    rate = fields.Float(string='Rate',digits = (12,3))
 class Users(models.Model):
     _inherit = 'res.users'
 
