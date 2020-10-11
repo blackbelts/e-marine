@@ -153,6 +153,12 @@ class PolicyMarine(models.Model):
 
                   }
             }
+      def _get_stamps(self):
+          record_ids=[]
+          for rec in self.env['marine.stamps'].search([]):
+               id=self.env['policy.stamps'].create({'stamp':rec.id})
+               record_ids.append(id.id)
+          return record_ids
 
       is_renewal = fields.Boolean(string="Renewal")
       pre_paid = fields.Boolean(string="Pre-Paid")
@@ -160,7 +166,7 @@ class PolicyMarine(models.Model):
       differnce1 = fields.Integer(compute='compute_date', force_save=True)
       today = fields.Date(string="", required=False, compute='todau_comp')
       covers_ids = fields.One2many('policy.covers','policy_id',string="Covers")
-      stamp_ids = fields.One2many('policy.stamps','policy_stam_id',string="Stamps")
+      stamp_ids = fields.One2many('policy.stamps','policy_stam_id',string="Stamps",default=_get_stamps)
 
 
       # @api.one
@@ -312,8 +318,19 @@ class PolicyMarine(models.Model):
 
                   },
             }
+      # @api.onchange('covers_ids')
+      # def changecover(self):
+      #     if self.covers_ids:
+      #         ids=[]
+      #         for rec in self.covers_ids:
+      #            ids.append(rec.cover.id)
+      #         if any(line for line in self.covers_ids if line.cover.id in ids):
+      #         # for rec in self.env['covers'].search([]):
+      #         #     for record in self.covers_ids:
+      #         #         if record.cover.id==rec.id:
+      #                     raise ValidationError('pppppp')
 
-
+                          # return {'domain': {'covers_ids.cover': [('id', '!=', record.cover.id)]}}
 class MarineCovers(models.Model):
     _name = 'policy.covers'
     _rec_name = 'cover'
@@ -322,11 +339,22 @@ class MarineCovers(models.Model):
     premium = fields.Float(string='Premium',compute='set_premium',)
     policy_id= fields.Many2one('policy.marine',string='Policy')
 
+    # @api.onchange('cover')
+    # def changecover(self):
+    #     if self.covers_ids:
+
+
 
     @api.onchange('cover')
     def set_rate(self):
-          if self.cover:
-                self.rate=self.cover.rate
+        ids = []
+        self.rate=self.cover.rate
+        for rec in self.policy_id.covers_ids:
+                  ids.append(rec.cover.id)
+        if self.cover.id in ids:
+            ids.remove(self.cover.id)
+            return {'domain': {'cover': [('id', '!=', ids)]}}
+
     @api.depends('rate','policy_id.sum_insured','policy_id.pre_paid')
     def set_premium(self):
               for rec in self:
@@ -343,13 +371,12 @@ class MarineStamps(models.Model):
     value = fields.Float(string='Value',compute='set_stamp',)
     policy_stam_id= fields.Many2one('policy.marine',string='Policy')
 
-
     @api.depends('stamp','policy_stam_id.net_premium',)
     def set_stamp(self):
               for rec in self:
                 if rec.policy_stam_id.type =='individual' or rec.policy_stam_id.pre_paid==True :
                     if rec.stamp.type=='rate':
-                        rec.value = (rec.stamp.rate*rec.policy_stam_id.net_premium)/100
+                        rec.value = (rec.stamp.rate*rec.policy_stam_id.net_premium)
                     else:
                         rec.value=rec.stamp.stamp_value
                 else:
@@ -357,6 +384,7 @@ class MarineStamps(models.Model):
                       rec.value=0.0
                     else:
                         rec.value=rec.stamp.stamp_value
+
 
 
 

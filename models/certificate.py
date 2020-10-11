@@ -69,7 +69,7 @@ class PolicyMarinecert(models.Model):
       consignee = fields.Char('Consignee',related='open_cover_id.consignee')
       consignee_value = fields.Char('Consignee Value',related='open_cover_id.consignee_value')
       invoice_currency = fields.Many2one(related='open_cover_id.invoice_currency', string='Invoice Currency')
-      invoice_ammount = fields.Char('Invoice Amount',related='open_cover_id.invoice_ammount')
+      invoice_ammount = fields.Char('Invoice Amount')
       valution_notes = fields.Many2many(related='open_cover_id.valution_notes', string='Valution Notes')
       broker = fields.Many2one(related='open_cover_id.broker', string="Broker")
       broker_pin = fields.Integer(related='open_cover_id.broker_pin',string="Agent Code")
