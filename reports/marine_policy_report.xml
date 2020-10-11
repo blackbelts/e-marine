@@ -133,7 +133,7 @@
                                     </t>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
-                                        <td><span t-esc="'{0:,.2f}'.format(o.invoice_ammount)" /></td>
+                                        <td><span t-esc="o.invoice_ammount" /></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مبلغ التأمين</th>
