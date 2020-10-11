@@ -173,7 +173,7 @@
                                         <tr>
                                             <td style="width: 75%;">
                                                 <t t-foreach="o.covers_ids" t-as="c">
-                                                  <span t-esc="c.cover.name"/>
+                                                  <span t-esc="c.cover.cover_name"/>
                                             </t>
                                             </td>
 
