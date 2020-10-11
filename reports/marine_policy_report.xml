@@ -105,7 +105,7 @@
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نوع التعبئة</th>
 
                                         <td>
-                                                <t t-foreach="o.nature_pakage" t-as="n">
+                                            <t t-foreach="o.nature_pakage" t-as="n">
                                                 <span t-esc="n.name"/> <t/>
                                             </t>
                                         </td>
@@ -170,19 +170,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <t t-foreach="o.covers_ids" t-as="c">
                                         <tr>
+
                                             <td style="width: 75%;">
-                                                <t t-foreach="o.covers_ids" t-as="c">
-                                                  <span t-esc="c.cover.cover_name"/>
-                                            </t>
+                                                <span t-esc="str(c.cover.cover_name)+' '+str(c.c.cover.rate)"/>
+
                                             </td>
 
 
                                             <td style="width: 25%;">
-                                                <span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.net_premium)"/>
+                                                <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
                                             </td>
 
                                         </tr>
+                                        </t>
                                     </tbody>
                                 </table>
                             </div>
@@ -267,64 +269,64 @@
                             <div style="width: 100% !important; margin-top:-5px !important; float: right;">
                                 <p style="font-size: 12px; margin-top:-10px !important;">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
                             </div>
-<!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
-<!--                                <table class="table table-hover">-->
-<!--                                    <thead>-->
-<!--                                        <tr>-->
-<!--                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>-->
-<!--                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>-->
-<!--                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>-->
+                            <!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
+                            <!--                                <table class="table table-hover">-->
+                            <!--                                    <thead>-->
+                            <!--                                        <tr>-->
+                            <!--                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>-->
+                            <!--                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>-->
+                            <!--                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>-->
 
-<!--                                        </tr>-->
-<!--                                    </thead>-->
-<!--                                    <tbody>-->
-<!--                                        <tr>-->
-<!--                                            <td><span t-esc="o.broker"/></td>-->
-<!--                                            <td><span t-esc="o.broker_fra_code"/></td>-->
-<!--                                            <td><span t-esc="o.broker_pin"/></td>-->
+                            <!--                                        </tr>-->
+                            <!--                                    </thead>-->
+                            <!--                                    <tbody>-->
+                            <!--                                        <tr>-->
+                            <!--                                            <td><span t-esc="o.broker"/></td>-->
+                            <!--                                            <td><span t-esc="o.broker_fra_code"/></td>-->
+                            <!--                                            <td><span t-esc="o.broker_pin"/></td>-->
 
-<!--                                        </tr>-->
-<!--                                    </tbody>-->
-<!--                                </table>-->
-<!--                            </div>-->
-<!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
-<!--                                <table class="table table-hover">-->
-<!--                                    <thead>-->
-<!--                                        <tr>-->
-<!--                                            <th style="text-align: right !important;" scope="col">الشروط العامة</th>-->
-<!--                                        </tr>-->
-<!--                                    </thead>-->
-<!--                                    <tbody>-->
-<!--                                        <tr>-->
-<!--                                            <td>-->
-<!--                                                <t t-foreach="o.new_terms" t-as="t">-->
-<!--                                                    <span t-esc="t.term_name"/> <t/>-->
-<!--                                                </t>-->
-<!--                                            </td>-->
+                            <!--                                        </tr>-->
+                            <!--                                    </tbody>-->
+                            <!--                                </table>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
+                            <!--                                <table class="table table-hover">-->
+                            <!--                                    <thead>-->
+                            <!--                                        <tr>-->
+                            <!--                                            <th style="text-align: right !important;" scope="col">الشروط العامة</th>-->
+                            <!--                                        </tr>-->
+                            <!--                                    </thead>-->
+                            <!--                                    <tbody>-->
+                            <!--                                        <tr>-->
+                            <!--                                            <td>-->
+                            <!--                                                <t t-foreach="o.new_terms" t-as="t">-->
+                            <!--                                                    <span t-esc="t.term_name"/> <t/>-->
+                            <!--                                                </t>-->
+                            <!--                                            </td>-->
 
-<!--                                        </tr>-->
-<!--                                    </tbody>-->
-<!--                                </table>-->
-<!--                            </div>-->
-<!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
-<!--                                <table class="table table-hover">-->
-<!--                                    <thead>-->
-<!--                                        <tr>-->
-<!--                                            <th style="text-align: right !important;" scope="col">الشروط الخاصة</th>-->
-<!--                                        </tr>-->
-<!--                                    </thead>-->
-<!--                                    <tbody>-->
-<!--                                        <tr>-->
-<!--                                            <td>-->
-<!--                                                <t t-foreach="o.new_special_terms" t-as="t">-->
-<!--                                                    <span t-esc="t.term_name"/> <t/>-->
-<!--                                                </t>-->
-<!--                                            </td>-->
+                            <!--                                        </tr>-->
+                            <!--                                    </tbody>-->
+                            <!--                                </table>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
+                            <!--                                <table class="table table-hover">-->
+                            <!--                                    <thead>-->
+                            <!--                                        <tr>-->
+                            <!--                                            <th style="text-align: right !important;" scope="col">الشروط الخاصة</th>-->
+                            <!--                                        </tr>-->
+                            <!--                                    </thead>-->
+                            <!--                                    <tbody>-->
+                            <!--                                        <tr>-->
+                            <!--                                            <td>-->
+                            <!--                                                <t t-foreach="o.new_special_terms" t-as="t">-->
+                            <!--                                                    <span t-esc="t.term_name"/> <t/>-->
+                            <!--                                                </t>-->
+                            <!--                                            </td>-->
 
-<!--                                        </tr>-->
-<!--                                    </tbody>-->
-<!--                                </table>-->
-<!--                            </div>-->
+                            <!--                                        </tr>-->
+                            <!--                                    </tbody>-->
+                            <!--                                </table>-->
+                            <!--                            </div>-->
                         </div>
                     </div>
                     <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
@@ -346,25 +348,25 @@
                             <span>5454545454</span>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
-                           <h6 style="text-decoration: underline;">شروط خاصة -</h6>
+                            <h6 style="text-decoration: underline;">شروط خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
                                 <li></li>
                             </ul>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
-                           <h6 style="text-decoration: underline;">احكام خاصة -</h6>
+                            <h6 style="text-decoration: underline;">احكام خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
                                 <li></li>
                             </ul>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
-                           <h6 style="text-decoration: underline;">إستثناءات -</h6>
+                            <h6 style="text-decoration: underline;">إستثناءات -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
                                 <li></li>
                             </ul>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
-                           <h6 style="text-decoration: underline;">ملاحق -</h6>
+                            <h6 style="text-decoration: underline;">ملاحق -</h6>
                             <ul style="direction: rtl !important; padding-right:25px;">
                                 <li></li>
                             </ul>
@@ -375,7 +377,7 @@
                         </div>
                         <br/>
                         <div style="width: 100% !important; !important; float: right;">
-                                <p style="font-size: 12px;">يعتبر باطلا كل تعديل أو إضافة ما لم يوقع رسميا عليها من قبل الشركة</p>
+                            <p style="font-size: 12px;">يعتبر باطلا كل تعديل أو إضافة ما لم يوقع رسميا عليها من قبل الشركة</p>
                         </div>
                         <div style="width: 100% !important; !important; float: right; margin-top: 50px;">
                             <span style="padding-left:15px;">تحريرا فى</span>
