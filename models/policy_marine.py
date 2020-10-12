@@ -27,7 +27,7 @@ class PolicyMarine(models.Model):
 
       cover_num=fields.Char('Open Cover',readonly=True)
       insured=fields.Char('Insured')
-      lob = fields.Many2one('insurance.line.business', 'LOB')
+      lob = fields.Many2one('insurance.line.business', 'LOB',required=True)
       in_favour=fields.Char('IN Favour of')
       address=fields.Char(' Insured Address')
       issue_date=fields.Date('Issuance Date',default=datetime.today())
