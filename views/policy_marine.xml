@@ -117,7 +117,7 @@
                                     <field name="end_date"/>
                                 </group>
                                 <group>
-                                    <field name="lob"/>
+<!--                                    <field name="lob"/>-->
                                     <field name="cover_type"/>
                                     <field name="type"/>
                                     <field name="pre_paid" attrs="{'invisible': [('type', '=','individual')]}" />
