@@ -145,7 +145,7 @@
                                 <group>
                                     <field name="address"/>
                                     <field name="broker_pin"/>
-                                    <field name="broker_commission" readonly="1"/>
+<!--                                    <field name="broker_commission" readonly="1"/>-->
                                     <field name="broker_fra_code"/>
                                 </group>
                             </group>

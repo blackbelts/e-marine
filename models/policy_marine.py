@@ -97,7 +97,7 @@ class PolicyMarine(models.Model):
       broker= fields.Many2one('res.users',string="Broker" )
       broker_pin = fields.Char(string="Agent Code")
       broker_fra_code = fields.Char(string="Broker FRA Code")
-      broker_commission = fields.Float(string="Broker Commission")
+      # broker_commission = fields.Float(string="Broker Commission")
       state_track = fields.Char(default='New')
       remain=fields.Float('Remaining',)
       issue_fees = fields.Float('Issue Fees',default=50)
