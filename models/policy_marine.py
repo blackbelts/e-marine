@@ -27,6 +27,7 @@ class PolicyMarine(models.Model):
 
       cover_num=fields.Char('Open Cover',readonly=True)
       insured=fields.Char('Insured')
+      lob = fields.Many2one('insurance.line.business', 'LOB')
       in_favour=fields.Char('IN Favour of')
       address=fields.Char(' Insured Address')
       issue_date=fields.Date('Issuance Date',default=datetime.today())
@@ -93,17 +94,14 @@ class PolicyMarine(models.Model):
       agency_branch=fields.Many2one('agency.branch.marine',string='Shipping Branch')
       currency_id=fields.Many2one('res.currency',string='Currency',required=True)
       endorsement_no = fields.Integer(string="Endorsement Number")
-      broker= fields.Many2one('res.users',string="Broker")
-      broker_pin = fields.Integer(string="Agent Code")
+      broker= fields.Many2one('persona',string="Broker" ,domain="[('type', '=', 'broker')]")
+      broker_pin = fields.Char(related='broker.agent_code',string="Agent Code")
       broker_fra_code = fields.Char(string="Broker FRA Code")
-
-
-
+      broker_commission = fields.Float(string="Broker Commission")
       state_track = fields.Char(default='New')
       remain=fields.Float('Remaining',)
       issue_fees = fields.Float('Issue Fees',default=50)
       war = fields.Float('war')
-
       proportional_stamp = fields.Float('Proportional Stamp')
       dimensional_stamp = fields.Float('Dimensional Stamp',default=2)
       supervisory_stamp = fields.Float('Supervisory Stamp')
@@ -135,6 +133,12 @@ class PolicyMarine(models.Model):
                   for rec in self.covers_ids:
                         sum+=rec.premium
                   self.net_premium=sum
+
+      @api.onchange('net_premium')
+      def set_commission(self):
+         commission=self.env['commission.table'].search([('lob','=',self.lob)])
+         if self.net_premium:
+              self.broker_commission =(self.net_premium*commission.basic)/100
 
 
       def create_endo(self):
