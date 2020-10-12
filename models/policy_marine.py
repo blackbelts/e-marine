@@ -136,7 +136,7 @@ class PolicyMarine(models.Model):
 
       @api.onchange('net_premium')
       def set_commission(self):
-         commission=self.env['commission.table'].search([('lob','=',self.lob)])
+         commission=self.env['commission.table'].search([('lob','=',self.lob.id)])
          if self.net_premium:
               self.broker_commission =(self.net_premium*commission.basic)/100
 
