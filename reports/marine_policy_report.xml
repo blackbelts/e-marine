@@ -345,7 +345,7 @@
                         </div>
                         <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
                             <span style="padding-left:5px;">قيمة العمولات الأساسية قبل الاستقطعات : </span>
-                            <span>00</span>
+                            <span><t t-esc="o.broker_commission"/></span>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">شروط خاصة -</h6>
