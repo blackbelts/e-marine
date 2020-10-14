@@ -139,7 +139,7 @@
                             <group>
                                 <group>
                                     <field name="insured"/>
-                                    <field name="broker"/>
+                                    <field name="broker_person"/>
                                     <field name="in_favour"/>
                                 </group>
                                 <group>

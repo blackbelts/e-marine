@@ -32,7 +32,10 @@ class PolicyMarinecert(models.Model):
 
       open_cover_id=fields.Many2one('policy.marine',string='Cover',required=True,domain="[('type', '=', 'contract'),('state', '=', 'approved')]")
       insured=fields.Char(string='Customer')
+      in_favour=fields.Char('IN Favour of')
+      address=fields.Char(' Insured Address')
 
+      lob = fields.Many2one(related='open_cover_id.lob',string='LOB')
       name=fields.Char('Certificate',readonly=True)
       certificate_num=fields.Char(string='Certificate Num',default=lambda self: self.env['ir.sequence'].next_by_code('certificate'))
       start_date = fields.Date('Effective from')
@@ -40,7 +43,7 @@ class PolicyMarinecert(models.Model):
       user_id = fields.Many2one('res.users', default=lambda self: self.env.user)
       agency = fields.Many2one('marine.agency',related='open_cover_id.agency', string='Shipping',store=True)
       agency_branch = fields.Many2one('agency.branch.marine', related='open_cover_id.agency_branch',string='Shipping Branch')
-      currency_id=fields.Many2one(string='Currency')
+      currency_id=fields.Many2one('res.currency',string='Currency')
       product=fields.Many2many('marine.product',string='Products')
       net_premium = fields.Float('Net Premium',compute='get_prem',store=True)
       war = fields.Float('war',compute='get_prem',store=True)
@@ -53,6 +56,8 @@ class PolicyMarinecert(models.Model):
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
       issue_fees = fields.Float('Issue Fees')
+      issue_date=fields.Date('Issuance Date',default=datetime.today())
+
       proportional_stamp = fields.Float('Proportional Stamp')
       dimensional_stamp = fields.Float('Dimensional Stamp')
       supervisory_stamp = fields.Float('Supervisory Stamp')
@@ -71,9 +76,10 @@ class PolicyMarinecert(models.Model):
       invoice_currency = fields.Many2one(related='open_cover_id.invoice_currency', string='Invoice Currency')
       invoice_ammount = fields.Char('Invoice Amount')
       valution_notes = fields.Many2many(related='open_cover_id.valution_notes', string='Valution Notes')
-      broker = fields.Many2one(related='open_cover_id.broker', string="Broker")
+      broker = fields.Many2one(related='open_cover_id.broker_person', string="Broker")
       broker_pin = fields.Char(related='open_cover_id.broker_pin',string="Agent Code")
       broker_fra_code = fields.Char(related='open_cover_id.broker_fra_code',string="Broker FRA Code")
+      broker_commission = fields.Float(string="Broker Commission")
       nature_pakage = fields.Many2many(related='open_cover_id.nature_pakage', string='Nature of pakage')
       inv_num = fields.Char('Order or Invoice No',related='open_cover_id.inv_num',)
       ship_num = fields.Char('Shipping Number',related='open_cover_id.ship_num')
@@ -185,3 +191,9 @@ class PolicyMarinecert(models.Model):
 
       def born_dead_cert(self):
               self.state='born-dead'
+
+      @api.onchange('net_premium')
+      def set_commission(self):
+          commission = self.env['commission.table'].search([('lob', '=', self.lob.id)])
+          if self.net_premium:
+              self.broker_commission = (self.net_premium * commission.basic) / 100

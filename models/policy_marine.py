@@ -95,6 +95,8 @@ class PolicyMarine(models.Model):
       currency_id=fields.Many2one('res.currency',string='Currency',required=True)
       endorsement_no = fields.Integer(string="Endorsement Number")
       broker= fields.Many2one('res.users',string="Broker" )
+      broker_person= fields.Many2one('persons',string="Broker" )
+
       broker_pin = fields.Char(string="Agent Code")
       broker_fra_code = fields.Char(string="Broker FRA Code" ,default=lambda self: self.broker.agent_code)
       broker_commission = fields.Float(string="Broker Commission")
