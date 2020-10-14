@@ -76,6 +76,10 @@
                                         <td><span t-esc="o.insured"/></td>
                                     </tr>
                                     <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;">رقم الشهاده</th>
+                                        <td><span t-esc="o.insured"/></td>
+                                    </tr>
+                                    <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">لصالح</th>
                                         <td><span t-esc="o.in_favour"/></td>
                                     </tr>
