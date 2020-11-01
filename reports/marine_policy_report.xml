@@ -194,6 +194,7 @@
                             <t t-if="o.cover_type in ['oil','dil']" >
                                 <div  style="width: 100% !important; float:right;">
                                     <table class="table table-hover">
+                                        <t t-call="o.set_stamps()" t-as="dic"/>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">القسط الصافى</th>
                                             <td>
@@ -202,19 +203,19 @@
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الدمغة النسبية</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic['p-stamp'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الضريبة النوعية</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic['dim-stamp'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رسم الاشراف والرقابة</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic['s-stamp'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مصاريف اصدار الوثيقة</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic['issue-fees'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">الاجمالي</th>
