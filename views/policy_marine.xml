@@ -221,8 +221,9 @@
 
                             <group attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
                                 <field name="total" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')]}"/>
-                                <field name="proportional_stamp"/>
-                                <field name="dimensional_stamp"/>
+                                <field name="proportional_stamp" invisible="1"/>
+                                <field name="dimensional_stamp" invisible="1"/>
+                                <field name="issue_fees" invisible="1"/>
                             </group>
 
                         </page>
