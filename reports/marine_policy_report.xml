@@ -113,8 +113,11 @@
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
                                         <td>
+                                            <span style="padding-left:10%;" t-esc="o.ship_num">رقم بوليصة الشحن</span>
+
                                             <span style="padding-left:30%;" t-esc="o.inv_num"/>
-                                            <span style="padding-left:10%;" t-esc="o.ship_num">رقم بوليصة الشحن</span></td>
+                                        </td>
+
 
                                     </tr>
                                     <!--                                    <tr>-->
@@ -171,19 +174,19 @@
                                     </thead>
                                     <tbody>
                                         <t t-foreach="o.covers_ids" t-as="c">
-                                        <tr>
+                                            <tr>
 
-                                            <td style="width: 75%;">
-                                                <span t-esc="str(c.cover.rate) +'  '+ str(c.cover.cover_name)"/>
+                                                <td style="width: 75%;">
+                                                    <span t-esc="str(c.cover.rate) +'  '+ str(c.cover.cover_name)"/>
 
-                                            </td>
+                                                </td>
 
 
-                                            <td style="width: 25%;">
-                                                <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
-                                            </td>
+                                                <td style="width: 25%;">
+                                                    <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
                                         </t>
                                     </tbody>
                                 </table>

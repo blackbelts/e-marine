@@ -96,20 +96,31 @@ class PolicyMarine(models.Model):
       endorsement_no = fields.Integer(string="Endorsement Number")
       broker= fields.Many2one('res.users',string="Broker" )
       broker_person= fields.Many2one('persons',string="Broker" )
-
       broker_pin = fields.Char(string="Agent Code")
       broker_fra_code = fields.Char(string="Broker FRA Code" ,default=lambda self: self.broker.agent_code)
       broker_commission = fields.Float(string="Broker Commission")
       state_track = fields.Char(default='New')
       remain=fields.Float('Remaining',)
-      issue_fees = fields.Float('Issue Fees',default=50)
-      war = fields.Float('war')
+      issue_fees = fields.Float('Issue Fees')
       proportional_stamp = fields.Float('Proportional Stamp')
-      dimensional_stamp = fields.Float('Dimensional Stamp',default=2)
+      dimensional_stamp = fields.Float('Dimensional Stamp')
       supervisory_stamp = fields.Float('Supervisory Stamp')
       policy_holder= fields.Float('Policy Holder Protection fund')
       revising_fees = fields.Float('Revising and approval fees')
       total = fields.Float('Total',compute='get_total',store=True)
+
+      @api.onchange('sum_insured','stamp_ids')
+      def set_stamps(self):
+          if self.stamp_ids:
+              for rec in self.stamp_ids:
+                  if rec.stamp.code=='p-stamp':
+                    self.proportional_stamp=rec.value
+                  if rec.stamp.code == 'dim-stamp':
+                        self.dimensional_stamp = rec.value
+                  if rec.stamp.code == 's-stamp':
+                        self.supervisory_stamp = rec.value
+                  if rec.stamp.code == 'issue-fees':
+                        self.issue_fees = rec.value
 
 
       # @api.one

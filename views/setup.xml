@@ -185,6 +185,7 @@
                     <sheet>
                         <group>
                             <field name="stamp_name"/>
+                            <field name="code"/>
                             <field name="type"/>
                             <field name="rate" attrs="{'invisible': [('type', '=','value')]}"/>
                             <field name="stamp_value" attrs="{'invisible': [('type', '=','rate')]}"/>
