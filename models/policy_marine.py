@@ -109,18 +109,21 @@ class PolicyMarine(models.Model):
       revising_fees = fields.Float('Revising and approval fees')
       total = fields.Float('Total',compute='get_total',store=True)
 
-      @api.onchange('sum_insured','stamp_ids')
+      @api.model
       def set_stamps(self):
+          stamps={}
           if self.stamp_ids:
               for rec in self.stamp_ids:
-                  if rec.stamp.code=='p-stamp':
-                    self.proportional_stamp=rec.value
-                  if rec.stamp.code == 'dim-stamp':
-                        self.dimensional_stamp = rec.value
-                  if rec.stamp.code == 's-stamp':
-                        self.supervisory_stamp = rec.value
-                  if rec.stamp.code == 'issue-fees':
-                        self.issue_fees = rec.value
+                  stamps[rec.stamp.code]=rec.value
+          return stamps
+                  # if rec.stamp.code=='p-stamp':
+                  #   self.proportional_stamp=rec.value
+                  # if rec.stamp.code == 'dim-stamp':
+                  #       self.dimensional_stamp = rec.value
+                  # if rec.stamp.code == 's-stamp':
+                  #       self.supervisory_stamp = rec.value
+                  # if rec.stamp.code == 'issue-fees':
+                  #       self.issue_fees = rec.value
 
 
       # @api.one
