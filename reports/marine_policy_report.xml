@@ -203,19 +203,19 @@
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الدمغة النسبية</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(dic['p-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic.get_value('p-stamp'))"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الضريبة النوعية</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(dic['dim-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic.get_value('dim-stamp'))"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رسم الاشراف والرقابة</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(dic['s-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic.get_value('s-stamp'))"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مصاريف اصدار الوثيقة</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(dic['issue-fees'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(dic.get_value('issue-fees'))"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">الاجمالي</th>
