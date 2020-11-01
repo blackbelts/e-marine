@@ -75,7 +75,7 @@ class StampsandFees(models.Model):
                              ('s-stamp', 'SuperVis/Stamp'),
                              ('dim-stamp', 'Dimensional/Stamp'),
                              ('issue-fees', 'Issue/fees'),
-                             ], default='rate', sting='Stamp Code')
+                             ], sting='Stamp Code')
 
     rate = fields.Float('Rate',digits = (12,3))
     stamp_value = fields.Float(sting='Stamp Value')
