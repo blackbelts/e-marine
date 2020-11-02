@@ -114,7 +114,8 @@
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الفاتورة</th>
                                         <td>
                                             <span style="padding-left:30%;" t-esc="o.inv_num"/>
-                                            <span style="padding-left:10%;">رقم بوليصة الشحن</span></td>
+                                            <span style="padding-left:10%;">رقم بوليصة الشحن</span>
+                                        </td>
 
                                     </tr>
                                     <!--                                    <tr>-->
