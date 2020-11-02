@@ -235,19 +235,19 @@
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">نصف الدمغة النسبية</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.proportional_stamp)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">نصف الضريبة النوعية</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.dimensional_stamp)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">رسم الاشراف والرقابة</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.supervisory_stamp)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">مصاريف اصدار الوثيقة</th>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.issue_fees)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
                                         </tr>
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">الاجمالي</th>
@@ -364,11 +364,11 @@
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">احكام خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
-                                 <t t-foreach="o.new_special_terms" t-as="t">
-                                <li>
-                                    <t t-esc="t.term_name"/>
-                                </li>
-                                </t>
+<!--                                 <t t-foreach="o.new_special_terms" t-as="t">-->
+<!--                                <li>-->
+<!--                                    <t t-esc="t.term_name"/>-->
+<!--                                </li>-->
+<!--                                </t>-->
 
                             </ul>
                         </div>
