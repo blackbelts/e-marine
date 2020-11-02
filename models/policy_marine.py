@@ -19,10 +19,10 @@ class PolicyMarine(models.Model):
                   return super(PolicyMarine, self).create(vals)
             else:
                   serial_no = self.env['ir.sequence'].next_by_code('policy')
-                  type=vals.get('cover_type')
+                  type=vals.get('marine_type.product_name')
                   currency=vals.get('currency_id')
-                  cur = self.env['res.currency'].search([('id','=',currency)]).name
-                  vals['cover_num'] = str(type).upper() +'/'+str(cur)+ str(serial_no)
+                  # cur = self.env['res.currency'].search([('id','=',currency)]).name
+                  vals['cover_num'] = str(type).upper() +'/'+str(currency)+ str(serial_no)
                   return super(PolicyMarine, self).create(vals)
 
       cover_num=fields.Char('Open Cover',readonly=True)
