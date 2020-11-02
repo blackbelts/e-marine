@@ -1,15 +1,15 @@
 <odoo>
     <report id="policy_certificate_report"
-                string="Marine Certificate"
-                model="certificate.marine"
-                report_type="qweb-pdf"
-                name="e-marine.marine_certificate_report"
+            string="Marine Certificate"
+            model="certificate.marine"
+            report_type="qweb-pdf"
+            name="e-marine.marine_certificate_report"
 
-        />
+    />
     <template id="marine_certificate_report">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                 <t t-call="web.basic_layout">
+                <t t-call="web.basic_layout">
                     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Homemade+Apple"/>
                     <style>
                         table {
@@ -45,11 +45,11 @@
                     <div class="header">
                         <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
                         <div class="text-center">
-                            <h4 style="color: #073e89;"><span t-field="o.open_cover_id.marine_type.product_name" /></h4>
-                            <t t-if="o.open_cover_id.marine_type.product_name in ['oil','dil']" >
+                            <h4 style="color: #073e89;"><span t-field="o.marine_type.product_name" /></h4>
+                            <t t-if="o.lob.line_of_business== 'Inland'" >
                                 <h4 style="color: #073e89;">وثيقة تأمين النقل الداخلي</h4>
                             </t>
-                            <t t-if="o.open_cover_id.marine_type.product_name in ['cil','dpn','opn','crg','drg']" >
+                            <t t-if="o.lob.line_of_business== 'Cargo'" >
                                 <h4 style="color: #073e89;">وثيقة تأمين بحرى / جوي "بضائع"</h4>
                             </t>
                         </div>
@@ -64,14 +64,14 @@
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" >رقم الوثيقة</th>
                                         <td>
                                             <span t-esc="o.open_cover_id.cover_num"/>
-<!--                                            <span style="padding-left:30%;" t-esc="o.cover_num"/>-->
-<!--                                            <t t-if="o.is_endorsement == true">-->
-<!--                                                رقم الملحق :<span t-esc="o.endorsement_no"/>-->
-<!--                                            </t>-->
+                                            <!--                                            <span style="padding-left:30%;" t-esc="o.cover_num"/>-->
+                                            <!--                                            <t t-if="o.is_endorsement == true">-->
+                                            <!--                                                رقم الملحق :<span t-esc="o.endorsement_no"/>-->
+                                            <!--                                            </t>-->
 
                                         </td>
                                     </tr>
-                                     <tr>
+                                    <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;">رقم الشهاده</th>
                                         <td><span t-esc="o.name"/></td>
                                     </tr>
@@ -127,7 +127,7 @@
                                     <!--                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>-->
                                     <!--                                        <td style="text-align:center !important;">بنك :</td>-->
                                     <!--                                    </tr>-->
-                                    <t t-if="o.open_cover_id.marine_type.product_name in ['cil','dpn','opn','crg','drg']" >
+                                    <t t-if="o.lob.line_of_business== 'Cargo'" >
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
 
@@ -177,24 +177,24 @@
                                     </thead>
                                     <tbody>
                                         <t t-foreach="o.covers_ids" t-as="c">
-                                        <tr>
+                                            <tr>
 
-                                            <td style="width: 75%;">
-                                                <span t-esc="str(c.cover.rate) +'  '+ str(c.cover.cover_name)"/>
+                                                <td style="width: 75%;">
+                                                    <span t-esc="str(c.cover.rate) +'  '+ str(c.cover.cover_name)"/>
 
-                                            </td>
+                                                </td>
 
 
-                                            <td style="width: 25%;">
-                                                <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
-                                            </td>
+                                                <td style="width: 25%;">
+                                                    <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
                                         </t>
                                     </tbody>
                                 </table>
                             </div>
-                            <t t-if="o.open_cover_id.marine_type.product_name in ['oil','dil']" >
+                            <t t-if="o.lob.line_of_business== 'Inland'" >
                                 <div  style="width: 100% !important; float:right;">
                                     <table class="table table-hover">
                                         <tr>
@@ -226,7 +226,7 @@
                                     </table>
                                 </div>
                             </t>
-                            <t t-if="o.open_cover_id.marine_type.product_name in ['cil','dpn','opn','crg','drg']" >
+                            <t t-if="o.lob.line_of_business=='Cargo'" >
                                 <div  style="width: 50% !important; float:right;">
                                     <table class="table table-hover">
                                         <tr>
@@ -356,14 +356,22 @@
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">شروط خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
-                                <li></li>
-                            </ul>
+                                <t t-foreach="o.cert_terms" t-as="t">
+                                    <li>
+                                        <t t-esc="t.term_name"/>
+                                    </li>
+                                </t>                                               </ul>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">احكام خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
-                                <li></li>
+                                <t t-foreach="o.cert_special_terms" t-as="t">
+                                    <li>
+                                        <t t-esc="t.term_name"/>
+                                    </li>
+                                </t>
                             </ul>
+
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">إستثناءات -</h6>

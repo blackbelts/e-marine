@@ -117,8 +117,8 @@
                                     <field name="end_date"/>
                                 </group>
                                 <group>
-                                    <field name="lob"/>
-                                    <field name="marine_type"/>
+                                    <field name="lob" widget="selection"/>
+                                    <field name="marine_type" widget="selection"/>
                                     <field name="type"/>
                                     <field name="pre_paid" attrs="{'invisible': [('type', '=','individual')]}" />
                                     <field name="active" invisible="1"/>

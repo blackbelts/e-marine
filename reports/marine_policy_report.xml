@@ -364,9 +364,9 @@
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">احكام خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
-                                 <t t-foreach="o.new_terms" t-as="t">
+                                 <t t-foreach="o.new_special_terms" t-as="t">
                                 <li>
-                                    <t t-esc="t.new_special_terms"/>
+                                    <t t-esc="t.term_name"/>
                                 </li>
                                 </t>
 
