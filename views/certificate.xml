@@ -12,7 +12,7 @@
                 <field name="agency"/>
                 <field name="agency_branch"/>
 
-                <!--<field name="issue_date"/>-->
+                <field name="issue_date"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <!--<field name="age"/>-->

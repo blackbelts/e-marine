@@ -71,6 +71,12 @@ class StampsandFees(models.Model):
     _name = 'marine.stamps'
     _rec_name = 'stamp_name'
     stamp_name= fields.Char('Stamp Name')
+    code = fields.Selection([('p-stamp', 'Pro/Stamp'),
+                             ('s-stamp', 'SuperVis/Stamp'),
+                             ('dim-stamp', 'Dimensional/Stamp'),
+                             ('issue-fees', 'Issue/fees'),
+                             ], sting='Stamp Code')
+
     rate = fields.Float('Rate',digits = (12,3))
     stamp_value = fields.Float(sting='Stamp Value')
     type= fields.Selection([('rate', 'Rate'),

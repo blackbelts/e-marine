@@ -117,7 +117,8 @@
                                     <field name="end_date"/>
                                 </group>
                                 <group>
-                                    <field name="cover_type"/>
+                                    <field name="lob" widget="selection"/>
+                                    <field name="marine_type" widget="selection"/>
                                     <field name="type"/>
                                     <field name="pre_paid" attrs="{'invisible': [('type', '=','individual')]}" />
                                     <field name="active" invisible="1"/>
@@ -138,12 +139,13 @@
                             <group>
                                 <group>
                                     <field name="insured"/>
-                                    <field name="broker"/>
+                                    <field name="broker_person"/>
                                     <field name="in_favour"/>
                                 </group>
                                 <group>
                                     <field name="address"/>
                                     <field name="broker_pin"/>
+                                    <field name="broker_commission" readonly="1"/>
                                     <field name="broker_fra_code"/>
                                 </group>
                             </group>
@@ -208,7 +210,7 @@
 
                                     </tree>
                                 </field>
-                                 <field name="stamp_ids" attrs="{'readonly': [('endorsement_type','=','Non Tech')]}" >
+                                <field name="stamp_ids" attrs="{'readonly': [('endorsement_type','=','Non Tech')]}" >
                                     <tree editable="bottom">
                                         <field name="stamp"/>
                                         <field name="value"/>
@@ -219,6 +221,10 @@
 
                             <group attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
                                 <field name="total" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')]}"/>
+<!--                                <field name="proportional_stamp" invisible="1"/>-->
+<!--                                <field name="dimensional_stamp" invisible="1"/>-->
+<!--                                <field name="issue_fees" invisible="1"/>-->
+<!--                                <field name="supervisory_stamp" invisible="1"/>-->
                             </group>
 
                         </page>
@@ -297,40 +303,7 @@
             </p>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="oil_policy_action">
-        <field name="name">OIL Cover</field>
-        <field name="res_model">policy.marine</field>
-        <!--        <field name="view_type">form</field>-->
-        <field name="view_mode">tree,form</field>
-        <field name="context">{'default_cover_type':'OIL'}</field>
 
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">Your Marine Policy
-            </p>
-        </field>
-    </record>
-    <record model="ir.actions.act_window" id="fdl_policy_action">
-        <field name="name">FDL Cover</field>
-        <field name="res_model">policy.marine</field>
-        <!--        <field name="view_type">form</field>-->
-        <field name="view_mode">tree,form</field>
-        <field name="context">{'default_cover_type':'fdl'}</field>
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">Your Marine Policy
-            </p>
-        </field>
-    </record>
-    <record model="ir.actions.act_window" id="cargo_policy_action">
-        <field name="name">Cargo Cover</field>
-        <field name="res_model">policy.marine</field>
-        <!--        <field name="view_type">form</field>-->
-        <field name="view_mode">tree,form</field>
-        <field name="context">{'default_cover_type':'cargo'}</field>
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">Your Marine Policy
-            </p>
-        </field>
-    </record>
 
 
 </odoo>
