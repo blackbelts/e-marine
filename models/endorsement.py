@@ -74,7 +74,7 @@ class Endorsement_edit(models.Model):
                 'default_invoice_currency': self.cover_id.invoice_currency.id,
                 'default_invoice_ammount': self.cover_id.invoice_ammount,
                 'default_insured': self.cover_id.insured,
-                'default_cover_type': self.cover_id.cover_type,
+                'default_cover_type': self.cover_id.cover_type.id,
                 'default_type': self.cover_id.type,
                 'default_revising_fees': self.cover_id.revising_fees,
                 'default_war': self.cover_id.war,

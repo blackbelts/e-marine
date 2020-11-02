@@ -34,7 +34,6 @@ class PolicyMarinecert(models.Model):
       insured=fields.Char(string='Customer')
       in_favour=fields.Char('IN Favour of')
       address=fields.Char(' Insured Address')
-
       lob = fields.Many2one(related='open_cover_id.lob',string='LOB')
       name=fields.Char('Certificate',readonly=True)
       certificate_num=fields.Char(string='Certificate Num',default=lambda self: self.env['ir.sequence'].next_by_code('certificate'))
