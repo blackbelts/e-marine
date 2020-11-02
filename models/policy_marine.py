@@ -19,7 +19,7 @@ class PolicyMarine(models.Model):
                   return super(PolicyMarine, self).create(vals)
             else:
                   serial_no = self.env['ir.sequence'].next_by_code('policy')
-                  type=vals.get('marine_type.name')
+                  type=vals.get('cover_type')
                   currency=vals.get('currency_id')
                   cur = self.env['res.currency'].search([('id','=',currency)]).name
                   vals['cover_num'] = str(type).upper() +'/'+str(cur)+ str(serial_no)
@@ -27,7 +27,7 @@ class PolicyMarine(models.Model):
 
       cover_num=fields.Char('Open Cover',readonly=True)
       insured=fields.Char('Insured')
-      lob = fields.Many2one('insurance.line.business', 'LOB',domain="[('line_of_business','in',['Cargo','Inland'])]",required=True)
+      lob = fields.Many2one('insurance.line.business', 'LOB',required=True)
       in_favour=fields.Char('IN Favour of')
       address=fields.Char(' Insured Address')
       issue_date=fields.Date('Issuance Date',default=datetime.today())
@@ -73,7 +73,16 @@ class PolicyMarine(models.Model):
                                            ('extend', 'Extend')
                                            ],
                                           string='Endorsement Type')
-      marine_type = fields.Many2one('insurance.product',domain="[('line_of_bus','=',lob)]",string='Code',required=True)
+      cover_type = fields.Selection([('oil', 'OIL'),
+                                     ('fcl', 'FCL'),
+                                     ('opn', 'OPN'),
+                                     ('dpn', 'DPN'),
+                                     ('cil', 'CIL'),
+                                     ('dil', 'DIL'),
+                                     ('crg', 'CRG'),
+                                     ('drg', 'DRG'),
+                                     ],
+                                    string='Code',required=True)
       type = fields.Selection([('individual', 'Individual'),
                                ('contract', 'Contract')],
                               default='contract',string='Policy Type', required=True)
@@ -272,7 +281,7 @@ class PolicyMarine(models.Model):
                         'default_ship_from': self.ship_from,
                         'default_agency': self.agency.id,
                         'default_insured': self.insured,
-                        'default_marine_type': self.marine_type.id,
+                        'default_cover_type': self.cover_type,
                         'default_type': self.type,
                         'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
                         'default_valution_notes': [(6, 0, self.valution_notes.ids)],
