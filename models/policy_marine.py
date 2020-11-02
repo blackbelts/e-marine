@@ -19,7 +19,7 @@ class PolicyMarine(models.Model):
                   return super(PolicyMarine, self).create(vals)
             else:
                   serial_no = self.env['ir.sequence'].next_by_code('policy')
-                  type=vals.get('cover_type')
+                  type=vals.get('marine_type.name')
                   currency=vals.get('currency_id')
                   cur = self.env['res.currency'].search([('id','=',currency)]).name
                   vals['cover_num'] = str(type).upper() +'/'+str(cur)+ str(serial_no)
@@ -272,7 +272,7 @@ class PolicyMarine(models.Model):
                         'default_ship_from': self.ship_from,
                         'default_agency': self.agency.id,
                         'default_insured': self.insured,
-                        'default_cover_type': self.cover_type.id,
+                        'default_marine_type': self.marine_type.id,
                         'default_type': self.type,
                         'default_nature_pakage': [(6, 0, self.nature_pakage.ids)],
                         'default_valution_notes': [(6, 0, self.valution_notes.ids)],
