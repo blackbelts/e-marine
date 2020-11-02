@@ -40,8 +40,13 @@
                     <div class="header">
                         <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
                         <div class="text-center">
-                            <h6>CARGO INLAND (DOLLAR) – POLICY</h6>
-                            <h6>CIL OR OIL (DILOR DOL) / NO. 000)</h6>
+                            <t t-if="o.lob.line_of_business== 'Inland'" >
+                                <h6 style="color: #073e89;">INLAND (DOLLAR) – POLICY</h6>
+                            </t>
+                            <t t-if="o.lob.line_of_business== 'Cargo'" >
+                                <h6 style="color: #073e89;">CARGO (DOLLAR) – POLICY</h6>
+                            </t>
+                            <h6><span t-field="o.marine_type.product_name" /></h6>
                             <h6>SCHEDULE</h6>
                         </div>
                     </div>
