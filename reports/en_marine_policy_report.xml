@@ -72,7 +72,7 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" scope="col">Agent</th>
-                                        <td><span t-esc="o.broker"/></td>
+                                        <td><span t-esc="o.broker_person.name"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" scope="col">Period Of Insurance</th>
@@ -108,10 +108,10 @@
                                     <tbody>
                                         <tr>
                                             <td><span t-esc="'{0:,.2f}'.format(o.net_premium)"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.proportional_stamp)"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.dimensional_stamp)"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.supervisory_stamp)"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.issue_fees)"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
+                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
                                             <td><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
                                         </tr>
                                     </tbody>
@@ -166,7 +166,9 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
-                                        <td><span t-esc="o.valution_notes"/></td>
+                                        <t t-foreach="o.valution_notes" t-as="v">
+                                            <span t-esc="v.name"/> <t/>
+                                        </t>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
@@ -174,15 +176,26 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>
-                                        <td><span t-esc="o.nature_pakage"/></td>
+                                        <td>
+                                            <t t-foreach="o.nature_pakage" t-as="n">
+                                                <span t-esc="n.name"/> <t/>
+                                            </t>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>
-                                        <td></td>
+                                        <td>
+                                            <t t-foreach="o.product" t-as="p">
+                                                <span t-esc="p.name"/> <t/>
+                                            </t>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>
-                                        <td></td>
+                                        <td>
+                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
+                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -198,12 +211,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Institute Inland clauses</td>
-                                            <td>0000</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        <t t-foreach="o.covers_ids" t-as="c">
+
+                                            <tr>
+                                                <span t-esc="c.cover.cover_name"/>
+                                                <span t-esc="o.sum_insured"/>
+                                                <span t-esc="c.cover.rate"/>
+                                                <td></td>
+                                            </tr>
+                                        </t>
                                     </tbody>
                                 </table>
                             </div>
@@ -246,14 +262,14 @@
                                 </table>
                             </div>
 
-<!--                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">-->
-<!--                                <p style="margin-top:-10px !important;">TOTAL SUM AT RISK: 00</p>-->
-<!--                                <p>SPECIAL CONDITIONS</p>-->
-<!--                                <p>SPECIAL CLAUSES</p>-->
-<!--                                <p>EXCLUSIONS</p>-->
-<!--                                <p>ATTACHMENTS</p>-->
+                            <!--                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">-->
+                            <!--                                <p style="margin-top:-10px !important;">TOTAL SUM AT RISK: 00</p>-->
+                            <!--                                <p>SPECIAL CONDITIONS</p>-->
+                            <!--                                <p>SPECIAL CLAUSES</p>-->
+                            <!--                                <p>EXCLUSIONS</p>-->
+                            <!--                                <p>ATTACHMENTS</p>-->
 
-<!--                            </div>-->
+                            <!--                            </div>-->
                             <div style="width: 100% !important; margin-top:-5px !important; float: left;">
                                 <p>Any additions or amendments not bearing the company’s official signature shall be null and void.</p>
 
@@ -261,7 +277,7 @@
                         </div>
                         <div class="footer" style="float:left; width:100px;">
                             <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>
-<!--                            <img style="width:100% !important;"  class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>-->
+                            <!--                            <img style="width:100% !important;"  class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>-->
                         </div>
                     </div>
                 </t>
