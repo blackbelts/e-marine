@@ -17,7 +17,7 @@
         'security/ir.model.access.csv',
 
         'views/policy_marine.xml',
-        # 'reports/marine_policy_report.xml',
+        'reports/marine_policy_report.xml',
         # 'reports/certificate_report.xml',
         # 'reports/fcl_report.xml',
         # 'reports/en_marine_policy_report.xml',
