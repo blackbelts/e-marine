@@ -231,14 +231,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <t t-foreach="o.new_terms" t-as="t">
-                                                    <span t-esc="t.term_name"/> <t/>
-                                                </t>
-                                            </td>
+                                        <t t-foreach="o.new_terms" t-as="t">
+                                            <tr>
+                                                <td><span t-esc="t.term_name"/> </td>
 
-                                        </tr>
+                                            </tr>
+                                        </t>
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -250,14 +250,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-<!--                                            <td>-->
-<!--                                                <t t-foreach="o.new_special_terms" t-as="t">-->
-<!--                                                    <span t-esc="t.term_name"/> <t/>-->
-<!--                                                </t>-->
-<!--                                            </td>-->
+                                        <t t-foreach="o.new_special_terms" t-as="sp">
+                                            <tr>
+                                                <td><span t-esc="sp.term_name"/> </td>
 
-                                        </tr>
+                                            </tr>
+                                        </t>
+
                                     </tbody>
                                 </table>
                             </div>
