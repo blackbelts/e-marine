@@ -231,13 +231,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <t t-foreach="o.new_terms" t-as="t">
-                                            <tr>
-                                                <td><span t-esc="t.term_name"/> </td>
+                                        <tr>
+                                            <td>
+                                                <t t-foreach="o.new_terms" t-as="t">
+                                                    <li>
+                                                        <span t-esc="t.term_name"/>
+                                                    </li>
 
-                                            </tr>
-                                        </t>
-
+                                                </t>
+                                            </td>
+                                        </tr>
 
                                     </tbody>
                                 </table>
@@ -250,13 +253,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <t t-foreach="o.new_special_terms" t-as="sp">
-                                            <tr>
-                                                <td><span t-esc="sp.term_name"/> </td>
+                                        <tr>
+                                            <td>
+                                                <t t-foreach="o.new_special_terms" t-as="t">
+                                                    <li>
+                                                        <span t-esc="t.term_name"/>
+                                                    </li>
 
-                                            </tr>
-                                        </t>
-
+                                                </t>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
