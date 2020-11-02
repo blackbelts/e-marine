@@ -214,9 +214,9 @@
                                         <t t-foreach="o.covers_ids" t-as="c">
 
                                             <tr>
-                                                <span t-esc="c.cover.cover_name"/>
-                                                <span t-esc="o.sum_insured"/>
-                                                <span t-esc="c.cover.rate"/>
+                                                <td> <span t-esc="c.cover.cover_name"/></td>
+                                                <td><span t-esc="o.sum_insured"/></td>
+                                                <td><span t-esc="c.cover.rate"/></td>
                                                 <td></td>
                                             </tr>
                                         </t>
@@ -251,11 +251,11 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <t t-foreach="o.new_special_terms" t-as="t">
-                                                    <span t-esc="t.term_name"/> <t/>
-                                                </t>
-                                            </td>
+<!--                                            <td>-->
+<!--                                                <t t-foreach="o.new_special_terms" t-as="t">-->
+<!--                                                    <span t-esc="t.term_name"/> <t/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
 
                                         </tr>
                                     </tbody>
