@@ -73,7 +73,7 @@ class PolicyMarine(models.Model):
                                            ('extend', 'Extend')
                                            ],
                                           string='Endorsement Type')
-      cover_type = fields.Many2one('insurance.product',domain="[('line_of_bus','=',lob)]",string='Code',required=True)
+      marine_type = fields.Many2one('insurance.product',domain="[('line_of_bus','=',lob)]",string='Code',required=True)
       type = fields.Selection([('individual', 'Individual'),
                                ('contract', 'Contract')],
                               default='contract',string='Policy Type', required=True)

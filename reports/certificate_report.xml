@@ -45,11 +45,11 @@
                     <div class="header">
                         <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
                         <div class="text-center">
-                            <h4 style="color: #073e89;"><span t-field="o.open_cover_id.cover_type" /></h4>
-                            <t t-if="o.open_cover_id.cover_type in ['oil','dil']" >
+                            <h4 style="color: #073e89;"><span t-field="o.open_cover_id.marine_type.product_name" /></h4>
+                            <t t-if="o.open_cover_id.marine_type.product_name in ['oil','dil']" >
                                 <h4 style="color: #073e89;">وثيقة تأمين النقل الداخلي</h4>
                             </t>
-                            <t t-if="o.open_cover_id.cover_type in ['cil','dpn','opn','crg','drg']" >
+                            <t t-if="o.open_cover_id.marine_type.product_name in ['cil','dpn','opn','crg','drg']" >
                                 <h4 style="color: #073e89;">وثيقة تأمين بحرى / جوي "بضائع"</h4>
                             </t>
                         </div>
@@ -127,7 +127,7 @@
                                     <!--                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>-->
                                     <!--                                        <td style="text-align:center !important;">بنك :</td>-->
                                     <!--                                    </tr>-->
-                                    <t t-if="o.open_cover_id.cover_type in ['cil','dpn','opn','crg','drg']" >
+                                    <t t-if="o.open_cover_id.marine_type.product_name in ['cil','dpn','opn','crg','drg']" >
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
 
@@ -194,7 +194,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <t t-if="o.open_cover_id.cover_type in ['oil','dil']" >
+                            <t t-if="o.open_cover_id.marine_type.product_name in ['oil','dil']" >
                                 <div  style="width: 100% !important; float:right;">
                                     <table class="table table-hover">
                                         <tr>
@@ -226,7 +226,7 @@
                                     </table>
                                 </div>
                             </t>
-                            <t t-if="o.open_cover_id.cover_type in ['cil','dpn','opn','crg','drg']" >
+                            <t t-if="o.open_cover_id.marine_type.product_name in ['cil','dpn','opn','crg','drg']" >
                                 <div  style="width: 50% !important; float:right;">
                                     <table class="table table-hover">
                                         <tr>

@@ -45,7 +45,7 @@
                     <div class="header">
                         <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
                         <div class="text-center">
-                            <h4 style="color: #073e89;"><span t-field="o.cover_type.product_name" /></h4>
+                            <h4 style="color: #073e89;"><span t-field="o.marine_type.product_name" /></h4>
                             <t t-if="o.lob.line_of_business== 'Inland'" >
                                 <h4 style="color: #073e89;">وثيقة تأمين النقل الداخلي</h4>
                             </t>
