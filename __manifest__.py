@@ -25,7 +25,7 @@
         # 'views/certificate.xml',
         # 'views/endorsement.xml',
 
-        'views/menu_item.xml'
+        # 'views/menu_item.xml'
 
     ],
     # only loaded in demonstration mode
