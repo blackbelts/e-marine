@@ -34,7 +34,7 @@ class PolicyMarinecert(models.Model):
       insured=fields.Char(string='Customer')
       in_favour=fields.Char('IN Favour of')
       address=fields.Char(' Insured Address')
-      # lob = fields.Many2one(related='open_cover_id.lob',string='LOB')
+      lob = fields.Many2one(related='open_cover_id.lob',string='LOB')
       name=fields.Char('Certificate',readonly=True)
       certificate_num=fields.Char(string='Certificate Num',default=lambda self: self.env['ir.sequence'].next_by_code('certificate'))
       start_date = fields.Date('Effective from')
@@ -191,8 +191,8 @@ class PolicyMarinecert(models.Model):
       def born_dead_cert(self):
               self.state='born-dead'
 
-      # @api.onchange('net_premium')
-      # def set_commission(self):
-      #     commission = self.env['commission.table'].search([('lob', '=', self.lob.id)])
-      #     if self.net_premium:
-      #         self.broker_commission = (self.net_premium * commission.basic) / 100
+      @api.onchange('net_premium')
+      def set_commission(self):
+          commission = self.env['commission.table'].search([('lob', '=', self.lob.id)])
+          if self.net_premium:
+              self.broker_commission = (self.net_premium * commission.basic) / 100
