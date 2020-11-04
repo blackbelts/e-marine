@@ -29,8 +29,8 @@ class PolicyMarine(models.Model):
 
       cover_num=fields.Char('Open Cover',readonly=True)
       insured=fields.Char('Insured')
-      lob = fields.Many2one('insurance.line.business', 'LOB',required=True,domain="[('line_of_business','in',['Cargo','Inland'])]")
-      marine_type = fields.Many2one('insurance.product', 'Code',required=True,domain="[('line_of_bus','=',lob)]")
+      # lob = fields.Many2one('insurance.line.business', 'LOB',required=True,domain="[('line_of_business','in',['Cargo','Inland'])]")
+      # marine_type = fields.Many2one('insurance.product', 'Code',required=True,domain="[('line_of_bus','=',lob)]")
 
       in_favour=fields.Char('IN Favour of')
       address=fields.Char(' Insured Address')
@@ -154,12 +154,12 @@ class PolicyMarine(models.Model):
                         sum+=rec.premium
                   self.net_premium=sum
 
-      @api.onchange('net_premium')
-      def set_commission(self):
-         commission=self.env['commission.table'].search([('lob','=',self.lob.id)])
-         if self.net_premium:
-              self.broker_commission =(self.net_premium*commission.basic)/100
-
+      # @api.onchange('net_premium')
+      # def set_commission(self):
+      #    commission=self.env['commission.table'].search([('lob','=',self.lob.id)])
+      #    if self.net_premium:
+      #         self.broker_commission =(self.net_premium*commission.basic)/100
+      #
 
       def create_endo(self):
             form_view = self.env.ref('e-marine.end_form')
