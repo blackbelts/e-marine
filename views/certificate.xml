@@ -179,6 +179,15 @@
                             </field>
 
                         </page>
+                        <page string="Exclusions">
+                            <field name="cert_ex_terms_ids" >
+                                <tree>
+                                    <field name="term_name"/>
+                                </tree>
+                            </field>
+
+                        </page>
+
                     </notebook>
 
 

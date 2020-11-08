@@ -221,10 +221,10 @@
 
                             <group attrs="{'invisible': ['&amp;',('type', '=','contract'),('pre_paid', '!=',True)]}">
                                 <field name="total" attrs="{'readonly': ['|',('endorsement_type','=','Non Tech'),('state', '=','approved')]}"/>
-<!--                                <field name="proportional_stamp" invisible="1"/>-->
-<!--                                <field name="dimensional_stamp" invisible="1"/>-->
-<!--                                <field name="issue_fees" invisible="1"/>-->
-<!--                                <field name="supervisory_stamp" invisible="1"/>-->
+                                <!--                                <field name="proportional_stamp" invisible="1"/>-->
+                                <!--                                <field name="dimensional_stamp" invisible="1"/>-->
+                                <!--                                <field name="issue_fees" invisible="1"/>-->
+                                <!--                                <field name="supervisory_stamp" invisible="1"/>-->
                             </group>
 
                         </page>
@@ -244,6 +244,15 @@
                             </field>
 
                         </page>
+                        <page string="Exclusions">
+                            <field name="ex_terms_ids" >
+                                <tree>
+                                    <field name="term_name"/>
+                                </tree>
+                            </field>
+
+                        </page>
+
                     </notebook>
 
                     <!--<group>-->

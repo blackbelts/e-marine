@@ -99,6 +99,7 @@ class Endorsement_edit(models.Model):
 
                 'default_new_terms': [(6, 0, self.cover_id.new_terms.ids)],
                 'default_new_special_terms': [(6, 0, self.cover_id.new_special_terms.ids)],
+                'default_ex_terms_ids': [(6, 0, self.cover_id.ex_terms_ids.ids)],
 
                 'default_issue_date': self.cover_id.issue_date,
                 'default_start_date': self.cover_id.start_date,

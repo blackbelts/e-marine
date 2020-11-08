@@ -66,6 +66,8 @@ class PolicyMarine(models.Model):
 
       new_special_terms=fields.Many2many('condition', 'term_special_cover_rel', 'cover_special_id', 'term_special_id',
                                          string='Terms & Conditions',domain="[('type', '=', 'special')]")
+      ex_terms_ids = fields.Many2many('condition', 'ex_cover_rel', 'cover_ex_id', 'ex_special_id',
+                                           string='Terms & Conditions', domain="[('type', '=', 'exclusion')]")
 
       rate=fields.Float('Rate')
       is_endorsement = fields.Boolean(string="", default=False)
@@ -311,7 +313,9 @@ class PolicyMarine(models.Model):
                         'default_issue_date': self.issue_date,
                         'default_start_date': self.start_date,
                         'default_new_terms': [(6, 0, self.new_terms.ids)],
-                        'default_new_special_terms': [(6, 0, self.new_special_terms.ids)],
+                        'default_ex_terms_ids': [(6, 0, self.ex_terms_ids.ids)],
+
+                      'default_new_special_terms': [(6, 0, self.new_special_terms.ids)],
                         # 'default_app_date': self.cover_id.app_date,
                         'default_agency_branch': self.agency_branch.id,
                         # 'default_sales_person1': self.cover_id.sales_person1.id,

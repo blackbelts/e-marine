@@ -65,6 +65,9 @@ class PolicyMarinecert(models.Model):
       total = fields.Float('Total',compute='get_total',store=True)
       cert_terms = fields.Many2many(related='open_cover_id.new_terms', string='Terms & Conditions',)
       cert_special_terms = fields.Many2many(related='open_cover_id.new_special_terms', string='Special & Conditions',)
+      cert_special_terms = fields.Many2many(related='open_cover_id.new_special_terms', string='Special Conditions',)
+      cert_ex_terms_ids = fields.Many2many(related='open_cover_id.ex_terms_ids', string='Exclusions',)
+
       ship_from = fields.Char(related='open_cover_id.ship_from',string='Country origin')
       ship_to = fields.Char(related='open_cover_id.ship_to',string='Destination Country')
       bank = fields.Char('Bank',related='open_cover_id.bank')

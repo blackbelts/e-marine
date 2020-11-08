@@ -99,6 +99,7 @@ class TermsandConditions(models.Model):
     term_name = fields.Char('Trem & Condition')
     type = fields.Selection([('basic', 'Basic'),
                                      ('special', 'Special'),
+                                     ('exclusion', 'Exclusion'),
                                      ],
                                     string='Type',)
 class Covers(models.Model):
