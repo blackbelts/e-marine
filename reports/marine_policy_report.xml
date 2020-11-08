@@ -125,7 +125,6 @@
                                     <!--                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>-->
                                     <!--                                        <td style="text-align:center !important;">بنك :</td>-->
                                     <!--                                    </tr>-->
-                                    <t t-if="o.lob.line_of_business== 'Cargo'" >
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
 
@@ -134,7 +133,6 @@
                                                 <span style="padding-left:10%;" t-esc="o.bank"> بنك : </span>
                                             </td>
                                         </tr>
-                                    </t>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
                                         <td><span t-esc="o.invoice_ammount" /></td>
