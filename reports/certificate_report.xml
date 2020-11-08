@@ -376,8 +376,11 @@
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">إستثناءات -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
-                                <li></li>
-                            </ul>
+                                <t t-foreach="o.cert_ex_terms_ids" t-as="t">
+                                    <li>
+                                        <span t-esc="t.term_name"/>
+                                    </li>
+                                </t>                            </ul>
                         </div>
                         <div style="width: 100% !important;float:right; margin-top:5px !important;">
                             <h6 style="text-decoration: underline;">ملاحق -</h6>
