@@ -125,14 +125,15 @@
                                     <!--                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم بوليصة الشحن</th>-->
                                     <!--                                        <td style="text-align:center !important;">بنك :</td>-->
                                     <!--                                    </tr>-->
-                                        <tr>
-                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم الاعتماد المستندي</th>
 
-                                            <td>
-                                                <span  style="padding-left:30%;" t-esc="o.file_num"/>
-                                                <span style="padding-left:10%;" t-esc="o.bank"> بنك : </span>
-                                            </td>
-                                        </tr>
+                                        <td>
+                                            <span  style="padding-left:30%;" t-esc="o.file_num"/>
+                                            <span style="padding-left:10%;">بنك</span>
+                                            <span t-esc="o.bank"/>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
                                         <td><span t-esc="o.invoice_ammount" /></td>
