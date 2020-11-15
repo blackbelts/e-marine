@@ -177,8 +177,9 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
-                                                    <span style="float:right" t-esc="c.cover.cover_name"/>
-                                                    <span style="float:right" t-esc="c.cover.rate"/>
+                                                    <span  style="width: 75%;" t-esc="str(c.cover.cover_name)"/>
+                                                     <span  style="width: 25%;" t-esc="str(c.cover.rate)"/>
+
 
                                                 </td>
                                                 <td style="width: 25%;">
