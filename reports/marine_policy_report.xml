@@ -178,8 +178,8 @@
 
                                                 <td style="width: 75%;">
 
-                                                     <span  style="padding-left:30%;" t-esc="c.cover.rate"/>
-                                                    <span  style="padding-left:10%;"  t-esc="str(c.cover.cover_name)"/>
+                                                     <span  style="padding-left:10%;" t-esc="c.cover.rate"/>
+                                                    <span  style="padding-left:30%;"  t-esc="str(c.cover.cover_name)"/>
 
 
                                                 </td>
