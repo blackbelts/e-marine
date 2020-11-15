@@ -177,13 +177,11 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
-                                                    <span t-esc="str(c.cover.rate) +'  '+ str(c.cover.cover_name)"/>
+                                                    <span t-esc="str(c.cover.cover_name)+'  '+str(c.cover.rate)"/>
 
                                                 </td>
-
-
                                                 <td style="width: 25%;">
-                                                    <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
+                                                    <span style="float: right !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
                                                 </td>
 
                                             </tr>
