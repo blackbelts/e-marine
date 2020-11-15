@@ -177,7 +177,7 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
-                                                    <span t-esc="str(c.cover.cover_name)+'  '+str(c.cover.rate)"/>
+                                                    <span t-esc="str(c.cover.rate)+'  '+str(c.cover.cover_name)"/>
 
                                                 </td>
                                                 <td style="width: 25%;">
