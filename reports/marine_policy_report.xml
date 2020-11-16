@@ -177,10 +177,8 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
-
-                                                     <span  style="padding-left:10%;" t-esc="c.cover.rate"/>
                                                     <span  style="padding-left:30%;"  t-esc="str(c.cover.cover_name)"/>
-
+                                                    <span  t-esc="c.cover.rate"/>
 
                                                 </td>
                                                 <td style="width: 25%;">
@@ -394,10 +392,10 @@
                                 <li></li>
                             </ul>
                         </div>
-                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
-                            <span style="padding-left:5px;">الفرع أو الوسيط : </span>
-                            <span></span>
-                        </div>
+<!--                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">-->
+<!--                            <span style="padding-left:5px;">الفرع أو الوسيط : </span>-->
+<!--                            <span></span>-->
+<!--                        </div>-->
                         <br/>
                         <div style="width: 100% !important; !important; float: right;">
                             <p style="font-size: 12px;">يعتبر باطلا كل تعديل أو إضافة ما لم يوقع رسميا عليها من قبل الشركة</p>
