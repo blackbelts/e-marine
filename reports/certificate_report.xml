@@ -43,7 +43,7 @@
 
                     </style>
                     <div class="header">
-                        <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                        <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/img/3.jpg"/>
                         <div class="text-center">
                             <h4 style="color: #073e89;"><span t-field="o.marine_type.product_name" /></h4>
                             <t t-if="o.lob.line_of_business== 'Inland'" >
@@ -408,7 +408,7 @@
 
                     <div class="footer" style="float:left; width:100px;">
                         <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">شركة اروب لتأمينات الممتلكات والمسئوليات - مصر ش.م.م.</span>
-                        <img style="width:100% !important;"  class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                        <img style="width:100% !important;"  class="img img-responsive" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/img/1.png"/>
                     </div>
 
                 </t>
