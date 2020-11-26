@@ -38,7 +38,7 @@
 
                     </style>
                     <div class="header" style="float:left; width:100%;">
-                        <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/img/3.jpg"/>
+                        <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                         <div class="text-center">
                             <t t-if="o.lob.line_of_business== 'Inland'" >
                                 <h6 style="color: #073e89;">INLAND (DOLLAR) – POLICY</h6>
