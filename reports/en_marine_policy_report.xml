@@ -37,7 +37,7 @@
                         tr:nth-child(even) {background-color: #f2f2f2;}
 
                     </style>
-                    <div class="header">
+                    <div class="header" style="float:left; width:100%;">
                         <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/img/3.jpg"/>
                         <div class="text-center">
                             <t t-if="o.lob.line_of_business== 'Inland'" >
