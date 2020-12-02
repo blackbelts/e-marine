@@ -40,6 +40,9 @@
                         text-align: right !important;
                         }
                         tr:nth-child(even) {background-color: #f2f2f2;}
+                        .text-center {
+                            text-align: center !important;
+                        }
 
                     </style>
                     <div class="header" style="float:left; width:100%;">
@@ -166,7 +169,7 @@
                                 <!--                                    </tr>-->
                                 <!--                                </table>-->
                             </div>
-                            <div  style="width: 100% !important; margin-top:-8px !important; float:right;">
+                            <div  style="width: 100% !important;  float:right;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -269,17 +272,17 @@
                                     <span style="padding-right: 2px;"><span> ٢ - </span>تحرير محضر معابنة مع مندوبي المكتب لاثبات حالة البضائع قبل صرفها من الجمارك اذا كان قد لحقها تلف ظاهر وبعتبر عدم تحرير هذا المحضر دليل على أن البضاعة صرفت سليمة</span>
                                     <br/>
                                     <span style="padding-right: 2px;"><span> ٣ - </span> في حال حدوث ضرر تنشأ عنه مطالبة يتعين علي المؤمن له النقدم فورا بخطاب ثابت التاريخ لشركة اروب لتأمينات الممتلكات والمسؤليات - مصر </span>
-                                    <div style="padding-bottom: 30px !important;"></div>
+                                    <div style="padding-bottom: 20px !important;"></div>
                                 </div>
                             </t>
-                            <div style="width: 100% !important; margin-top:-5px !important; float: right;">
-                                <p style="font-size: 12px; margin-top:-10px !important;">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
+                            <div style="width: 100% !important;  float: right;">
+                                <p style="font-size: 12px; ">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
                             </div>
-                            <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
+                            <div  style="width: 100% !important; padding-left:10px; margin-top:2px !important; float:right;">
                                 <span style="padding-left:5px;">اسم وسيط التأمين : </span>
                                 <span><t t-esc="o.broker.name"/></span>
                             </div>
-                            <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
+                            <div  style="width: 100% !important; padding-left:10px; margin-top:2px !important; float:right;">
                                 <span style="padding-left:5px;">رقم القيد بالهيئة : </span>
                                 <span><t t-esc="o.broker_fra_code"/></span>
                             </div>
@@ -287,7 +290,7 @@
     <!--                            <span style="padding-left:5px;">الكود الخاص بالشركة : </span>-->
     <!--                            <span><t t-esc="o.broker_pin"/></span>-->
     <!--                        </div>-->
-                            <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
+                            <div  style="width: 100% !important; padding-left:10px; margin-top:2px !important; float:right;">
                                 <span style="padding-left:5px;">قيمة العمولات الأساسية قبل الاستقطعات : </span>
                                 <span><t t-esc="o.broker_commission"/></span>
                             </div>

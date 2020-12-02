@@ -35,6 +35,9 @@
                         color: #073e89 !important;
                         }
                         tr:nth-child(even) {background-color: #f2f2f2;}
+                        .text-center {
+                            text-align: center !important;
+                        }
 
                     </style>
                     <div class="header" style="float:left; width:100%;">
@@ -92,7 +95,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div  style="width: 100% !important; margin-top:-8px !important; float:left;">
+                            <div  style="width: 100% !important;  float:left;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -280,7 +283,7 @@
                             <!--                                <p>ATTACHMENTS</p>-->
 
                             <!--                            </div>-->
-                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">
+                            <div style="width: 100% !important;  float: left;">
                                 <p>Any additions or amendments not bearing the company’s official signature shall be null and void.</p>
 
                             </div>
