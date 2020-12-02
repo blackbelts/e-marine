@@ -35,24 +35,27 @@
                         color: #073e89 !important;
                         }
                         tr:nth-child(even) {background-color: #f2f2f2;}
+                        .text-center {
+                            text-align: center !important;
+                        }
 
                     </style>
-                    <div class="header">
-                        <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                    <div class="header" style="float:left; width:100%;">
+                        <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                         <div class="text-center">
                             <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <h6 style="color: #073e89;">INLAND (DOLLAR) – POLICY</h6>
+                                <h6 style="color: #073e89;text-align: center !important;">INLAND (DOLLAR) – POLICY</h6>
                             </t>
                             <t t-if="o.lob.line_of_business== 'Cargo'" >
-                                <h6 style="color: #073e89;">CARGO (DOLLAR) – POLICY</h6>
+                                <h6 style="color: #073e89;text-align: center !important;">CARGO (DOLLAR) – POLICY</h6>
                             </t>
-                            <h6><span t-field="o.marine_type.product_name" /></h6>
-                            <h6>SCHEDULE</h6>
+                            <p style="text-align: center !important;margin-top: -5px !important;"><span t-field="o.marine_type.product_name" /></p>
+<!--                            <p style="text-align: center !important;margin-top: -5px !important;">SCHEDULE</p>-->
                         </div>
                     </div>
                     <div class="page">
 
-                        <p style="font-size:12px; padding-left: 25px !important; padding-right: 25px !important;">We, AROPE Insurance (hereinafter called the Company), hereby agree, in consideration of the payment to us by on behalf of the policyholder and/or the insured, of the premium specified in the schedule , to insure against loss, damage, liability, or expense to the extent in the proportions and manner hereinafter provided:</p>
+                        <p style="font-size:12px; padding-left: 25px !important; padding-right: 25px !important; padding-top: 10px!important;">We, AROPE Insurance (hereinafter called the Company), hereby agree, in consideration of the payment to us by on behalf of the policyholder and/or the insured, of the premium specified in the schedule , to insure against loss, damage, liability, or expense to the extent in the proportions and manner hereinafter provided:</p>
                         <div style="padding-left: 25px !important; padding-right: 25px !important;">
                             <div  style="width: 100% !important; float:left;">
                                 <table class="table table-hover">
@@ -92,7 +95,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div  style="width: 100% !important; margin-top:-8px !important; float:left;">
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -199,7 +202,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="text-center" style="width: 100% !important; float:left;">
+                            <div class="text-center" style="width: 100% !important; margin-top: 8px !important; float:left;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -280,7 +283,7 @@
                             <!--                                <p>ATTACHMENTS</p>-->
 
                             <!--                            </div>-->
-                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">
+                            <div style="width: 100% !important;  float: left;">
                                 <p>Any additions or amendments not bearing the company’s official signature shall be null and void.</p>
 
                             </div>

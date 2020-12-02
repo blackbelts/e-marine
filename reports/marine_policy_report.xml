@@ -40,17 +40,19 @@
                         text-align: right !important;
                         }
                         tr:nth-child(even) {background-color: #f2f2f2;}
-
+                        .text-center {
+                            text-align: center !important;
+                        }
                     </style>
-                    <div class="header">
-                        <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                    <div class="header" style="float:left; width:100%;">
+                        <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                         <div class="text-center">
-                            <h4 style="color: #073e89;"><span t-field="o.marine_type.product_name" /></h4>
+                            <h5 style="color: #073e89;text-align: center !important;"><span t-field="o.marine_type.product_name" /></h5>
                             <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <h4 style="color: #073e89;">وثيقة تأمين النقل الداخلي</h4>
+                                <h5 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين النقل الداخلي</h5>
                             </t>
                             <t t-if="o.lob.line_of_business== 'Cargo'" >
-                                <h4 style="color: #073e89;">وثيقة تأمين بحرى / جوي "بضائع"</h4>
+                                <h5 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين بحرى / جوي "بضائع"</h5>
                             </t>
                         </div>
                     </div>
@@ -163,11 +165,11 @@
                                 <!--                                    </tr>-->
                                 <!--                                </table>-->
                             </div>
-                            <div  style="width: 100% !important; margin-top:-8px !important; float:right;">
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:right;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center !important;color: #073e89 !important; width: 75%;" scope="col">السعر%</th>
+                                            <th style="text-align: center !important;color: #073e89 !important;  width: 75%;" scope="col">السعر%</th>
                                             <th style="color: #073e89 !important; width: 25%;" scope="col"><span style="text-align: right !important;">القسط</span><span style="float: left !important;">جنيه مصرى</span></th>
 
                                         </tr>
@@ -177,9 +179,9 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
+                                                    <p  style="width: 50%; float:right !important;"  t-esc="str(c.cover.cover_name)"/>
+                                                    <p style="width: 50%; float:left !important;" t-esc="c.cover.rate"/>
 
-                                                     <span  style="padding-left:10%;" t-esc="c.cover.rate"/>
-                                                    <span  style="padding-left:30%;"  t-esc="str(c.cover.cover_name)"/>
 
 
                                                 </td>
@@ -193,7 +195,7 @@
                                 </table>
                             </div>
                             <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <div  style="width: 100% !important; float:right;">
+                                <div  style="width: 100% !important; margin-top: 8px !important; float:right;">
                                     <table class="table table-hover">
                                         <!--                                        <t t-call="o.set_stamps()" t-as="dic"/>-->
                                         <tr>
@@ -226,7 +228,7 @@
                                 </div>
                             </t>
                             <t t-if="o.lob.line_of_business=='Cargo'" >
-                                <div  style="width: 50% !important; float:right;">
+                                <div  style="width: 50% !important; margin-top: 8px !important; float:right;">
                                     <table class="table table-hover">
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:50% !important;" scope="col">القسط الصافى</th>
@@ -257,7 +259,7 @@
                                     </table>
                                 </div>
 
-                                <div style="width: 50% !important; border: 1px solid #000; border-right:none; float:left; font-size:9px !important;">
+                                <div style="width: 50% !important; border: 1px solid #000; border-right:none; float:left; margin-top: 8px !important; font-size:9px !important;">
                                     <p style="text-align: center;">ملاحظة هامة</p>
                                     <span style="margin-top: -2px; padding-right: 2px;">
                                         يلتزم المؤمن له بمجرد علمه بوصول السفينة / الطائرة الناقلة للبضائع المؤمن عليها إلى ميناء في مطار الوصول الالتزام بالاتي :
@@ -268,11 +270,27 @@
                                     <span style="padding-right: 2px;"><span> ٢ - </span>تحرير محضر معابنة مع مندوبي المكتب لاثبات حالة البضائع قبل صرفها من الجمارك اذا كان قد لحقها تلف ظاهر وبعتبر عدم تحرير هذا المحضر دليل على أن البضاعة صرفت سليمة</span>
                                     <br/>
                                     <span style="padding-right: 2px;"><span> ٣ - </span> في حال حدوث ضرر تنشأ عنه مطالبة يتعين علي المؤمن له النقدم فورا بخطاب ثابت التاريخ لشركة اروب لتأمينات الممتلكات والمسؤليات - مصر </span>
-                                    <div style="padding-bottom: 30px !important;"></div>
+                                    <div style="padding-bottom: 20px !important;"></div>
                                 </div>
                             </t>
-                            <div style="width: 100% !important; margin-top:-5px !important; float: right;">
-                                <p style="font-size: 12px; margin-top:-10px !important;">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
+                            <div style="width: 100% !important;  float: right;">
+                                <p style="font-size: 12px; margin-top:2px !important;">اي بنود او ملاحق تعتبر جزء من هذه الوثيقة</p>
+                            </div>
+                             <div  style="width: 100% !important; padding-left:10px; margin-top:2px !important; float:right;">
+                                <span style="padding-left:5px;">اسم وسيط التأمين : </span>
+                                <span><t t-esc="o.broker.name"/></span>
+                            </div>
+                            <div  style="width: 100% !important; padding-left:10px; margin-top:2px !important; float:right;">
+                                <span style="padding-left:5px;">رقم القيد بالهيئة : </span>
+                                <span><t t-esc="o.broker_fra_code"/></span>
+                            </div>
+<!--                            <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">-->
+<!--                                <span style="padding-left:5px;">الكود الخاص بالشركة : </span>-->
+<!--                                <span><t t-esc="o.broker_pin"/></span>-->
+<!--                            </div>-->
+                            <div  style="width: 100% !important; padding-left:10px; margin-top:2px !important; float:right;">
+                                <span style="padding-left:5px;">قيمة العمولات الأساسية قبل الاستقطعات : </span>
+                                <span><t t-esc="o.broker_commission"/></span>
                             </div>
                             <!--                            <div class="text-center" style="width: 100% !important; float:left;">-->
                             <!--                                <table class="table table-hover">-->
@@ -336,23 +354,8 @@
                     </div>
                     <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
                         <div style="page-break-after: always !important;"/>
-                        <div  style="width: 100% !important; padding-left:10px; margin-top:15px !important; float:right;">
-                            <span style="padding-left:5px;">اسم وسيط التأمين : </span>
-                            <span><t t-esc="o.broker.name"/></span>
-                        </div>
-                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
-                            <span style="padding-left:5px;">رقم القيد بالهيئة : </span>
-                            <span><t t-esc="o.broker_fra_code"/></span>
-                        </div>
-                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
-                            <span style="padding-left:5px;">الكود الخاص بالشركة : </span>
-                            <span><t t-esc="o.broker_pin"/></span>
-                        </div>
-                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
-                            <span style="padding-left:5px;">قيمة العمولات الأساسية قبل الاستقطعات : </span>
-                            <span><t t-esc="o.broker_commission"/></span>
-                        </div>
-                        <div style="width: 100% !important;float:right; margin-top:5px !important;">
+
+                        <div style="width: 100% !important;float:right; margin-top:15px !important;">
                             <h6 style="text-decoration: underline;">شروط خاصة -</h6>
                             <ul style="direction: rtl !important; padding-right:130px;">
                                 <t t-foreach="o.new_terms" t-as="t">
@@ -394,10 +397,10 @@
                                 <li></li>
                             </ul>
                         </div>
-                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">
-                            <span style="padding-left:5px;">الفرع أو الوسيط : </span>
-                            <span></span>
-                        </div>
+<!--                        <div  style="width: 100% !important; padding-left:10px; margin-top:5px !important; float:right;">-->
+<!--                            <span style="padding-left:5px;">الفرع أو الوسيط : </span>-->
+<!--                            <span></span>-->
+<!--                        </div>-->
                         <br/>
                         <div style="width: 100% !important; !important; float: right;">
                             <p style="font-size: 12px;">يعتبر باطلا كل تعديل أو إضافة ما لم يوقع رسميا عليها من قبل الشركة</p>
@@ -413,7 +416,7 @@
 
                     <div class="footer" style="float:left; width:100px;">
                         <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">شركة اروب لتأمينات الممتلكات والمسئوليات - مصر ش.م.م.</span>
-                        <img style="width:100% !important;"  class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                        <img style="width:100% !important;"  class="img img-responsive" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/1.png"/>
                     </div>
 
                 </t>
