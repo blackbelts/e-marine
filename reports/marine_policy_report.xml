@@ -184,9 +184,9 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
+                                                    <p  style="width: 50%; float:right !important;"  t-esc="str(c.cover.cover_name)"/>
+                                                    <p style="width: 50%; float:left !important;" t-esc="c.cover.rate"/>
 
-                                                    <p style="width: 50%; float:right !important;" t-esc="c.cover.rate"/>
-                                                    <p  style="width: 50%; float:left !important;"  t-esc="str(c.cover.cover_name)"/>
 
 
 
