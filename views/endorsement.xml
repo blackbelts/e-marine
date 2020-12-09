@@ -15,7 +15,7 @@
                             <!--<field name="last_policy" invisible="1"/>-->
                             <field name="endorsement_no"/>
                             <field name="endorsement_type"/>
-                            <!--<field name="reasonedit"/>-->
+                            <field name="reasonedit"/>
                             <!--<field name="end_date"/>-->
                             <field name="converted" invisible="1"/>
                             <!--<field name="endorsement_date"/>-->
