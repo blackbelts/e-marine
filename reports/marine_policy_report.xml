@@ -185,15 +185,11 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
-                                                    <p  style="width: 50%; float:right !important;"  t-esc="str(c.cover.cover_name)"/>
-                                                    <p style="width: 50%; float:left !important;" t-esc="c.cover.rate"/>
-
-
-
-
+                                                    <t  style="width: 50%; float:right !important;"  t-esc="str(c.cover.cover_name)"/>
+                                                    <t style="width: 50%; float:left !important;" t-esc="c.cover.rate"/>
                                                 </td>
                                                 <td style="width: 25%;">
-                                                    <span style="float: right !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
+                                                    <t style="float: right !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
                                                 </td>
 
                                             </tr>
