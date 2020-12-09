@@ -47,13 +47,18 @@
                     <div class="header" style="float:left; width:100%;">
                         <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                         <div class="text-center">
-                            <h5 style="color: #073e89;text-align: center !important;padding-bottom:1px !important;"><span t-field="o.marine_type.product_name" /></h5>
-                            <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <h5 style="color: #073e89;text-align: center !important; margin-top: -5px !important;">وثيقة تأمين النقل الداخلي</h5>
-                            </t>
-                            <t t-if="o.lob.line_of_business== 'Cargo'" >
-                                <h5 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين بحرى / جوي "بضائع"</h5>
-                            </t>
+                            <h5 style="color: #073e89;text-align: center !important;padding-bottom:1px !important;">
+                                <span t-field="o.marine_type.product_name" />
+                                <br/>
+                                <span t-if="o.lob.line_of_business== 'Inland'">وثيقة تأمين النقل الداخلي</span>
+                                <span t-if="o.lob.line_of_business== 'Cargo'" >وثيقة تأمين بحرى / جوي "بضائع"</span>
+                            </h5>
+<!--                            <t t-if="o.lob.line_of_business== 'Inland'" >-->
+<!--                                <h5 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين النقل الداخلي</h5>-->
+<!--                            </t>-->
+<!--                            <t t-if="o.lob.line_of_business== 'Cargo'" >-->
+<!--                                <h5 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين بحرى / جوي "بضائع"</h5>-->
+<!--                            </t>-->
                         </div>
                     </div>
                     <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
