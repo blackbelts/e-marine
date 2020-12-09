@@ -292,12 +292,7 @@
                                                 <span><t t-esc="o.broker.name"/></span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">اسم وسيط التأمين</th>
-                                            <td>
-                                                <span><t t-esc="o.broker.name"/></span>
-                                            </td>
-                                        </tr>
+
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">رقم القيد بالهيئة</th>
                                             <td>
