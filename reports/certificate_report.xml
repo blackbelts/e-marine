@@ -83,11 +83,11 @@
 
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">لصالح</th>
-                                        <td><span t-esc="o.in_favour"/></td>
+                                        <td><span t-esc="o.open_cover_id.in_favour"/></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">العنوان</th>
-                                        <td><span t-esc="o.address"/></td>
+                                        <td><span t-esc="o.open_cover_id.address"/></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مدة التأمين</th>
