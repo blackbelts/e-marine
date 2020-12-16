@@ -93,7 +93,7 @@
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مدة التأمين</th>
                                         <td>
                                             من :<span style="padding-left:30%;" t-esc="o.start_date"/>
-                                            إلي :<span style="padding-left:10%;" t-esc="o.end_date"/>
+                                            إلي :<span style="padding-left:1%;" t-esc="o.end_date"/>
                                             <t t-if="o.open_cover_id.type == 'contract'">
                                                 أو يتم استنفاذ مبلغ التأمين
                                             </t>
@@ -136,7 +136,7 @@
 
                                             <td>
                                                 <span  style="padding-left:30%;" t-esc="o.file_num"/>
-                                                <span style="padding-left:10%;" t-esc="o.bank"> بنك : </span>
+                                                <span style="padding-left:1%;" t-esc="o.bank"> بنك : </span>
                                             </td>
                                         </tr>
                                     </t>
