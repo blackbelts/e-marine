@@ -47,15 +47,13 @@
                     </style>
                     <div class="header" style="float:left; width:100%;">
                         <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
-                        <div class="text-center">
-                            <h4 style="color: #073e89;text-align: center !important;"><span t-field="o.open_cover_id.marine_type.product_name" /></h4>
-                            <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <h4 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين النقل الداخلي</h4>
-                            </t>
-                            <t t-if="o.lob.line_of_business== 'Cargo'" >
-                                <h4 style="color: #073e89;text-align: center !important; margin-top: -3px !important;">وثيقة تأمين بحرى / جوي "بضائع"</h4>
-                            </t>
-                        </div>
+                        <h5 style="color: #073e89;text-align: center !important;padding-bottom:1px !important;">
+                                <span t-if="o.lob.line_of_business== 'Inland'">وثيقة تأمين النقل الداخلي</span>
+                                <span t-if="o.lob.line_of_business== 'Cargo'" >وثيقة تأمين بحرى / جوي "بضائع"</span>
+                                <br/>
+                                <span t-field="o.marine_type.product_name" />
+
+                        </h5>
                     </div>
                     <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
 
@@ -185,13 +183,11 @@
                                             <tr>
 
                                                 <td style="width: 75%;">
-                                                    <span t-esc="str(c.cover.rate) +'  '+ str(c.cover.cover_name)"/>
-
+                                                    <span  style="width: 50%; float:right !important;"  t-esc="str(c.cover.cover_name)"/>
+                                                    <span style="width: 50%; float:left !important;" t-esc="c.cover.rate"/>
                                                 </td>
-
-
                                                 <td style="width: 25%;">
-                                                    <span style="float: left !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
+                                                    <span style="float: right !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
                                                 </td>
 
                                             </tr>
