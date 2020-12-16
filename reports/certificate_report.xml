@@ -51,7 +51,7 @@
                                 <span t-if="o.lob.line_of_business== 'Inland'">وثيقة تأمين النقل الداخلي</span>
                                 <span t-if="o.lob.line_of_business== 'Cargo'" >وثيقة تأمين بحرى / جوي "بضائع"</span>
                                 <br/>
-                                <span t-field="o.marine_type.product_name" />
+                                <span t-field="o.open_cover_id.marine_type.product_name" />
 
                         </h5>
                     </div>
