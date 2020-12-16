@@ -42,7 +42,7 @@
                             <div class="text-center" style="text-align:center !important; margin: 0 auto !important;">
                                 <span style="color: #073e89; text-align: center !important;">شركة آروب لـتأمينات الممتلكات والمسئوليات</span>
                                 <br/>
-                                <span style="color: #073e89; text-align: center !important;">مسجلة بالهيئة العامة  للرقابة المالية تحت رقم ( 25  )</span>
+                                <span style="color: #073e89; text-align: center !important;">مسجلة بالهيئة العامة  للرقابة المالية تحت رقم 25</span>
                                 <br/>
                                 <span style="color: #073e89; text-align: center !important;">خاضعة لأحكام القانون 10 لسنة 1981</span>
 
@@ -62,8 +62,8 @@
                                         <p style="padding:1px;"> اسم المؤمن له: <span t-esc="o.insured"/> </p>
                                         <p style="padding:1px;"> العنوان:<span t-esc="o.address"/></p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right; padding-top: 0px !important;">
-                                        <p style="padding:1px;"> البضائع المؤمن عليها : <t t-foreach="o.product" t-as="p">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -3px !important;">
+                                        <p style="padding:1px;"> البضائع المؤمن عليها <t t-foreach="o.product" t-as="p">
                                                 <span t-esc="p.name"/> <t/>
                                             </t></p>
                                     </div>
@@ -75,7 +75,7 @@
                                         <p style="padding:1px;">يشترط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة .</p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;">
-                                        <p style="padding:1px;"><span t-esc="o.conveyance_mode"/> وسيلة النقل : </p>
+                                        <p style="padding:1px;"><span t-esc="o.conveyance_mode"/> : وسيلة النقل  </p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;">
                                         <p style="padding:1px;">الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية (باستثناء منطقة شمال سيناء)</p>
@@ -148,9 +148,9 @@
                             <div class="footer" style="width:100px;">
                                 <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important; float:left;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE</span>
                                 <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important; float:right !important;">
-                                    تحريرا في: 00/00/0000
+                                    تحريرا في: <span><t t-esc="o.issue_date"/></span>
                                 </span>
-                                <img style="float:left !important; width:100% !important;" class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                                <img style="float:left !important; width:100% !important;" class="img img-responsive" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/1.png"/>
                             </div>
                         </div>
                 </t>
