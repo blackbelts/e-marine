@@ -189,7 +189,7 @@
                                                     <span style="width: 50%; float:left !important;" t-esc="c.cover.rate"/>
                                                 </td>
                                                 <td style="width: 25%;">
-                                                    <t style="float: right !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
+                                                    <span style="float: right !important;" t-esc="'{0:,.2f}'.format(c.premium)"/>
                                                 </td>
 
                                             </tr>
@@ -285,7 +285,7 @@
                                         <tr>
                                             <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">اسم وسيط التأمين</th>
                                             <td>
-                                                <span><t t-esc="o.broker.name"/></span>
+                                                <span><t t-esc="o.broker_person.name"/></span>
                                             </td>
                                         </tr>
 

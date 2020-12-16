@@ -37,20 +37,23 @@
 
 
                         </style>
-                        <div class="header">
-                            <img class="img"  style="width: 100%;" src="/smart_travel_agency/static/img/3.jpg"/>
+                        <div class="header" style="float:left; width:100%;">
+                            <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                             <div class="text-center">
-                                <h5 style="color: #073e89;">شركة آروب لـتأمينات الممتلكات والمسئوليات</h5>
-                                <h5 style="color: #073e89;">مسجلة بالهيئة العامة  للرقابة المالية تحت رقم ( 25  )</h5>
-                                <h5 style="color: #073e89;">خاضعة لأحكام القانون 10 لسنة 1981</h5>
+                                <span style="color: #073e89; text-align: center !important;">شركة آروب لـتأمينات الممتلكات والمسئوليات</span>
+                                <br/>
+                                <span style="color: #073e89; text-align: center !important;">مسجلة بالهيئة العامة  للرقابة المالية تحت رقم ( 25  )</span>
+                                <br/>
+                                <span style="color: #073e89; text-align: center !important;">خاضعة لأحكام القانون 10 لسنة 1981</span>
 
 
                             </div>
                         </div>
                         <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">
                             <div class="text-center">
-                                <h5 style="color: #073e89;">وثيقة تأمين نقل داخلى  برقم  ( 00000)</h5>
-                                <h5 style="color: #073e89;">لصالح الهيئة العامة للأستثمار و المناطق الحرة</h5>
+                                <span style="color: #073e89; text-align: center !important;">وثيقة تأمين نقل داخلى</span>
+                                <br/>
+                                <span style="color: #073e89; text-align: center !important;">لصالح الهيئة العامة للأستثمار و المناطق الحرة</span>
                             </div>
                             <p style="font-size:15px; padding-left: 25px !important; padding-right: 25px !important;">بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول .</p>
                             <div style="padding-left: 25px !important; padding-right: 25px !important;">
@@ -132,9 +135,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td>5343464</td>
-                                            <td></td>
+                                            <td><span t-esc="o.broker_person.name"/></td>
+                                            <td><span t-esc="o.broker_fra_code"/></td>
+                                            <td><span t-esc="o.broker_pin"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
