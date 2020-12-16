@@ -62,7 +62,7 @@
                                         <p style="padding:1px;"> اسم المؤمن له: <span t-esc="o.insured"/> </p>
                                         <p style="padding:1px;"> العنوان:<span t-esc="o.address"/></p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -3px !important;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -9px !important;">
                                         <p style="padding:1px;"> البضائع المؤمن عليها <t t-foreach="o.product" t-as="p">
                                                 <span t-esc="p.name"/> <t/>
                                             </t></p>
