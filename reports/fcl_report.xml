@@ -55,29 +55,29 @@
                                 <br/>
                                 <span style="color: #073e89; text-align: center !important;">لصالح الهيئة العامة للأستثمار و المناطق الحرة</span>
                             </div>
-                            <p style="font-size:15px; padding-left: 25px !important; padding-right: 25px !important;">بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول .</p>
+                            <p style="font-size:15px; padding-left: 25px !important; padding-right: 25px !important;">بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول </p>
                             <div style="padding-left: 25px !important; padding-right: 25px !important;">
                                 <div  style="width: 50% !important; float:right;">
                                     <div style="border: 1px solid #000; text-align:right;">
                                         <p style="padding:1px;"> اسم المؤمن له: <span t-esc="o.insured"/> </p>
                                         <p style="padding:1px;"> العنوان:<span t-esc="o.address"/></p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -15px !important;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -17px !important;">
                                         <p style="padding:1px;"> البضائع المؤمن عليها <t t-foreach="o.product" t-as="p">
                                                 <span t-esc="p.name"/> <t/>
                                             </t></p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -15px !important;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;">مدة التأمين</p>
                                         <p style="padding:1px;">تبدأ فى بداية يوم <span t-esc="o.start_date"/>  حتى نهاية يوم <span t-esc="o.end_date"/> أو استهلاك مبلغ التأمين و/او اتمام النقل أيهما أسبق </p>
                                         <p style="padding:1px;">مبلغ التأمين :  <span t-esc="o.sum_insured"/> دولار </p>
                                         <p style="padding:1px;">يشترط علي ان لا يزيد مبلغ تأمين الشحنة المنقولة علي سيارة واحدة عن اثنان مليون دولار امريكي </p>
                                         <p style="padding:1px;">يشترط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة </p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -15px !important;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;"><span t-esc="o.conveyance_mode"/> : وسيلة النقل  </p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -15px !important;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;">الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية باستثناء منطقة شمال سيناء</p>
                                     </div>
                                 </div>
@@ -99,14 +99,14 @@
                                             </tr>
 					                    </tbody>
                                     </table>
-                                    <div  style="border: 1px solid #000; border-top: none; margin-top:-15px !important; border-right:none;">
+                                    <div  style="border: 1px solid #000; border-top: none; margin-top:-17px !important; border-right:none;">
                                         <p style="padding:1px;">القسط الصافي :  <span t-esc="o.net_premium"/></p>
                                         <p style="padding:1px;">نصف الدمغة النسبية : <span t-esc="o.proportional_stamp"/> </p>
                                         <p style="padding:1px;">الضريبة النوعية : <span t-esc="o.dimensional_stamp"/></p>
                                         <p style="padding:1px;">رسم ألاشراف والرقابة : <span t-esc="o.supervisory_stamp"/> </p>
                                         <p style="padding:1px;">مصاريف أصدار : <span t-esc="o.issue_fees"/></p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -15px !important;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
                                         <p style="padding:1px;">إجمالــــــــى القسط المستحق</p>
                                         <p style="padding:1px;"><span t-esc="o.total"/></p>
                                     </div>
