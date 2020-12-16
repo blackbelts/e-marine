@@ -123,7 +123,7 @@
                                         <td>
 
                                             <span style="padding-left:30%;" t-esc="o.inv_num"/>
-                                            <span style="padding-left:10%;">رقم بوليصة الشحن</span>
+                                            <span style="padding-left:1%;">رقم بوليصة الشحن</span>
                                             <span t-esc="o.ship_num"/>
                                         </td>
 
@@ -138,7 +138,7 @@
 
                                         <td>
                                             <span  style="padding-left:30%;" t-esc="o.file_num"/>
-                                            <span style="padding-left:10%;">بنك</span>
+                                            <span style="padding-left:1%;">بنك</span>
                                             <span t-esc="o.bank"/>
                                         </td>
                                     </tr>
