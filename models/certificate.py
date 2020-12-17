@@ -122,8 +122,8 @@ class PolicyMarinecert(models.Model):
               # # self.address= self.open_cover_id.address
               # self.nature_pakage= [(6, 0, self.open_cover_id.nature_pakage.ids)]
               # self.valution_notes= [(6, 0, self.open_cover_id.valution_notes.ids)],
-              # self.stamp_cert_ids= stamps
-              # self.covers_ids=covers
+              self.stamp_cert_ids= stamps
+              self.covers_ids=covers
 
               # self.new_terms= [(6, 0, self.open_cover_id.new_terms.ids)]
               # self.new_special_terms=[(6, 0, self.open_cover_id.new_special_terms.ids)]
