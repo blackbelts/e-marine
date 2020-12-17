@@ -80,6 +80,9 @@
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;"><span t-esc="o.conveyance_mode"/> : وسيلة النقل  </p>
                                     </div>
+
+                                </div>
+                                <div style="width: 100% !important; float:right;">
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;">الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية باستثناء منطقة شمال سيناء</p>
                                     </div>
@@ -118,7 +121,7 @@
                                         <p style="padding:1px; padding-top: 5px !important; padding-bottom 10px !important;"></p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
-                                        <p style="padding:1px; padding-top: 15px; padding-bottom: 15px;"><span style="float: right !important;">إجمالى القسط المستحق  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
+                                        <p style="padding:1px; padding-top: 15px; padding-bottom: 14px;"><span style="float: right !important;">إجمالى القسط المستحق  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
 <!--                                        <p style="padding:1px;"></p>-->
                                     </div>
 
