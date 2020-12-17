@@ -104,7 +104,7 @@
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">دولار</td>
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">سنت</td>
                                                 <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;"></td>
-                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span style="font-size: 20px;" t-esc="o.sum_insured"/></td>
+                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span style="font-size: 13px;" t-esc="o.sum_insured"/></td>
                                             </tr>
 					                    </tbody>
                                     </table>
