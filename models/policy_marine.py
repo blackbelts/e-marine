@@ -179,8 +179,8 @@ class PolicyMarine(models.Model):
                 for rec in self.covers_ids:
                     if self.type == 'individual' or self.pre_paid == True:
                         rec.premium = (rec.rate * self.sum_insured) / 100
-                else:
-                    rec.premium = 0.0
+                    else:
+                        rec.premium = 0.0
                 for rec in self.covers_ids:
                         sum+=rec.premium
                 self.net_premium=sum
