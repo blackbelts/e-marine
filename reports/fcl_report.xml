@@ -104,7 +104,7 @@
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">دولار</td>
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">سنت</td>
                                                 <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;"></td>
-                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span t-esc="o.sum_insured"/></td>
+                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><p><span t-esc="o.sum_insured"/></p></td>
                                             </tr>
 					                    </tbody>
                                     </table>
@@ -141,23 +141,45 @@
                                     <p style="font-size: 12px">الشروط الخاصة : تدفع التعويضات التي قد تستحق بموجب هذه الوثيقة إلي الهيئة العامة للأستثمار والمناطق الحرة.</p>
                                 </div>
                                 <div class="text-center" style="width: 100% !important; float:left;">
-                                <table class="table table-hover">
-                                    <thead>
+                                    <table class="table table-hover">
+                                        <!--                                        <t t-call="o.set_stamps()" t-as="dic"/>-->
                                         <tr>
-                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>
-                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>
-                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>
+                                            <th style="text-align: right !important; width:25% !important;" scope="col">اسم وسيط التأمين</th>
+                                            <td>
+                                                <span><t t-esc="o.broker_person.name"/></span>
+                                            </td>
+                                        </tr>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
                                         <tr>
-                                            <td><span t-esc="o.broker_person.name"/></td>
-                                            <td><span t-esc="o.broker_fra_code"/></td>
-                                            <td><span t-esc="o.broker_pin"/></td>
+                                            <th style="text-align: right !important; width:25% !important;" scope="col">رقم القيد بالهيئة</th>
+                                            <td>
+                                                <span><t t-esc="o.broker_fra_code"/></span>
+                                            </td>
                                         </tr>
-                                    </tbody>
-                                </table>
+                                        <tr>
+                                            <th style="text-align: right !important; width:25% !important;" scope="col">قيمة العمولات الأساسية قبل الاستقطعات</th>
+                                            <td>
+                                                <span><t t-esc="o.broker_commission"/></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+<!--                                <table class="table table-hover">-->
+<!--                                    <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>-->
+<!--                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>-->
+<!--                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>-->
+
+<!--                                        </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td><span t-esc="o.broker_person.name"/></td>-->
+<!--                                            <td><span t-esc="o.broker_fra_code"/></td>-->
+<!--                                            <td><span t-esc="o.broker_pin"/></td>-->
+<!--                                        </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
                             </div>
                             </div>
                             <div class="footer" style="width:100px;">
