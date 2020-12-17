@@ -86,8 +86,8 @@ class PolicyMarinecert(models.Model):
       inv_num = fields.Char('Order or Invoice No',related='open_cover_id.inv_num',)
       ship_num = fields.Char('Shipping Number',related='open_cover_id.ship_num')
       file_num = fields.Char('L/C No',related='open_cover_id.file_num')
-      covers_ids = fields.One2many(related='open_cover_id.covers_ids',string="Covers",)
-      stamp_cert_ids = fields.One2many(related='open_cover_id.stamp_ids',string="Stamps")
+      covers_ids = fields.One2many('policy.covers','cert_id',string="Covers",)
+      stamp_cert_ids = fields.One2many('policy.stamps','cert_id',string="Stamps")
 
       @api.model
       def set_stamps(self):
@@ -101,13 +101,13 @@ class PolicyMarinecert(models.Model):
       def _get_contract_info(self):
           if self.open_cover_id:
               covers = []
-              # stamps = []
-              # for rec in self.open_cover_id.covers_ids:
-              #     object = (0, 0, {'cover': rec.cover.id, 'rate': rec.rate, 'premium': rec.premium})
-              #     covers.append(object)
-              # for rec in self.open_cover_id.stamp_ids:
-              #     object = (0, 0, {'stamp': rec.stamp.id, 'value': rec.value})
-              #     stamps.append(object)
+              stamps = []
+              for rec in self.open_cover_id.covers_ids:
+                  object = (0, 0, {'cover': rec.cover.id, 'rate': rec.rate, 'premium': rec.premium})
+                  covers.append(object)
+              for rec in self.open_cover_id.stamp_ids:
+                  object = (0, 0, {'stamp': rec.stamp.id, 'value': rec.value})
+                  stamps.append(object)
               self.insured= self.open_cover_id.insured
               # self.inv_num =self.open_cover_id.inv_num
               # self.agency= self.open_cover_id.agency.id
@@ -122,8 +122,8 @@ class PolicyMarinecert(models.Model):
               # # self.address= self.open_cover_id.address
               # self.nature_pakage= [(6, 0, self.open_cover_id.nature_pakage.ids)]
               # self.valution_notes= [(6, 0, self.open_cover_id.valution_notes.ids)],
-              # self.stamp_cert_ids= stamps
-              # self.covers_ids=covers
+              self.stamp_cert_ids= stamps
+              self.covers_ids=covers
 
               # self.new_terms= [(6, 0, self.open_cover_id.new_terms.ids)]
               # self.new_special_terms=[(6, 0, self.open_cover_id.new_special_terms.ids)]
@@ -158,12 +158,12 @@ class PolicyMarinecert(models.Model):
                   sum += rec.value
               self.total = self.net_premium + sum
 
-      @api.depends('net_premium')
-      def get_stamps(self):
-          if self.stamp_cert_ids:
-              sum = 0.0
-              for rec in self.stamp_cert_ids:
-                  rec.value=(self.net_premium*rec.stamp.rete)/100
+      # @api.depends('net_premium')
+      # def get_stamps(self):
+      #     if self.stamp_cert_ids:
+      #         sum = 0.0
+      #         for rec in self.stamp_cert_ids:
+      #             rec.value=(self.net_premium*rec.stamp.rete)/100
 
       # @api.one
       @api.onchange('sum_insured')
@@ -171,6 +171,10 @@ class PolicyMarinecert(models.Model):
               if self.covers_ids:
                   for rec in self.covers_ids:
                       rec.premium=(rec.rate*self.sum_insured)/100
+              if self.stamp_cert_ids:
+                  sum = 0.0
+                  for rec in self.stamp_cert_ids:
+                      rec.value = (self.net_premium * rec.stamp.rate) / 100
               if self.sum_insured <=self.open_cover_id.max_per_cert:
                   sum = 0
                   for rec in self.covers_ids:
