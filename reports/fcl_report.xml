@@ -73,7 +73,7 @@
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;">مدة التأمين</p>
                                         <p style="padding:1px;">تبدأ فى بداية يوم <span t-esc="o.start_date"/>  حتى نهاية يوم <span t-esc="o.end_date"/> أو استهلاك مبلغ التأمين و/او اتمام النقل أيهما أسبق </p>
-                                        <p style="padding:1px;">مبلغ التأمين :  <span t-esc="o.sum_insured"/> دولار </p>
+                                        <p style="padding:1px;">مبلغ التأمين :  <span t-esc="'{0:,.2f}'.format(o.sum_insured)"/> دولار </p>
                                         <p style="padding:1px;">يشترط علي ان لا يزيد مبلغ تأمين الشحنة المنقولة علي سيارة واحدة عن اثنان مليون دولار امريكي </p>
                                         <p style="padding:1px;">يشترط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة </p>
                                     </div>
@@ -103,8 +103,8 @@
 
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">دولار</td>
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">سنت</td>
-                                                <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;"></td>
-                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span style="font-size: 13px;" t-esc="o.sum_insured"/></td>
+                                                <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;text-align: center !important;"><span style="font-size: 13px;" t-esc="'{0:,.2f}'.format(o.total)" /></td>
+                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span style="font-size: 13px;" t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
                                             </tr>
 					                    </tbody>
                                     </table>
