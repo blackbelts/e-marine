@@ -147,7 +147,7 @@
                                             <td>
                                                 <span><t t-esc="o.broker_person.name"/></span>
                                             </td>
-                                            <th style="text-align: right !important; width:25% !important;" scope="col">اسم وسيط التأمين</th>
+                                            <th style="text-align: right !important; width:30% !important;" scope="col">اسم وسيط التأمين</th>
 
                                         </tr>
 
@@ -155,14 +155,14 @@
                                             <td>
                                                 <span><t t-esc="o.broker_fra_code"/></span>
                                             </td>
-                                            <th style="text-align: right !important; width:25% !important;" scope="col">رقم القيد بالهيئة</th>
+                                            <th style="text-align: right !important; width:30% !important;" scope="col">رقم القيد بالهيئة</th>
 
                                         </tr>
                                         <tr>
                                             <td>
                                                 <span><t t-esc="o.broker_commission"/></span>
                                             </td>
-                                            <th style="text-align: right !important; width:25% !important;" scope="col">قيمة العمولات الأساسية قبل الاستقطعات</th>
+                                            <th style="text-align: right !important; width:30% !important;" scope="col">قيمة العمولات الأساسية قبل الاستقطعات</th>
 
                                         </tr>
                                     </table>
