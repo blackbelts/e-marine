@@ -89,6 +89,13 @@ class PolicyMarinecert(models.Model):
       covers_ids = fields.One2many(related='open_cover_id.covers_ids',string="Covers",)
       stamp_cert_ids = fields.One2many(related='open_cover_id.stamp_ids',string="Stamps")
 
+      @api.model
+      def set_stamps(self):
+          stamps = {}
+          if self.stamp_cert_ids:
+              for rec in self.stamp_cert_ids:
+                  stamps[rec.stamp.code] = rec.value
+          return stamps
       conveyance_mode = fields.Selection( related='open_cover_id.conveyance_mode',string='Conveyance mode')
       @api.onchange('open_cover_id')
       def _get_contract_info(self):
