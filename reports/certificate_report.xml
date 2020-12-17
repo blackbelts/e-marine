@@ -136,7 +136,7 @@
 
                                             <td>
                                                 <span  style="padding-left:30%;" t-esc="o.file_num"/>
-                                                <span style="padding-left:1%;" t-esc="o.bank"> بنك : </span>
+                                                <span style="padding-left:1%;" t-esc="o.bank">البنك</span>
                                             </td>
                                         </tr>
                                     </t>
