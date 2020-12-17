@@ -144,7 +144,8 @@ class PolicyMarine(models.Model):
 
       state = fields.Selection([('pending', 'Pending'),
                                 ('approved', 'Approved'),
-                                ('born-dead', 'Born-dead'),
+                                ('born-dead', 'Born-de'
+                                              'ad'),
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
 

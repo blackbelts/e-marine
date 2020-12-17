@@ -158,12 +158,12 @@ class PolicyMarinecert(models.Model):
                   sum += rec.value
               self.total = self.net_premium + sum
 
-      @api.depends('net_premium')
-      def get_stamps(self):
-          if self.stamp_cert_ids:
-              sum = 0.0
-              for rec in self.stamp_cert_ids:
-                  rec.value=(self.net_premium*rec.stamp.rete)/100
+      # @api.depends('net_premium')
+      # def get_stamps(self):
+      #     if self.stamp_cert_ids:
+      #         sum = 0.0
+      #         for rec in self.stamp_cert_ids:
+      #             rec.value=(self.net_premium*rec.stamp.rete)/100
 
       # @api.one
       @api.onchange('sum_insured')
@@ -171,6 +171,10 @@ class PolicyMarinecert(models.Model):
               if self.covers_ids:
                   for rec in self.covers_ids:
                       rec.premium=(rec.rate*self.sum_insured)/100
+              if self.stamp_cert_ids:
+                  sum = 0.0
+                  for rec in self.stamp_cert_ids:
+                      rec.value = (self.net_premium * rec.stamp.rete) / 100
               if self.sum_insured <=self.open_cover_id.max_per_cert:
                   sum = 0
                   for rec in self.covers_ids:
