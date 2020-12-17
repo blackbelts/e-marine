@@ -415,9 +415,10 @@ class MarineStamps(models.Model):
                         rec.value=rec.stamp.stamp_value
                 else:
                     if rec.stamp.type=='rate':
-                      rec.value=0.0
+                        rec.value=0.0
                     else:
                         rec.value=rec.stamp.stamp_value
+
 
 
 
