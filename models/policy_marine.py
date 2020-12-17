@@ -399,10 +399,11 @@ class MarineStamps(models.Model):
     _name = 'policy.stamps'
     _rec_name = 'stamp'
     stamp = fields.Many2one('marine.stamps',string='Stamp/Fees')
-    value = fields.Float(string='Value',compute='set_stamp',)
+    value = fields.Float(string='Value',compute='set_stamp',inverse='_set_inverse')
     policy_stam_id= fields.Many2one('policy.marine',string='Policy')
     cert_id= fields.Many2one('certificate.marine',string='Certificate')
-
+    def _set_inverse(self):
+        return True
 
     @api.depends('stamp','policy_stam_id.net_premium',)
     def set_stamp(self):
