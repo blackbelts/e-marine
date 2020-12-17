@@ -149,14 +149,14 @@ class PolicyMarine(models.Model):
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
 
-      @api.onchange('sum_insured', 'covers_ids')
-      def set_premium(self):
-          if self.covers_ids:
-              for rec in self.covers_ids:
-                  if self.type == 'individual' or self.pre_paid == True:
-                      rec.premium = (rec.rate * self.sum_insured) / 100
-              else:
-                  rec.premium = 0.0
+      # @api.onchange('sum_insured', 'covers_ids')
+      # def set_premium(self):
+      #     if self.covers_ids:
+      #         for rec in self.covers_ids:
+      #             if self.type == 'individual' or self.pre_paid == True:
+      #                 rec.premium = (rec.rate * self.sum_insured) / 100
+      #         else:
+      #             rec.premium = 0.0
 
       @api.onchange('stamp_ids', 'net_premium')
       def set_stamp(self):
@@ -175,10 +175,15 @@ class PolicyMarine(models.Model):
       @api.onchange('sum_insured','covers_ids')
       def compute_net(self):
             if self.covers_ids :
-                  sum=0.0
-                  for rec in self.covers_ids:
+                sum = 0.0
+                for rec in self.covers_ids:
+                    if self.type == 'individual' or self.pre_paid == True:
+                        rec.premium = (rec.rate * self.sum_insured) / 100
+                else:
+                    rec.premium = 0.0
+                for rec in self.covers_ids:
                         sum+=rec.premium
-                  self.net_premium=sum
+                self.net_premium=sum
 
 
 
