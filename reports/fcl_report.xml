@@ -57,11 +57,14 @@
                             </div>
                             <p style="font-size:15px; padding-left: 25px !important; padding-right: 25px !important;">بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول </p>
                             <div style="padding-left: 25px !important; padding-right: 25px !important;">
-                                <div  style="width: 50% !important; float:right;">
+                                <div style="width: 100% !important; float:right;">
                                     <div style="border: 1px solid #000; text-align:right;">
                                         <p style="padding:1px;"> اسم المؤمن له: <span t-esc="o.insured"/> </p>
                                         <p style="padding:1px;"> العنوان:<span t-esc="o.address"/></p>
                                     </div>
+                                </div>
+                                <div  style="width: 50% !important; float:right;">
+
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -17px !important;">
                                         <p style="padding:1px;"> البضائع المؤمن عليها <t t-foreach="o.product" t-as="p">
                                                 <span t-esc="p.name"/> <t/>
@@ -77,41 +80,53 @@
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
                                         <p style="padding:1px;"><span t-esc="o.conveyance_mode"/> : وسيلة النقل  </p>
                                     </div>
-                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
-                                        <p style="padding:1px;">الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية باستثناء منطقة شمال سيناء</p>
-                                    </div>
+
                                 </div>
+
                                 <div style="width: 50% !important; float:left;">
-                                    <table class="table table-hover" style="margin-bottom:0px !important; border-right:none !important;">
+                                    <table class="table table-hover" style="margin-bottom:0px !important; border-right:none !important; border-top: none !important;">
                                         <thead>
                                             <tr>
-                                                <th style="border-bottom:none !important; border-right:none !important;" scope="col">مبلغ التأمين - دولار -</th>
-                                                <th style="border-bottom:none !important; " scope="col">السعر</th>
-                                                <th style="border-bottom:1px solid #000 !important;" colspan="2">القسط</th>
+                                                <th style="border-bottom:1px solid #000 !important; border-top: none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" colspan="2">القسط</th>
+                                                <th style="border-bottom:none !important; border-top: none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" scope="col">السعر</th>
+                                                <th style="border-bottom:none !important; border-top: none !important; border-right:none !important; text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;" scope="col">
+                                                    مبلغ التأمين
+                                                    <br/>
+                                                    ( دولار )
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="border-bottom:none !important; border-right:none !important;"><span t-esc="o.sum_insured"/></td>
-                                                <td style="border-bottom:none !important;"></td>
-                                                <td>سنت</td>
-                                                <td>دولار</td>
+
+
+
+                                                <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">دولار</td>
+                                                <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">سنت</td>
+                                                <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;"></td>
+                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span style="font-size: 13px;" t-esc="o.sum_insured"/></td>
                                             </tr>
 					                    </tbody>
                                     </table>
                                     <div  style="border: 1px solid #000; border-top: none; margin-top:-17px !important; border-right:none;">
-                                        <p style="padding:1px;">القسط الصافي :  <span t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
-                                        <p style="padding:1px;">نصف الدمغة النسبية : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
-                                        <p style="padding:1px;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
-                                        <p style="padding:1px;">رسم ألاشراف والرقابة : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
-                                        <p style="padding:1px;">مصاريف أصدار : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
+                                        <p style="padding:1px; padding-top: 20px !important; padding-bottom 10px !important; "><span style="float: right !important;">القسط الصافي  </span> <span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
+                                        <p style="padding:1px; padding-top: 20px !important; padding-bottom 10px !important;"><span style="float: right !important;">نصف الدمغة النسبية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
+                                        <p style="padding:1px; padding-top: 20px !important; padding-bottom 10px !important;"><span style="float: right !important;">الضريبة النوعية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
+                                        <p style="padding:1px; padding-top: 20px !important; padding-bottom 10px !important;"><span style="float: right !important;">رسم ألاشراف والرقابة  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
+                                        <p style="padding:1px; padding-top: 20px !important; padding-bottom 10px !important;"><span style="float: right !important; padding-bottom 40px !important;">مصاريف أصدار  </span><span style="float: left !important; padding-bottom 10px !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
+                                        <p style="padding:1px; padding-top: 5px !important; padding-bottom 10px !important;"></p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
-                                        <p style="padding:1px;">إجمالــــــــى القسط المستحق</p>
-                                        <p style="padding:1px;"><span t-esc="'{0:,.2f}'.format(o.total)"/></p>
+                                        <p style="padding:1px; padding-top: 11px; padding-bottom: 14px;"><span style="float: right !important;">إجمالى القسط المستحق  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
+<!--                                        <p style="padding:1px;"></p>-->
                                     </div>
 
 
+                                </div>
+                                <div style="width: 100% !important; float:right;">
+                                    <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
+                                        <p style="padding:1px;">الرحلة من وإلى جميع الدوائر الجمركية المختلفة داخل جمهورية مصر العربية باستثناء منطقة شمال سيناء</p>
+                                    </div>
                                 </div>
 
 
@@ -120,29 +135,54 @@
                                 </div>
                                 <div style="border: 1px solid #000; width: 100% !important; float:left;">
                                     <p style="font-size: 12px !important; padding:1px;">دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة</p>
-                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم التوقيع على هذه الوثيقة بتاريخ : <span><t t-esc="o.issue_date"/></p>
+                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم  تحرير هذه الوثيقة بتاريخ : <span><t t-esc="o.issue_date"/></span></p>
                                 </div>
                                 <div style="width: 100% !important; float:left;">
                                     <p style="font-size: 12px">الشروط الخاصة : تدفع التعويضات التي قد تستحق بموجب هذه الوثيقة إلي الهيئة العامة للأستثمار والمناطق الحرة.</p>
                                 </div>
                                 <div class="text-center" style="width: 100% !important; float:left;">
-                                <table class="table table-hover">
-                                    <thead>
+                                    <table class="table table-hover">
+                                        <!--                                        <t t-call="o.set_stamps()" t-as="dic"/>-->
                                         <tr>
-                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>
-                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>
-                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>
+                                            <td style="padding: 5px !important;">
+                                                <span><t t-esc="o.broker_person.name"/></span>
+                                            </td>
+                                            <th style="text-align: right !important; width:30% !important; padding: 5px !important;" scope="col">اسم وسيط التأمين</th>
 
                                         </tr>
-                                    </thead>
-                                    <tbody>
+
                                         <tr>
-                                            <td><span t-esc="o.broker_person.name"/></td>
-                                            <td><span t-esc="o.broker_fra_code"/></td>
-                                            <td><span t-esc="o.broker_pin"/></td>
+                                            <td style="padding: 5px !important;">
+                                                <span><t t-esc="o.broker_fra_code"/></span>
+                                            </td>
+                                            <th style="text-align: right !important; width:30% !important;padding: 5px !important;" scope="col">رقم القيد بالهيئة</th>
+
                                         </tr>
-                                    </tbody>
-                                </table>
+                                        <tr>
+                                            <td style="padding: 5px !important;">
+                                                <span><t t-esc="o.broker_commission"/></span>
+                                            </td>
+                                            <th style="text-align: right !important; width:30% !important;padding: 5px !important;" scope="col">قيمة العمولات الأساسية قبل الاستقطعات</th>
+
+                                        </tr>
+                                    </table>
+<!--                                <table class="table table-hover">-->
+<!--                                    <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th style="text-align: right !important;" scope="col">اسم المنتج </th>-->
+<!--                                            <th style="text-align: right !important;" scope="col">كود الهيئة</th>-->
+<!--                                            <th style="text-align: right !important;" scope="col">الكود الخاص بالشركة</th>-->
+
+<!--                                        </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td><span t-esc="o.broker_person.name"/></td>-->
+<!--                                            <td><span t-esc="o.broker_fra_code"/></td>-->
+<!--                                            <td><span t-esc="o.broker_pin"/></td>-->
+<!--                                        </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
                             </div>
                             </div>
                             <div class="footer" style="width:100px;">

@@ -212,8 +212,7 @@
                                             <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
                                         </tr>
                                         <tr>
-                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف
-                                            </th>
+                                            <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">نصف الضريبة النوعية</th>
                                             <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
                                         </tr>
                                         <tr>
