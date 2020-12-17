@@ -142,13 +142,13 @@
                                     <field name="net_premium" attrs="{'readonly': [('state', '=','approved')]}"/>
                                 </group>
                                 <field name="covers_ids" >
-                                    <tree editable="bottom">
+                                    <tree editable="bottom" force_save="1">
                                         <field name="cover"/>
                                         <field name="rate"/>
                                         <field name="premium" force_save="1"/>
                                     </tree>
                                 </field>
-                                <field name="stamp_cert_ids" >
+                                <field name="stamp_cert_ids" force_save="1" >
                                     <tree editable="bottom">
                                         <field name="stamp"/>
                                         <field name="value" force_save="1"/>
