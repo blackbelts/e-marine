@@ -57,11 +57,14 @@
                             </div>
                             <p style="font-size:15px; padding-left: 25px !important; padding-right: 25px !important;">بموجب هذه الوثيقة تؤمن شركة آروب لـتأمينات الممتلكات والمسئوليات- مصر ش م م  المنوه عنها فيما بعد الى السادة / ولصالح الهيئة العامة للأستثمار والمناطق الحرة. والمنوه عنها فيما بعد بالمؤمن له و/أو من يمثله على الاشياء الوارد اوصافها بالجدول وذلك فى  مقابل سداد المؤمن له للقسط المقرر بالجدول </p>
                             <div style="padding-left: 25px !important; padding-right: 25px !important;">
-                                <div  style="width: 50% !important; float:right;">
+                                <div style="width: 100% !important; float:right;">
                                     <div style="border: 1px solid #000; text-align:right;">
                                         <p style="padding:1px;"> اسم المؤمن له: <span t-esc="o.insured"/> </p>
                                         <p style="padding:1px;"> العنوان:<span t-esc="o.address"/></p>
                                     </div>
+                                </div>
+                                <div  style="width: 50% !important; float:right;">
+
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; margin-top: -17px !important;">
                                         <p style="padding:1px;"> البضائع المؤمن عليها <t t-foreach="o.product" t-as="p">
                                                 <span t-esc="p.name"/> <t/>
@@ -85,30 +88,33 @@
                                     <table class="table table-hover" style="margin-bottom:0px !important; border-right:none !important;">
                                         <thead>
                                             <tr>
-                                                <th style="border-bottom:none !important; border-right:none !important;" scope="col">مبلغ التأمين - دولار -</th>
-                                                <th style="border-bottom:none !important; " scope="col">السعر</th>
                                                 <th style="border-bottom:1px solid #000 !important;" colspan="2">القسط</th>
+                                                <th style="border-bottom:none !important; " scope="col">السعر</th>
+                                                <th style="border-bottom:none !important; border-right:none !important;" scope="col">مبلغ التأمين - دولار -</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="border-bottom:none !important; border-right:none !important;"><span t-esc="o.sum_insured"/></td>
-                                                <td style="border-bottom:none !important;"></td>
-                                                <td>سنت</td>
+
+
+
                                                 <td>دولار</td>
+                                                <td>سنت</td>
+                                                <td style="border-bottom:none !important;"></td>
+                                                <td style="border-bottom:none !important; border-right:none !important;"><span t-esc="o.sum_insured"/></td>
                                             </tr>
 					                    </tbody>
                                     </table>
                                     <div  style="border: 1px solid #000; border-top: none; margin-top:-17px !important; border-right:none;">
-                                        <p style="padding:1px;">القسط الصافي :  <span t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
-                                        <p style="padding:1px;">نصف الدمغة النسبية : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
-                                        <p style="padding:1px;">الضريبة النوعية : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
-                                        <p style="padding:1px;">رسم ألاشراف والرقابة : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
-                                        <p style="padding:1px;">مصاريف أصدار : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
+                                        <p style="padding:1px;"><span style="float: right !important;">القسط الصافي : </span> <span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
+                                        <p style="padding:1px;"><span style="float: right !important;">نصف الدمغة النسبية : </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
+                                        <p style="padding:1px;"><span style="float: right !important;">الضريبة النوعية : </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
+                                        <p style="padding:1px;"><span style="float: right !important;">رسم ألاشراف والرقابة : </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
+                                        <p style="padding:1px;"><span style="float: right !important;">مصاريف أصدار : </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
-                                        <p style="padding:1px;">إجمالــــــــى القسط المستحق</p>
-                                        <p style="padding:1px;"><span t-esc="'{0:,.2f}'.format(o.total)"/></p>
+                                        <p style="padding:1px;"><span style="float: right !important;">إجمالــــــــى القسط المستحق : </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
+<!--                                        <p style="padding:1px;"></p>-->
                                     </div>
 
 
