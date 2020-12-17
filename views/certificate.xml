@@ -145,13 +145,13 @@
                                     <tree editable="bottom">
                                         <field name="cover"/>
                                         <field name="rate"/>
-                                        <field name="premium"/>
+                                        <field name="premium" force_save="1"/>
                                     </tree>
                                 </field>
                                 <field name="stamp_cert_ids" >
                                     <tree editable="bottom">
                                         <field name="stamp"/>
-                                        <field name="value"/>
+                                        <field name="value" force_save="1"/>
                                     </tree>
                                 </field>
                                 <!--                            <field name="war" attrs="{'readonly': [('state', '=','approved')]}"/>-->
