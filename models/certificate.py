@@ -171,7 +171,7 @@ class PolicyMarinecert(models.Model):
           if self.open_cover_id.pre_paid == True:
               pass
           else:
-              for rec in self.stamp_ids:
+              for rec in self.stamp_cert_ids:
                   if rec.stamp.type == 'rate':
                           rec.value = (rec.stamp.rate * self.net_premium)
                   else:
