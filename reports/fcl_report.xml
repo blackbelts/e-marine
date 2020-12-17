@@ -110,7 +110,7 @@
                                         <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">نصف الدمغة النسبية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
                                         <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">الضريبة النوعية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
                                         <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">رسم ألاشراف والرقابة  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
-                                        <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">مصاريف أصدار  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
+                                        <p style="padding:1px; padding-top: 4px; padding-bottom: 2px;"><span style="float: right !important;">مصاريف أصدار  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
                                         <p style="padding:1px; padding-top: 4px; padding-bottom: 2px;"><span style="float: right !important;">إجمالــــــــى القسط المستحق  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
