@@ -367,6 +367,8 @@ class MarineCovers(models.Model):
     rate = fields.Float(string='Rate')
     premium = fields.Float(string='Premium',compute='set_premium',)
     policy_id= fields.Many2one('policy.marine',string='Policy')
+    cert_id= fields.Many2one('certificate.marine',string='Certificate')
+
 
     # @api.onchange('cover')
     # def changecover(self):
@@ -399,6 +401,8 @@ class MarineStamps(models.Model):
     stamp = fields.Many2one('marine.stamps',string='Stamp/Fees')
     value = fields.Float(string='Value',compute='set_stamp',)
     policy_stam_id= fields.Many2one('policy.marine',string='Policy')
+    cert_id= fields.Many2one('certificate.marine',string='Certificate')
+
 
     @api.depends('stamp','policy_stam_id.net_premium',)
     def set_stamp(self):
