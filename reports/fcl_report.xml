@@ -88,9 +88,13 @@
                                     <table class="table table-hover" style="margin-bottom:0px !important; border-right:none !important;">
                                         <thead>
                                             <tr>
-                                                <th style="border-bottom:1px solid #000 !important;" colspan="2">القسط</th>
-                                                <th style="border-bottom:none !important; " scope="col">السعر</th>
-                                                <th style="border-bottom:none !important; border-right:none !important;" scope="col">مبلغ التأمين - دولار -</th>
+                                                <th style="border-bottom:1px solid #000 !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" colspan="2">القسط</th>
+                                                <th style="border-bottom:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" scope="col">السعر</th>
+                                                <th style="border-bottom:none !important; border-right:none !important; text-align: center !important; padding-top: 10px !important; padding-bottom 10px !important;" scope="col">
+                                                    مبلغ التأمين
+                                                    <br/>
+                                                    ( دولار )
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -98,22 +102,22 @@
 
 
 
-                                                <td>دولار</td>
-                                                <td>سنت</td>
-                                                <td style="border-bottom:none !important;"></td>
-                                                <td style="border-bottom:none !important; border-right:none !important;"><span t-esc="o.sum_insured"/></td>
+                                                <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 10px !important;">دولار</td>
+                                                <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 10px !important;">سنت</td>
+                                                <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 10px !important;"></td>
+                                                <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;"><span t-esc="o.sum_insured"/></td>
                                             </tr>
 					                    </tbody>
                                     </table>
                                     <div  style="border: 1px solid #000; border-top: none; margin-top:-17px !important; border-right:none;">
-                                        <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">القسط الصافي  </span> <span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
-                                        <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">نصف الدمغة النسبية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
-                                        <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">الضريبة النوعية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
-                                        <p style="padding:1px; padding-top: 4px;"><span style="float: right !important;">رسم ألاشراف والرقابة  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
-                                        <p style="padding:1px; padding-top: 4px; padding-bottom: 4px;"><span style="float: right !important;">مصاريف أصدار  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
+                                        <p style="padding:1px; padding-top: 10px !important; padding-bottom 10px !important; "><span style="float: right !important;">القسط الصافي  </span> <span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
+                                        <p style="padding:1px; padding-top: 10px !important; padding-bottom 10px !important;"><span style="float: right !important;">نصف الدمغة النسبية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
+                                        <p style="padding:1px; padding-top: 10px !important; padding-bottom 10px !important;"><span style="float: right !important;">الضريبة النوعية  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
+                                        <p style="padding:1px; padding-top: 10px !important; padding-bottom 10px !important;"><span style="float: right !important;">رسم ألاشراف والرقابة  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
+                                        <p style="padding:1px; padding-top: 10px !important; padding-bottom 10px !important;"><span style="float: right !important;">مصاريف أصدار  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
-                                        <p style="padding:1px; padding-top: 4px; padding-bottom: 4px;"><span style="float: right !important;">إجمالى القسط المستحق  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
+                                        <p style="padding:1px; padding-top: 10px; padding-bottom: 10px;"><span style="float: right !important;">إجمالى القسط المستحق  </span><span style="float: left !important;" t-esc="'{0:,.2f}'.format(o.total)"/></p>
 <!--                                        <p style="padding:1px;"></p>-->
                                     </div>
 
