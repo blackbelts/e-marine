@@ -120,7 +120,7 @@
                                 </div>
                                 <div style="border: 1px solid #000; width: 100% !important; float:left;">
                                     <p style="font-size: 12px !important; padding:1px;">دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة</p>
-                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم التوقيع على هذه الوثيقة بتاريخ : <span><t t-esc="o.issue_date"/></p>
+                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم التوقيع على هذه الوثيقة بتاريخ : <span><t t-esc="o.issue_date"/></span></p>
                                 </div>
                                 <div style="width: 100% !important; float:left;">
                                     <p style="font-size: 12px">الشروط الخاصة : تدفع التعويضات التي قد تستحق بموجب هذه الوثيقة إلي الهيئة العامة للأستثمار والمناطق الحرة.</p>
