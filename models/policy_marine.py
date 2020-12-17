@@ -172,7 +172,7 @@ class PolicyMarine(models.Model):
                   else:
                       rec.value = rec.stamp.stamp_value
 
-      @api.onchange('covers_ids')
+      @api.onchange('sum_insured','covers_ids')
       def compute_net(self):
             if self.covers_ids :
                   self.set_premium()
