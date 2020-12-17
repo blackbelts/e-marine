@@ -166,6 +166,17 @@ class PolicyMarinecert(models.Model):
       #             rec.value=(self.net_premium*rec.stamp.rete)/100
 
       # @api.one
+      @api.onchange('stamp_cert_ids', 'net_premium')
+      def set_stamp(self):
+          if self.open_cover_id.pre_paid == True:
+              pass
+          else:
+              for rec in self.stamp_ids:
+                  if rec.stamp.type == 'rate':
+                          rec.value = (rec.stamp.rate * self.net_premium)
+                  else:
+                          rec.value = rec.stamp.stamp_value
+
       @api.onchange('sum_insured')
       def get_prem(self):
               if self.covers_ids:
