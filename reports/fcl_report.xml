@@ -100,15 +100,15 @@
 					                    </tbody>
                                     </table>
                                     <div  style="border: 1px solid #000; border-top: none; margin-top:-17px !important; border-right:none;">
-                                        <p style="padding:1px;">القسط الصافي :  <span t-esc="o.net_premium"/></p>
-                                        <p style="padding:1px;">نصف الدمغة النسبية : <span t-esc="o.proportional_stamp"/> </p>
-                                        <p style="padding:1px;">الضريبة النوعية : <span t-esc="o.dimensional_stamp"/></p>
-                                        <p style="padding:1px;">رسم ألاشراف والرقابة : <span t-esc="o.supervisory_stamp"/> </p>
-                                        <p style="padding:1px;">مصاريف أصدار : <span t-esc="o.issue_fees"/></p>
+                                        <p style="padding:1px;">القسط الصافي :  <span t-esc="'{0:,.2f}'.format(o.net_premium)"/></p>
+                                        <p style="padding:1px;">نصف الدمغة النسبية : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/> </p>
+                                        <p style="padding:1px;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></p>
+                                        <p style="padding:1px;">رسم ألاشراف والرقابة : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/> </p>
+                                        <p style="padding:1px;">مصاريف أصدار : <span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right; border-right:none; margin-top: -17px !important;">
                                         <p style="padding:1px;">إجمالــــــــى القسط المستحق</p>
-                                        <p style="padding:1px;"><span t-esc="o.total"/></p>
+                                        <p style="padding:1px;"><span t-esc="'{0:,.2f}'.format(o.total)"/></p>
                                     </div>
 
 
@@ -120,7 +120,7 @@
                                 </div>
                                 <div style="border: 1px solid #000; width: 100% !important; float:left;">
                                     <p style="font-size: 12px !important; padding:1px;">دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة</p>
-                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم التوقيع على هذه الوثيقة بتاريخ :   00/ 0 /0000</p>
+                                    <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم التوقيع على هذه الوثيقة بتاريخ : <span><t t-esc="o.issue_date"/></p>
                                 </div>
                                 <div style="width: 100% !important; float:left;">
                                     <p style="font-size: 12px">الشروط الخاصة : تدفع التعويضات التي قد تستحق بموجب هذه الوثيقة إلي الهيئة العامة للأستثمار والمناطق الحرة.</p>
