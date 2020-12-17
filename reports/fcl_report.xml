@@ -87,9 +87,9 @@
                                     <table class="table table-hover" style="margin-bottom:0px !important; border-right:none !important; border-top: none !important;">
                                         <thead>
                                             <tr>
-                                                <th style="border-bottom:1px solid #000 !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" colspan="2">القسط</th>
-                                                <th style="border-bottom:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" scope="col">السعر</th>
-                                                <th style="border-bottom:none !important; border-right:none !important; text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;" scope="col">
+                                                <th style="border-bottom:1px solid #000 !important; border-top: none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" colspan="2">القسط</th>
+                                                <th style="border-bottom:none !important; border-top: none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 10px !important;" scope="col">السعر</th>
+                                                <th style="border-bottom:none !important; border-top: none !important; border-right:none !important; text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;" scope="col">
                                                     مبلغ التأمين
                                                     <br/>
                                                     ( دولار )
