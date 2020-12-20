@@ -166,12 +166,12 @@
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
                                         <td><span t-esc="o.invoice_ammount"/></td>
                                     </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
-                                        <t t-foreach="o.valution_notes" t-as="v">
-                                            <span t-esc="v.name"/> <t/>
-                                        </t>
-                                    </tr>
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>-->
+<!--                                        <t t-foreach="o.valution_notes" t-as="v">-->
+<!--                                            <span t-esc="v.name"/> <t/>-->
+<!--                                        </t>-->
+<!--                                    </tr>-->
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
                                         <td></td>
