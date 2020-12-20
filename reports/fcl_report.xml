@@ -103,7 +103,7 @@
 
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">دولار</td>
                                                 <td style="text-align: center !important; padding-top: 10px !important; padding-bottom 15px !important;">سنت</td>
-                                                <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;text-align: center !important;"><span style="font-size: 13px;" t-esc="'{0:,.2f}'.format(o.total)" /></td>
+                                                <td style="border-bottom:none !important; padding-top: 10px !important; padding-bottom 15px !important;text-align: center !important;"><span style="font-size: 13px;" t-esc="'{0:,.2f}'.format(o.get_price())" /></td>
                                                 <td style="border-bottom:none !important; border-right:none !important; text-align: center !important;padding-top: 10px !important; padding-bottom 15px !important;"><span style="font-size: 13px;" t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
                                             </tr>
 					                    </tbody>
@@ -134,7 +134,7 @@
                                     <h4>الشروط الخاصة</h4>
                                 </div>
                                 <div style="border: 1px solid #000; width: 100% !important; float:left;">
-                                    <p style="font-size: 12px !important; padding:1px;">دفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة</p>
+                                    <p style="font-size: 12px !important; padding:1px;">تدفع التعويضات التى قد تستحق بموجب هذه الوثيقة الى الهيئة العامة للأستثماروالمناطق الحرة</p>
                                     <p style="font-size: 12px !important; padding:1px; padding-top:1px !important;">تم  تحرير هذه الوثيقة بتاريخ : <span><t t-esc="o.issue_date"/></span></p>
                                 </div>
                                 <div style="width: 100% !important; float:left;">
