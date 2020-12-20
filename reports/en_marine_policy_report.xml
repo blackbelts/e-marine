@@ -130,75 +130,75 @@
 <!--                                        <th style="color: #073e89 !important; width:25% !important;" >Country of Origin</th>-->
 <!--                                        <td><span t-esc="o.ship_from"/></td>-->
 <!--                                    </tr>-->
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Destination Country</th>
-                                        <td><span t-esc="o.ship_to"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >L/C No.</th>
-                                        <td><span t-esc="o.file_num"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Bank</th>
-                                        <td><span t-esc="o.bank"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Order or Invoice NO</th>
-                                        <td><span t-esc="o.inv_num"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Supplier</th>
-                                        <td><span t-esc="o.supplier"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>
-                                        <td><span t-esc="o.consignee"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>
-                                        <td><span t-esc="o.consignee_value"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>
-                                        <td><span t-field="o.invoice_currency"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
-                                        <td><span t-esc="o.invoice_ammount"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
-                                        <t t-foreach="o.valution_notes" t-as="v">
-                                            <span t-esc="v.name"/> <t/>
-                                        </t>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>
-                                        <td>
-                                            <t t-foreach="o.nature_pakage" t-as="n">
-                                                <span t-esc="n.name"/> <t/>
-                                            </t>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>
-                                        <td>
-                                            <t t-foreach="o.product" t-as="p">
-                                                <span t-esc="p.name"/> <t/>
-                                            </t>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>
-                                        <td>
-                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
-                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
-                                        </td>
-                                    </tr>
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Destination Country</th>-->
+<!--                                        <td><span t-esc="o.ship_to"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >L/C No.</th>-->
+<!--                                        <td><span t-esc="o.file_num"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Bank</th>-->
+<!--                                        <td><span t-esc="o.bank"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Order or Invoice NO</th>-->
+<!--                                        <td><span t-esc="o.inv_num"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Supplier</th>-->
+<!--                                        <td><span t-esc="o.supplier"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>-->
+<!--                                        <td><span t-esc="o.consignee"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>-->
+<!--                                        <td><span t-esc="o.consignee_value"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>-->
+<!--                                        <td><span t-field="o.invoice_currency"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>-->
+<!--                                        <td><span t-esc="o.invoice_ammount"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>-->
+<!--                                        <t t-foreach="o.valution_notes" t-as="v">-->
+<!--                                            <span t-esc="v.name"/> <t/>-->
+<!--                                        </t>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>-->
+<!--                                        <td>-->
+<!--                                            <t t-foreach="o.nature_pakage" t-as="n">-->
+<!--                                                <span t-esc="n.name"/> <t/>-->
+<!--                                            </t>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>-->
+<!--                                        <td>-->
+<!--                                            <t t-foreach="o.product" t-as="p">-->
+<!--                                                <span t-esc="p.name"/> <t/>-->
+<!--                                            </t>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>-->
+<!--                                        <td>-->
+<!--                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>-->
+<!--                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
                                 </table>
                             </div>
                             <div class="text-center" style="width: 100% !important; margin-top: 8px !important; float:left;">
