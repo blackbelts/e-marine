@@ -57,6 +57,8 @@ class PolicyMarine(models.Model):
       ship_to=fields.Char('Destination Country')
       bank = fields.Char('Bank')
       carrier_name = fields.Char('Carrier/Veseel Name')
+      carrier_age = fields.Char('Veseel Age')
+      carrier_nation = fields.Char('Veseel Nationality')
       supplier = fields.Char('Supplier')
       consignee = fields.Char('Consignee')
       consignee_value = fields.Char('Consignee Value')
@@ -118,6 +120,7 @@ class PolicyMarine(models.Model):
       supervisory_stamp = fields.Float('Supervisory Stamp')
       policy_holder= fields.Float('Policy Holder Protection fund')
       revising_fees = fields.Float('Revising and approval fees')
+      note = fields.Text('Notes')
       total = fields.Float('Total',compute='get_total',store=True)
 
       @api.model
