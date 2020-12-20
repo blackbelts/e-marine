@@ -120,12 +120,38 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div  style="width: 100% !important; float:left;">
-                                <p>SUBJECT ASSURED</p>
+                            <div style="width: 100% !important; margin-top: 8px !important; float:left;">
+                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
+                                <br/><br/>
+                                <span>Insurance Broker Name : <t t-esc="o.broker_person.name"/></span>
+                                <br/>
+                                <span>FRA License No : <t t-esc="o.broker_fra_code"/></span>
+                                <br/>
+                                <span>Due Basic Commission before tax : <t t-esc="o.broker_commission"/> USD</span>
+                            </div>
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:left; ">
                                 <table class="table table-hover">
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Conveyance mode</th>
                                         <td><span t-esc="o.conveyance_mode"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Carrier/Vessel Name</th>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Vessel Age (years)</th>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Vessel Nationality</th>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Country of Origin</th>
@@ -161,7 +187,7 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>
-                                        <td><span t-esc="o.invoice_currency"/></td>
+                                        <td><span t-field="o.invoice_currency"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
@@ -169,9 +195,11 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
-                                        <t t-foreach="o.valution_notes" t-as="v">
-                                            <span t-esc="v.name"/> <t/>
-                                        </t>
+                                        <td>
+                                            <t t-foreach="o.valution_notes" t-as="v">
+                                                <span t-esc="v.name"/> <t/>
+                                            </t>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>

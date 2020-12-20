@@ -127,6 +127,15 @@ class PolicyMarine(models.Model):
               for rec in self.stamp_ids:
                   stamps[rec.stamp.code]=rec.value
           return stamps
+
+      @api.model
+      def get_price(self):
+          price = 0
+          if self.covers_ids:
+              for rec in self.covers_ids:
+                  price = price + rec.rate
+          return price
+
                   # if rec.stamp.code=='p-stamp':
                   #   self.proportional_stamp=rec.value
                   # if rec.stamp.code == 'dim-stamp':
