@@ -233,7 +233,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="text-center" style="width: 100% !important; margin-top: 8px !important; float:left;">
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
                                 <span>COVERAGES</span>
                                 <table class="table table-hover">
                                     <thead>
