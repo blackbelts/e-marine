@@ -166,24 +166,24 @@
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
                                         <td><span t-esc="o.invoice_ammount"/></td>
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>-->
-<!--                                        <t t-foreach="o.valution_notes" t-as="v">-->
-<!--                                            <span t-esc="v.name"/> <t/>-->
-<!--                                        </t>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>-->
-<!--                                        <td></td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>-->
-<!--                                        <td>-->
-<!--                                            <t t-foreach="o.nature_pakage" t-as="n">-->
-<!--                                                <span t-esc="n.name"/> <t/>-->
-<!--                                            </t>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
+                                        <t t-foreach="o.valution_notes" t-as="v">
+                                            <span t-esc="v.name"/> <t/>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>
+                                        <td>
+                                            <t t-foreach="o.nature_pakage" t-as="n">
+                                                <span t-esc="n.name"/> <t/>
+                                            </t>
+                                        </td>
+                                    </tr>
 <!--                                    <tr>-->
 <!--                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>-->
 <!--                                        <td>-->
