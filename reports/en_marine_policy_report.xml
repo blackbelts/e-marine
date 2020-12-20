@@ -130,6 +130,9 @@
                                 <span>Due Basic Commission before tax : <t t-esc="o.broker_commission"/> USD</span>
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left; ">
+                                <span>SUBJECT ASSURED</span>
+                                <br/>
+                                <span>Covered Items Descriptions</span>
                                 <table class="table table-hover">
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Conveyance mode</th>
@@ -231,6 +234,7 @@
                                 </table>
                             </div>
                             <div class="text-center" style="width: 100% !important; margin-top: 8px !important; float:left;">
+                                <span>COVERAGES</span>
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
