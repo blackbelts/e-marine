@@ -203,7 +203,6 @@ class PolicyMarinecert(models.Model):
                   else:
                      self.open_cover_id.remain -= self.sum_insured
           self.state='approved'
-          print(self.open_cover_id.remain)
 
 
       @api.onchange('open_cover_id')

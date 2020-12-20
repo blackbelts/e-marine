@@ -47,7 +47,12 @@ class PolicyMarine(models.Model):
       conveyance_mode=fields.Selection([('Air or Sea Shipment', 'Air or Sea Shipment'),
                                            ('Air Shipment', 'Air Shipment'),
                                            ('Sea Shipment', 'Sea Shipment'),
-                                           ('Land Shipment', 'Land Shipment')],string='Conveyance mode')
+                                           ('Land Shipment', 'Land Shipment'),
+                                           ('air', 'نقل جوى'),
+                                           ('Sea ', 'نقل بحرى'),
+                                           ('Land ', 'نقل داخلى'),
+                                           ('land_sea ', 'نقل جوى او بحرى'),
+                                        ],string='Conveyance mode')
       ship_from=fields.Char('Country origin')
       ship_to=fields.Char('Destination Country')
       bank = fields.Char('Bank')
