@@ -137,15 +137,21 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Carrier/Vessel Name</th>
-                                        <td><span t-esc=""/></td>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Vessel Age (years)</th>
-                                        <td><span t-esc=""/></td>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Vessel Nationality</th>
-                                        <td><span t-esc=""/></td>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Country of Origin</th>
