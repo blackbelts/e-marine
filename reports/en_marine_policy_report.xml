@@ -279,9 +279,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td style="text-align: left !important; padding-top: 30px !important;">
+                                            <td style="text-align: left !important">
                                                 <t t-foreach="o.new_terms" t-as="t">
-                                                    <li>
+                                                    <li style="padding-top: 10px;">
                                                         <span t-esc="t.term_name"/>
                                                     </li>
 
