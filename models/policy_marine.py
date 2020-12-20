@@ -128,7 +128,7 @@ class PolicyMarine(models.Model):
           price = 0
           if self.covers_ids:
               for rec in self.covers_ids:
-                  price += rec.rate
+                  price = price + rec.rate
           return price
 
                   # if rec.stamp.code=='p-stamp':
