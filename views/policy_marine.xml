@@ -171,6 +171,8 @@
 
                                     <field name="conveyance_mode" />
                                     <field name="carrier_name" />
+                                    <field name="carrier_age" />
+                                    <field name="carrier_nation" />
                                     <field name="ship_from" />
                                     <field name="ship_to" />
 
@@ -251,6 +253,9 @@
                                 </tree>
                             </field>
 
+                        </page>
+                        <page string="Notes">
+                            <field name="note"/>
                         </page>
 
                     </notebook>
