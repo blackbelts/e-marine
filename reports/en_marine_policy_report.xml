@@ -44,12 +44,19 @@
                         <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                         <div class="text-center">
                             <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <h6 style="color: #073e89;text-align: center !important;">INLAND INSURANCE – POLICY</h6>
-                                <h6 style="color: #073e89;text-align: center !important;"><span  t-esc="o.cover_num"/></h6>
+                                <h6 style="color: #073e89;text-align: center !important;">
+                                    <span>INLAND INSURANCE – POLICY</span>
+                                    <br/>
+                                    <span  t-esc="o.cover_num"/>
+                                </h6>
                             </t>
                             <t t-if="o.lob.line_of_business== 'Cargo'" >
-                                <h6 style="color: #073e89;text-align: center !important;">CARGO INSURANCE – POLICY</h6>
-                                <h6 style="color: #073e89;text-align: center !important;"><span  t-esc="o.cover_num"/></h6>
+                                <h6 style="color: #073e89;text-align: center !important;">
+                                    <span>CARGO INSURANCE – POLICY</span>
+                                    <br/>
+                                    <span  t-esc="o.cover_num"/>
+                                </h6>
+
 
                             </t>
                             <p style="text-align: center !important;margin-top: -5px !important;"><span t-field="o.marine_type.product_name" /></p>
@@ -281,7 +288,7 @@
                                         <tr>
                                             <td style="text-align: left !important">
                                                 <t t-foreach="o.new_terms" t-as="t">
-                                                    <li style="padding-top: 10px;">
+                                                    <li style="padding-top: 15px;">
                                                         <span t-esc="t.term_name"/>
                                                     </li>
 
