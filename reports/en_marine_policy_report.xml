@@ -150,22 +150,22 @@
                                         <th style="color: #073e89 !important; width:25% !important;" >Supplier</th>
                                         <td><span t-esc="o.supplier"/></td>
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>-->
-<!--                                        <td><span t-esc="o.consignee"/></td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>-->
-<!--                                        <td><span t-esc="o.consignee_value"/></td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>-->
-<!--                                        <td><span t-field="o.invoice_currency"/></td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>-->
-<!--                                        <td><span t-esc="o.invoice_ammount"/></td>-->
-<!--                                    </tr>-->
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>
+                                        <td><span t-esc="o.consignee"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>
+                                        <td><span t-esc="o.consignee_value"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>
+                                        <td><span t-field="o.invoice_currency"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
+                                        <td><span t-esc="o.invoice_ammount"/></td>
+                                    </tr>
 <!--                                    <tr>-->
 <!--                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>-->
 <!--                                        <t t-foreach="o.valution_notes" t-as="v">-->
