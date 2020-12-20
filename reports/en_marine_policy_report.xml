@@ -166,12 +166,14 @@
                                         <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
                                         <td><span t-esc="o.invoice_ammount"/></td>
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>-->
-<!--                                        <t t-foreach="o.valution_notes" t-as="v">-->
-<!--                                            <span t-esc="v.name"/> <t/>-->
-<!--                                        </t>-->
-<!--                                    </tr>-->
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
+                                        <td>
+                                            <t t-foreach="o.valution_notes" t-as="v">
+                                                <span t-esc="v.name"/> <t/>
+                                            </t>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
                                         <td></td>
@@ -184,21 +186,21 @@
                                             </t>
                                         </td>
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>-->
-<!--                                        <td>-->
-<!--                                            <t t-foreach="o.product" t-as="p">-->
-<!--                                                <span t-esc="p.name"/> <t/>-->
-<!--                                            </t>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>-->
-<!--                                        <td>-->
-<!--                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>-->
-<!--                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>
+                                        <td>
+                                            <t t-foreach="o.product" t-as="p">
+                                                <span t-esc="p.name"/> <t/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>
+                                        <td>
+                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
+                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                             <div class="text-center" style="width: 100% !important; margin-top: 8px !important; float:left;">
