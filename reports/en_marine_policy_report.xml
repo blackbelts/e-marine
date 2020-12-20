@@ -312,7 +312,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td style="text-align: left !important">
                                                 <t t-foreach="o.new_special_terms" t-as="t">
                                                     <li>
                                                         <span t-esc="t.term_name"/>
