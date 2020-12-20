@@ -44,10 +44,20 @@
                         <img class="img"  style="width: 100%;" src="https://online.aropeegypt.com.eg:8069/smart_travel_agency/static/src/images/3.jpg"/>
                         <div class="text-center">
                             <t t-if="o.lob.line_of_business== 'Inland'" >
-                                <h6 style="color: #073e89;text-align: center !important;">INLAND (DOLLAR) – POLICY</h6>
+                                <h6 style="color: #073e89;text-align: center !important;">
+                                    <span>INLAND INSURANCE – POLICY</span>
+                                    <br/>
+                                    <span  t-esc="o.cover_num"/>
+                                </h6>
                             </t>
                             <t t-if="o.lob.line_of_business== 'Cargo'" >
-                                <h6 style="color: #073e89;text-align: center !important;">CARGO (DOLLAR) – POLICY</h6>
+                                <h6 style="color: #073e89;text-align: center !important;">
+                                    <span>CARGO INSURANCE – POLICY</span>
+                                    <br/>
+                                    <span  t-esc="o.cover_num"/>
+                                </h6>
+
+
                             </t>
                             <p style="text-align: center !important;margin-top: -5px !important;"><span t-field="o.marine_type.product_name" /></p>
 <!--                            <p style="text-align: center !important;margin-top: -5px !important;">SCHEDULE</p>-->
@@ -60,25 +70,25 @@
                             <div  style="width: 100% !important; float:left;">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Policy No</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Policy No</th>
                                         <td>
-                                            <span style="padding-left:30%;" t-esc="o.cover_num"/>
+                                            <span  t-esc="o.cover_num"/>
                                             <t t-if="o.is_endorsement == true">
-                                                Endorsement No<span t-esc="o.endorsement_no"/>
+                                                <span style="padding-left:30%;"> Endorsement No<span t-esc="o.endorsement_no"/> </span>
                                             </t>
 
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;">Insured</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;">Insured</th>
                                         <td><span t-esc="o.insured"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" scope="col">Agent</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Agent</th>
                                         <td><span t-esc="o.broker_person.name"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" scope="col">Period Of Insurance</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Period Of Insurance</th>
                                         <td>
                                             From: <span style="padding-right:30%;" t-esc="o.start_date"/>
                                             To: <span style="padding-right:10%;" t-esc="o.end_date"/>
@@ -86,7 +96,7 @@
 
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" scope="col">Pay . Frequency</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Pay . Frequency</th>
                                         <td>
                                             <span style="padding-right:30%;">Single</span>
                                             Pay . Mode: <span style="padding-right:10%;" >Cash / Check</span>
@@ -110,12 +120,12 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.net_premium)"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
-                                            <td><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.net_premium)"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -130,71 +140,78 @@
                                 <span>Due Basic Commission before tax : <t t-esc="o.broker_commission"/> USD</span>
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left; ">
+                                <span style="text-decoration: underline;">SUBJECT ASSURED</span>
+                                <br/>
+                                <span style="text-decoration: underline;">Covered Items Descriptions</span>
                                 <table class="table table-hover">
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Conveyance mode</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Conveyance mode</th>
                                         <td><span t-esc="o.conveyance_mode"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Carrier/Vessel Name</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Carrier/Vessel Name</th>
                                         <td>
 <!--                                            <span t-esc=""/>-->
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Vessel Age (years)</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Vessel Age (years)</th>
                                         <td>
 <!--                                            <span t-esc=""/>-->
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Vessel Nationality</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Vessel Nationality</th>
                                         <td>
 <!--                                            <span t-esc=""/>-->
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Country of Origin</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Country of Origin</th>
                                         <td><span t-esc="o.ship_from"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Destination Country</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Destination Country</th>
                                         <td><span t-esc="o.ship_to"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >L/C No.</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >L/C No.</th>
                                         <td><span t-esc="o.file_num"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Bank</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bank</th>
                                         <td><span t-esc="o.bank"/></td>
                                     </tr>
+                                    <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bill of Lading</th>
+                                        <td>
+<!--                                            <span t-esc=""/>-->
+                                        </td>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Order or Invoice NO</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Order or Invoice NO</th>
                                         <td><span t-esc="o.inv_num"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Supplier</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Supplier</th>
                                         <td><span t-esc="o.supplier"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Consignee</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Consignee</th>
                                         <td><span t-esc="o.consignee"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Consignment Value</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Consignment Value</th>
                                         <td><span t-esc="o.consignee_value"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Currency</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Invoice Currency</th>
                                         <td><span t-field="o.invoice_currency"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Invoice Amount</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Invoice Amount</th>
                                         <td><span t-esc="o.invoice_ammount"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Valuation Notes</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Valuation Notes</th>
                                         <td>
                                             <t t-foreach="o.valution_notes" t-as="v">
                                                 <span t-esc="v.name"/> <t/>
@@ -202,11 +219,11 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Basis of Valuation</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Basis of Valuation</th>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Nature of Packing</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Nature of Packing</th>
                                         <td>
                                             <t t-foreach="o.nature_pakage" t-as="n">
                                                 <span t-esc="n.name"/> <t/>
@@ -214,7 +231,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >Commodities</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Commodities</th>
                                         <td>
                                             <t t-foreach="o.product" t-as="p">
                                                 <span t-esc="p.name"/> <t/>
@@ -222,7 +239,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important;" >VOYAGE</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >VOYAGE</th>
                                         <td>
                                             From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
                                             To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
@@ -230,7 +247,8 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="text-center" style="width: 100% !important; margin-top: 8px !important; float:left;">
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
+                                <span style="text-decoration: underline;">COVERAGES</span>
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -246,8 +264,8 @@
 
                                             <tr>
                                                 <td> <span t-esc="c.cover.cover_name"/></td>
-                                                <td><span t-esc="o.sum_insured"/></td>
-                                                <td><span t-esc="c.cover.rate"/></td>
+                                                <td style="text-align: right !important;"><span t-esc="o.sum_insured"/></td>
+                                                <td style="text-align: right !important;"><span t-esc="c.cover.rate"/></td>
                                                 <td></td>
                                             </tr>
                                         </t>
@@ -268,9 +286,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td style="text-align: left !important">
                                                 <t t-foreach="o.new_terms" t-as="t">
-                                                    <li>
+                                                    <li style="padding-top: 15px;">
                                                         <span t-esc="t.term_name"/>
                                                     </li>
 
