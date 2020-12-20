@@ -158,13 +158,44 @@ class PolicyMarine(models.Model):
                                 ('canceled', 'Canceled'), ],
                                'Status', required=True, default='pending', copy=False)
 
-      @api.onchange('covers_ids')
+      # @api.onchange('sum_insured', 'covers_ids')
+      # def set_premium(self):
+      #     if self.covers_ids:
+      #         for rec in self.covers_ids:
+      #             if self.type == 'individual' or self.pre_paid == True:
+      #                 rec.premium = (rec.rate * self.sum_insured) / 100
+      #         else:
+      #             rec.premium = 0.0
+
+      @api.onchange('stamp_ids', 'net_premium')
+      def set_stamp(self):
+          for rec in self.stamp_ids:
+              if self.type == 'individual' or self.pre_paid == True:
+                  if rec.stamp.type == 'rate':
+                      rec.value = (rec.stamp.rate * self.net_premium)
+                  else:
+                      rec.value = rec.stamp.stamp_value
+              else:
+                  if rec.stamp.type == 'rate':
+                      rec.value = 0.0
+                  else:
+                      rec.value = rec.stamp.stamp_value
+
+      @api.onchange('sum_insured','covers_ids')
       def compute_net(self):
             if self.covers_ids :
-                  sum=0.0
-                  for rec in self.covers_ids:
+                sum = 0.0
+                for rec in self.covers_ids:
+                    if self.type == 'individual' or self.pre_paid == True:
+                        rec.premium = (rec.rate * self.sum_insured) / 100
+                    else:
+                        rec.premium = 0.0
+                for rec in self.covers_ids:
                         sum+=rec.premium
-                  self.net_premium=sum
+                self.net_premium=sum
+
+
+
 
       @api.onchange('net_premium')
       def set_commission(self):
@@ -369,12 +400,13 @@ class PolicyMarine(models.Model):
       #                     raise ValidationError('pppppp')
 
                           # return {'domain': {'covers_ids.cover': [('id', '!=', record.cover.id)]}}
+
 class MarineCovers(models.Model):
     _name = 'policy.covers'
     _rec_name = 'cover'
     cover = fields.Many2one('covers',string='Cover')
     rate = fields.Float(string='Rate')
-    premium = fields.Float(string='Premium',compute='set_premium',)
+    premium = fields.Float(string='Premium')
     policy_id= fields.Many2one('policy.marine',string='Policy')
     cert_id= fields.Many2one('certificate.marine',string='Certificate')
 
@@ -395,38 +427,19 @@ class MarineCovers(models.Model):
             ids.remove(self.cover.id)
             return {'domain': {'cover': [('id', '!=', ids)]}}
 
-    @api.depends('rate','policy_id.sum_insured','policy_id.pre_paid')
-    def set_premium(self):
-              for rec in self:
-                if rec.policy_id.type =='individual' or rec.policy_id.pre_paid==True :
-                      rec.premium = (rec.rate*rec.policy_id.sum_insured)/100
-                else:
-                      rec.premium=0.0
+
 
 
 class MarineStamps(models.Model):
     _name = 'policy.stamps'
     _rec_name = 'stamp'
     stamp = fields.Many2one('marine.stamps',string='Stamp/Fees')
-    value = fields.Float(string='Value',compute='set_stamp',inverse='_set_inverse')
+    value = fields.Float(string='Value')
     policy_stam_id= fields.Many2one('policy.marine',string='Policy')
     cert_id= fields.Many2one('certificate.marine',string='Certificate')
-    def _set_inverse(self):
-        return True
 
-    @api.depends('stamp','policy_stam_id.net_premium',)
-    def set_stamp(self):
-              for rec in self:
-                if rec.policy_stam_id.type =='individual' or rec.policy_stam_id.pre_paid==True :
-                    if rec.stamp.type=='rate':
-                        rec.value = (rec.stamp.rate*rec.policy_stam_id.net_premium)
-                    else:
-                        rec.value=rec.stamp.stamp_value
-                else:
-                    if rec.stamp.type=='rate':
-                      rec.value=0.0
-                    else:
-                        rec.value=rec.stamp.stamp_value
+
+
 
 
 
