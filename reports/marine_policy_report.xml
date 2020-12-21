@@ -144,15 +144,33 @@
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
-                                        <td><span t-esc="o.invoice_ammount" /></td>
+                                        <td>
+                                            <span style="padding-left:30%;" t-esc="o.invoice_ammount" />
+                                            <span style="padding-left:1%;">سعر التحويل</span>
+                                            <span t-esc="'{0:,.2f}'.format(o.currency_id.rate)"/>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">مبلغ التأمين</th>
                                         <td><span t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">طريقة الشحن</th>
                                         <td><span t-esc="o.conveyance_mode"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
+<!--                                        <td><span t-esc="o.conveyance_mode"/></td>-->
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">اسم السفينة</th>
+                                        <td>
+                                            <span style="padding-left:25%;" t-esc="o.carrier_name"/>
+                                            <span style="padding-left:1%;">سنة البناء</span>
+                                            <span style="padding-left:25%;" t-esc="o.carrier_age"/>
+                                            <span style="padding-left:1%;">العلم</span>
+                                            <span t-esc="o.carrier_nation"/>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;vertical-align: middle !important;" scope="col">الرحلة</th>

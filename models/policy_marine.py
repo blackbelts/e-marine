@@ -42,7 +42,7 @@ class PolicyMarine(models.Model):
       net_premium=fields.Float('Net Premium')
       nature_pakage=fields.Many2many('marine.package',string='Nature of pakage')
       inv_num=fields.Char('Order or Invoice No')
-      ship_num=fields.Char('Shipping Number')
+      ship_num=fields.Char('Bill of Leading')
       file_num=fields.Char('L/C No')
       conveyance_mode=fields.Selection([('Air or Sea Shipment', 'Air or Sea Shipment'),
                                            ('Air Shipment', 'Air Shipment'),

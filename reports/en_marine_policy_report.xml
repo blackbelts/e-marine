@@ -198,7 +198,7 @@
                                     </tr>
                                     <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bill of Lading</th>
                                         <td>
-<!--                                            <span t-esc=""/>-->
+                                            <span t-esc="o.ship_num"/>
                                         </td>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Order or Invoice NO</th>
