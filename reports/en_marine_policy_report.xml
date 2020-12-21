@@ -48,8 +48,8 @@
                                     <span>INLAND INSURANCE – POLICY</span>
                                     <br/>
                                     <span  t-esc="o.cover_num"/>
-                                    <br/>
-                                    <span t-field="o.marine_type.product_name" />
+<!--                                    <br/>-->
+<!--                                    <span t-field="o.marine_type.product_name" />-->
                                 </h6>
                             </t>
                             <t t-if="o.lob.line_of_business== 'Cargo'" >
@@ -57,8 +57,8 @@
                                     <span>CARGO INSURANCE – POLICY</span>
                                     <br/>
                                     <span  t-esc="o.cover_num"/>
-                                    <br/>
-                                    <span t-field="o.marine_type.product_name" />
+<!--                                    <br/>-->
+<!--                                    <span t-field="o.marine_type.product_name" />-->
                                 </h6>
 
 
@@ -137,11 +137,21 @@
                             <div style="width: 100% !important; margin-top: 8px !important; float:left;">
                                 <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
                                 <br/><br/>
-                                <span>Insurance Broker Name : <t t-esc="o.broker_person.name"/></span>
-                                <br/>
-                                <span>FRA License No : <t t-esc="o.broker_fra_code"/></span>
-                                <br/>
-                                <span>Due Basic Commission before tax : <t t-esc="o.broker_commission"/> USD</span>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Insurance Broker Name</th>
+                                        <td><span t-esc="o.broker_person.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >FRA License No</th>
+                                        <td><span t-esc="o.broker_fra_code"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Due Basic Commission before tax</th>
+                                        <td><span t-esc="o.broker_commission"/> USD</td>
+                                    </tr>
+                                </table>
+
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left; ">
                                 <span style="text-decoration: underline;">SUBJECT ASSURED</span>
@@ -155,19 +165,19 @@
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Carrier/Vessel Name</th>
                                         <td>
-<!--                                            <span t-esc=""/>-->
+                                            <span t-esc="carrier_name"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Vessel Age (years)</th>
                                         <td>
-<!--                                            <span t-esc=""/>-->
+                                            <span t-esc="carrier_age"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Vessel Nationality</th>
                                         <td>
-<!--                                            <span t-esc=""/>-->
+                                            <span t-esc="carrier_nation"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -258,8 +268,7 @@
                                         <tr>
                                             <th scope="col">Covers descriptions</th>
                                             <th scope="col">Sum Ins./ USD</th>
-                                            <th scope="col"> Average  Price</th>
-                                            <th scope="col">NOTES</th>
+                                            <th scope="col">Rate</th>
 
                                         </tr>
                                     </thead>
@@ -268,9 +277,8 @@
 
                                             <tr>
                                                 <td> <span t-esc="c.cover.cover_name"/></td>
-                                                <td style="text-align: right !important;"><span t-esc="o.sum_insured"/></td>
+                                                <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
                                                 <td style="text-align: right !important;"><span t-esc="c.cover.rate"/></td>
-                                                <td></td>
                                             </tr>
                                         </t>
                                     </tbody>
@@ -282,47 +290,62 @@
                     <div class="page">
                         <div style="padding-left: 25px !important; padding-right: 25px !important;">
                             <div class="text-center" style="width: 100% !important; float:left;">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: left !important;" scope="col">GENERAL CONDITIONS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left !important">
-                                                <t t-foreach="o.new_terms" t-as="t">
-                                                    <li style="padding-top: 30px;">
-                                                        <span t-esc="t.term_name"/>
-                                                    </li>
+                                <h5 style="color: #073e89; text-align:left;font-weight: 700;text-decoration: underline;">GENERAL CONDITIONS</h5>
+                                <t t-foreach="o.new_terms" t-as="t">
+                                    <li style="text-align: left !important">
+                                        <span t-esc="t.term_name"/>
+                                    </li>
 
-                                                </t>
-                                            </td>
-                                        </tr>
+                                </t>
 
-                                    </tbody>
-                                </table>
+<!--                                <table class="table table-hover">-->
+<!--                                    <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th style="text-align: left !important;" scope="col">GENERAL CONDITIONS</th>-->
+<!--                                        </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td style="text-align: left !important">-->
+<!--                                                <t t-foreach="o.new_terms" t-as="t">-->
+<!--                                                    <li style="padding-top: 30px;">-->
+<!--                                                        <span t-esc="t.term_name"/>-->
+<!--                                                    </li>-->
+
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+
+<!--                                    </tbody>-->
+<!--                                </table>-->
                             </div>
                             <div class="text-center" style="width: 100% !important; float:left;">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: left !important;" scope="col">SPECIAL CONDITIONS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left !important">
-                                                <t t-foreach="o.new_special_terms" t-as="t">
-                                                    <li>
-                                                        <span t-esc="t.term_name"/>
-                                                    </li>
+                                <h5 style="color: #073e89; text-align:left;font-weight: 700;text-decoration: underline;">SPECIAL CONDITIONS</h5>
+                                <t t-foreach="o.new_special_terms" t-as="t">
+                                    <li style="text-align: left !important">
+                                        <span t-esc="t.term_name"/>
+                                    </li>
 
-                                                </t>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                </t>
+<!--                                <table class="table table-hover">-->
+<!--                                    <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th style="text-align: left !important;" scope="col">SPECIAL CONDITIONS</th>-->
+<!--                                        </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td style="text-align: left !important">-->
+<!--                                                <t t-foreach="o.new_special_terms" t-as="t">-->
+<!--                                                    <li>-->
+<!--                                                        <span t-esc="t.term_name"/>-->
+<!--                                                    </li>-->
+
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
                             </div>
 
                             <!--                            <div style="width: 100% !important; margin-top:-5px !important; float: left;">-->
