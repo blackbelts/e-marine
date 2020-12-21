@@ -87,10 +87,10 @@
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;">Insured</th>
                                         <td><span t-esc="o.insured"/></td>
                                     </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Agent</th>
-                                        <td><span t-esc="o.broker_person.name"/></td>
-                                    </tr>
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Agent</th>-->
+<!--                                        <td><span t-esc="o.broker_person.name"/></td>-->
+<!--                                    </tr>-->
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Period Of Insurance</th>
                                         <td>
