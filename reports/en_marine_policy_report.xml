@@ -253,7 +253,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >VOYAGE</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Voyage</th>
                                         <td>
                                             From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
                                             To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
