@@ -165,19 +165,19 @@
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Carrier/Vessel Name</th>
                                         <td>
-                                            <span t-esc="carrier_name"/>
+                                            <span t-esc="o.carrier_name"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Vessel Age (years)</th>
                                         <td>
-                                            <span t-esc="carrier_age"/>
+                                            <span t-esc="o.carrier_age"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Vessel Nationality</th>
                                         <td>
-                                            <span t-esc="carrier_nation"/>
+                                            <span t-esc="o.carrier_nation"/>
                                         </td>
                                     </tr>
                                     <tr>
