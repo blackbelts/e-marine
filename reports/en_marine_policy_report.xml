@@ -109,50 +109,6 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="color: #073e89 !important;" scope="col">Net Premium</th>
-                                            <th style="color: #073e89 !important;" scope="col">Proportional Stamp</th>
-                                            <th style="color: #073e89 !important;" scope="col">Fixed Stamp</th>
-                                            <th style="color: #073e89 !important;" scope="col">Supervisory Fees</th>
-                                            <th style="color: #073e89 !important;" scope="col">Cost</th>
-                                            <th style="color: #073e89 !important;" scope="col">Total Premium</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.net_premium)"/></td>
-                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
-                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
-                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
-                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
-                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div style="width: 100% !important; margin-top: 8px !important; float:left;">
-                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
-                                <br/><br/>
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Insurance Broker Name</th>
-                                        <td><span t-esc="o.broker_person.name"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >FRA License No</th>
-                                        <td><span t-esc="o.broker_fra_code"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Due Basic Commission before tax</th>
-                                        <td><span t-esc="o.broker_commission"/> USD</td>
-                                    </tr>
-                                </table>
-
-                            </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left; ">
                                 <span style="text-decoration: underline;">SUBJECT ASSURED</span>
                                 <br/>
@@ -196,7 +152,7 @@
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bank</th>
                                         <td><span t-esc="o.bank"/></td>
                                     </tr>
-                                    <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bill of Lading</th>
+                                    <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bill of Lading No</th>
                                         <td>
                                             <span t-esc="o.ship_num"/>
                                         </td>
@@ -262,6 +218,35 @@
                                 </table>
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="color: #073e89 !important;" scope="col">Net Premium</th>
+                                            <th style="color: #073e89 !important;" scope="col">Proportional Stamp</th>
+                                            <th style="color: #073e89 !important;" scope="col">Fixed Stamp</th>
+                                            <th style="color: #073e89 !important;" scope="col">Supervisory Fees</th>
+                                            <th style="color: #073e89 !important;" scope="col">Cost</th>
+                                            <th style="color: #073e89 !important;" scope="col">Total Premium</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.net_premium)"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['p-stamp'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['dim-stamp'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['s-stamp'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.set_stamps()['issue-fees'])"/></td>
+                                            <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.total)"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
+                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
+                                <br/><br/>
                                 <span style="text-decoration: underline;">COVERAGES</span>
                                 <table class="table table-hover">
                                     <thead>
@@ -285,6 +270,24 @@
                                 </table>
                             </div>
                         </div>
+                        <div style="width: 100% !important; margin-top: 8px !important; float:left;">
+
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Insurance Broker Name</th>
+                                        <td><span t-esc="o.broker_person.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >FRA License No</th>
+                                        <td><span t-esc="o.broker_fra_code"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Due Basic Commission before tax</th>
+                                        <td><span t-esc="o.broker_commission"/> USD</td>
+                                    </tr>
+                                </table>
+
+                            </div>
                         <div style="page-break-after: always !important;"/>
                     </div>
                     <div class="page">
