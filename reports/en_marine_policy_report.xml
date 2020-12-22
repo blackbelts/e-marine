@@ -269,8 +269,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                        <div style="width: 100% !important; margin-top: 8px !important; float:left;">
+                            <div style="width: 100% !important; margin-top: 8px !important; float:left;">
 
                                 <table class="table table-hover">
                                     <tr>
@@ -290,6 +289,8 @@
                             </div>
                         <div style="page-break-after: always !important;"/>
                     </div>
+                        </div>
+
                     <div class="page">
                         <div style="padding-left: 25px !important; padding-right: 25px !important;">
                             <div class="text-center" style="width: 100% !important; float:left;">
