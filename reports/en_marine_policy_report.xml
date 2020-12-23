@@ -228,8 +228,8 @@
                                 </table>
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
-                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
-                                <br/><br/>
+<!--                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>-->
+<!--                                <br/><br/>-->
                                 <span style="text-decoration: underline;">COVERAGES</span>
                                 <table class="table table-hover">
                                     <thead>
@@ -282,7 +282,7 @@
 
                             <div style="width: 100% !important; margin-top: 8px !important; float:left;">
                                 <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
-                                <br/>
+                                <br/><br/>
                                 <table class="table table-hover">
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Insurance Broker Name</th>
