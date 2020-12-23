@@ -122,7 +122,7 @@ class PolicyMarine(models.Model):
       revising_fees = fields.Float('Revising and approval fees')
       note = fields.Text('Notes')
       total = fields.Float('Total',compute='get_total',store=True)
-      concersion_rate = fields.float('C / Y Concersion Rate')
+      concersion_rate = fields.Float('C / Y Concersion Rate')
 
 
       @api.model
