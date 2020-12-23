@@ -201,7 +201,7 @@
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Consignment Value</th>
                                         <td>
                                             <span style="padding-right:30%;" t-esc="o.consignee_value"/>
-                                            C/Y Concersion Rate :
+                                            C/Y Concersion Rate : <span style="padding-right:10%;" t-esc="'{0:,.2f}'.format(o.concersion_rate)"/>
                                         </td>
                                     </tr>
                                     <tr>

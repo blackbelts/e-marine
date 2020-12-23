@@ -147,7 +147,7 @@
                                         <td>
                                             <span style="padding-left:30%;" t-esc="o.invoice_ammount" />
                                             <span style="padding-left:1%;">سعر التحويل</span>
-                                            <span t-esc="'{0:,.2f}'.format(o.currency_id.rate)"/>
+                                            <span t-esc="'{0:,.2f}'.format(o.concersion_rate)"/>
                                         </td>
                                     </tr>
                                     <tr>

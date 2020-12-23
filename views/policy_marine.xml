@@ -158,6 +158,7 @@
                                     <field name="inv_num"/>
                                     <field name="invoice_currency"/>
                                     <field name="invoice_ammount"/>
+                                    <field name="concersion_rate"/>
 
                                 </group>
                                 <group>
