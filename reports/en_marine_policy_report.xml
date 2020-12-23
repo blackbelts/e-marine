@@ -45,7 +45,7 @@
                         <div class="text-center">
                             <t t-if="o.lob.line_of_business== 'Inland'" >
                                 <h6 style="color: #073e89;text-align: center !important;">
-                                    <span>INLAND INSURANCE – POLICY</span>
+                                    <span>Inland Transit Policy</span>
                                     <br/>
                                     <span  t-esc="o.cover_num"/>
 <!--                                    <br/>-->
@@ -54,7 +54,7 @@
                             </t>
                             <t t-if="o.lob.line_of_business== 'Cargo'" >
                                 <h6 style="color: #073e89;text-align: center !important;">
-                                    <span>CARGO INSURANCE – POLICY</span>
+                                    <span>Marine/Air Cargo Insurance Policy</span>
                                     <br/>
                                     <span  t-esc="o.cover_num"/>
 <!--                                    <br/>-->
@@ -87,10 +87,10 @@
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;">Insured</th>
                                         <td><span t-esc="o.insured"/></td>
                                     </tr>
-<!--                                    <tr>-->
-<!--                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Agent</th>-->
-<!--                                        <td><span t-esc="o.broker_person.name"/></td>-->
-<!--                                    </tr>-->
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">In Favaur of</th>
+                                        <td><span t-esc="o.in_favour"/></td>
+                                    </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Period Of Insurance</th>
                                         <td>
@@ -116,7 +116,10 @@
                                 <table class="table table-hover">
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Conveyance mode</th>
-                                        <td><span t-esc="o.conveyance_mode"/></td>
+                                        <td>
+                                            <span style="padding-right:30%;" t-esc="o.conveyance_mode"/>
+                                            Conveyance :
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Carrier/Vessel Name</th>
@@ -146,19 +149,26 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >L/C No.</th>
-                                        <td><span t-esc="o.file_num"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bank</th>
-                                        <td><span t-esc="o.bank"/></td>
-                                    </tr>
-                                    <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bill of Lading No</th>
                                         <td>
-                                            <span t-esc="o.ship_num"/>
+                                            <span style="padding-right:30%;" t-esc="o.file_num"/>
+                                            Bank : <span t-esc="o.bank"/>
                                         </td>
+                                    </tr>
+<!--                                    <tr>-->
+<!--                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bank</th>-->
+<!--                                        <td><span t-esc="o.bank"/></td>-->
+<!--                                    </tr>-->
+<!--                                    <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Bill of Lading No</th>-->
+<!--                                        <td>-->
+<!--                                            <span t-esc="o.ship_num"/>-->
+<!--                                        </td>-->
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Order or Invoice NO</th>
-                                        <td><span t-esc="o.inv_num"/></td>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Order or Invoice No</th>
+                                        <td>
+                                            <span style="padding-right:30%;" t-esc="o.inv_num"/>
+                                            Bill of Lading No : <span style="padding-right:10%;" t-esc="o.ship_num"/>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Supplier</th>
@@ -218,6 +228,31 @@
                                 </table>
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
+                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
+                                <br/><br/>
+                                <span style="text-decoration: underline;">COVERAGES</span>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Covers descriptions</th>
+                                            <th scope="col">Sum Ins./ USD</th>
+                                            <th scope="col">Rate</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.covers_ids" t-as="c">
+
+                                            <tr>
+                                                <td> <span t-esc="c.cover.cover_name"/></td>
+                                                <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
+                                                <td style="text-align: right !important;"><span t-esc="c.cover.rate"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -244,33 +279,10 @@
                             </div>
 
 
-                            <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
-                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
-                                <br/><br/>
-                                <span style="text-decoration: underline;">COVERAGES</span>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Covers descriptions</th>
-                                            <th scope="col">Sum Ins./ USD</th>
-                                            <th scope="col">Rate</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <t t-foreach="o.covers_ids" t-as="c">
-
-                                            <tr>
-                                                <td> <span t-esc="c.cover.cover_name"/></td>
-                                                <td style="text-align: right !important;"><span t-esc="'{0:,.2f}'.format(o.sum_insured)"/></td>
-                                                <td style="text-align: right !important;"><span t-esc="c.cover.rate"/></td>
-                                            </tr>
-                                        </t>
-                                    </tbody>
-                                </table>
-                            </div>
                             <div style="width: 100% !important; margin-top: 8px !important; float:left;">
-
+                                <span>TOTAL PREMIUM <span t-esc="'{0:,.2f}'.format(o.total)"/> USD</span>
+                                <br/>
                                 <table class="table table-hover">
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Insurance Broker Name</th>
