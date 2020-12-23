@@ -123,8 +123,7 @@
                                         <td>
 
                                             <span style="padding-left:30%;" t-esc="o.inv_num"/>
-                                            <span style="padding-left:1%;">رقم بوليصة الشحن</span>
-                                            <span t-esc="o.ship_num"/>
+                                            رقم بوليصة الشحن : <span t-esc="o.ship_num"/>
                                         </td>
 
 
@@ -138,16 +137,16 @@
 
                                         <td>
                                             <span  style="padding-left:30%;" t-esc="o.file_num"/>
-                                            <span style="padding-left:1%;">البنك</span>
-                                            <span t-esc="o.bank"/>
+                                            البنك : <span t-esc="o.bank"/>
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">قيمة الرسالة</th>
                                         <td>
                                             <span style="padding-left:30%;" t-esc="o.invoice_ammount" />
-                                            <span style="padding-left:1%;">سعر التحويل</span>
-                                            <span t-esc="'{0:,.2f}'.format(o.concersion_rate)"/>
+                                            سعر التحويل : <span t-esc="'{0:,.2f}'.format(o.concersion_rate)"/>
+
                                         </td>
                                     </tr>
                                     <tr>
@@ -166,9 +165,9 @@
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">اسم السفينة</th>
                                         <td>
                                             <span style="padding-left:25%;" t-esc="o.carrier_name"/>
-                                            <span style="padding-left:1%;">سنة البناء</span>
+                                            <span style="padding-left:1%;">سنة البناء :</span>
                                             <span style="padding-left:25%;" t-esc="o.carrier_age"/>
-                                            <span style="padding-left:1%;">العلم</span>
+                                            <span style="padding-left:1%;">العلم :</span>
                                             <span t-esc="o.carrier_nation"/>
                                         </td>
                                     </tr>
@@ -291,7 +290,7 @@
                                     <span style="padding-right: 2px;"><span> ٢ - </span>تحرير محضر معابنة مع مندوبي المكتب لاثبات حالة البضائع قبل صرفها من الجمارك اذا كان قد لحقها تلف ظاهر وبعتبر عدم تحرير هذا المحضر دليل على أن البضاعة صرفت سليمة</span>
                                     <br/>
                                     <span style="padding-right: 2px;"><span> ٣ - </span> في حال حدوث ضرر تنشأ عنه مطالبة يتعين علي المؤمن له النقدم فورا بخطاب ثابت التاريخ لشركة اروب لتأمينات الممتلكات والمسؤليات - مصر </span>
-                                    <div style="padding-bottom: 20px !important;"></div>
+                                    <div style="padding-bottom: 18px !important;"></div>
                                 </div>
                             </t>
                             <div style="width: 100% !important;  float: right;">
