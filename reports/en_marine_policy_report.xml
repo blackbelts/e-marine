@@ -88,8 +88,12 @@
                                         <td><span t-esc="o.insured"/></td>
                                     </tr>
                                     <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">In Favaur of</th>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">In Favour of</th>
                                         <td><span t-esc="o.in_favour"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Address</th>
+                                        <td><span t-esc="o.address"/></td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Period Of Insurance</th>
