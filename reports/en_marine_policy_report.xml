@@ -98,8 +98,9 @@
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" scope="col">Period Of Insurance</th>
                                         <td>
-                                            From: <span style="padding-right:30%;" t-esc="o.start_date"/>
+                                            From: <span style="padding-right:25%;" t-esc="o.start_date"/>
                                             To: <span style="padding-right:10%;" t-esc="o.end_date"/>
+                                            Or Consuming Sum Insured
                                         </td>
 
                                     </tr>
@@ -119,10 +120,24 @@
                                 <span style="text-decoration: underline;">Covered Items Descriptions</span>
                                 <table class="table table-hover">
                                     <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Commodities</th>
+                                        <td>
+                                            <t t-foreach="o.product" t-as="p">
+                                                <span t-esc="p.name"/> <t/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Voyage</th>
+                                        <td>
+                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
+                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Conveyance mode</th>
                                         <td>
-                                            <span style="padding-right:30%;" t-esc="o.conveyance_mode"/>
-                                            Conveyance :
+                                            <span t-esc="o.conveyance_mode"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,7 +199,10 @@
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Consignment Value</th>
-                                        <td><span t-esc="o.consignee_value"/></td>
+                                        <td>
+                                            <span style="padding-right:30%;" t-esc="o.consignee_value"/>
+                                            C/Y Concersion Rate :
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Invoice Currency</th>
@@ -214,21 +232,7 @@
                                             </t>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Commodities</th>
-                                        <td>
-                                            <t t-foreach="o.product" t-as="p">
-                                                <span t-esc="p.name"/> <t/>
-                                            </t>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Voyage</th>
-                                        <td>
-                                            From: <span style="padding-right:30%;" t-esc="o.ship_from"/>
-                                            To: <span style="padding-right:10%;" t-esc="o.ship_to"/>
-                                        </td>
-                                    </tr>
+
                                 </table>
                             </div>
                             <div  style="width: 100% !important; margin-top: 8px !important; float:left;">
