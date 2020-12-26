@@ -155,7 +155,7 @@
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">طريقة الشحن</th>
-                                        <td><span t-esc="o.conveyance_mode"/></td>
+                                        <td><span t-field="o.conveyance_mode"/></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
