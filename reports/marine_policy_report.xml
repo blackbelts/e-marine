@@ -159,7 +159,7 @@
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">وسيلة النقل</th>
-<!--                                        <td><span t-esc="o.conveyance_mode"/></td>-->
+                                        <td><span t-esc="o.carrier_name"/></td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: right !important;color: #073e89 !important; width:25% !important;" scope="col">اسم السفينة</th>

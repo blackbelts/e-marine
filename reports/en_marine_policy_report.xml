@@ -137,7 +137,7 @@
                                     <tr>
                                         <th style="color: #073e89 !important; width:25% !important; text-align: left !important;" >Conveyance mode</th>
                                         <td>
-                                            <span t-esc="o.conveyance_mode"/>
+                                            <span t-field="o.conveyance_mode"/>
                                         </td>
                                     </tr>
                                     <tr>
