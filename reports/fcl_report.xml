@@ -78,7 +78,7 @@
                                         <p style="padding:1px;">يشترط الا يزيد وزن تلك الشحنة عن المصرح بة فى رخصة تسيير السيارة الناقلة </p>
                                     </div>
                                     <div style="border: 1px solid #000; border-top: none; text-align:right;margin-top: -17px !important;">
-                                        <p style="padding:1px;"><span t-field="o.conveyance_mode"/> : وسيلة النقل  </p>
+                                        <p style="padding:1px;"> : وسيلة النقل <span t-field="o.conveyance_mode"/> </p>
                                     </div>
 
                                 </div>
